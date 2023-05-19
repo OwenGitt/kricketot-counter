@@ -8,6 +8,8 @@ import "./styleSheets/pokemonCardStyles.css";
 /**
  * Pokemon Cards
  *
+ * Displays a card for each pokemon...
+ *
  * @author Owen Gittins
  */
 
