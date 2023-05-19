@@ -7,10 +7,8 @@ import "./styleSheets/NavbarStyles.css";
  *
  * The navbar creates the navigation bar displayed at the top of every page.
  * Users can navigate between pages by clicking the links on the navbar.
- * The authenticated prop is used to determine if the user is signed in or not.
- * If the user is signed in a logout button will be displayed to the user which
- * will allow the user to logout by changing the authenticated prop and removing
- * the token.
+ *
+ * Disappearing navbar code from user Hadi Masoumi at: https://stackoverflow.com/questions/69473259/how-to-show-or-hide-navbar-when-scroll-use-react-js.
  *
  * @author Owen Gittins
  */
@@ -22,14 +20,14 @@ function Navbar(props) {
   const controlNavbar = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY < scroll) {
-        // if scroll down hide the navbar
+        //If scroll down hide the navbar
         setHidden(false);
       } else {
-        // if scroll up show the navbar
+        //If scroll up show the navbar
         setHidden(true);
       }
 
-      // remember current page location to use in the next move
+      //Remember current page location to use in the next move
       setScroll(window.scrollY);
     }
   };
@@ -38,7 +36,7 @@ function Navbar(props) {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlNavbar);
 
-      // cleanup function
+      //Cleanup function
       return () => {
         window.removeEventListener("scroll", controlNavbar);
       };
