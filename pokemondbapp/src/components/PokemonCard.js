@@ -185,16 +185,18 @@ function PokemonCard(props) {
         onMouseLeave={handleMouseOut}
         style={{
           background:
-            mouseOver === true
+            mouseOver === true && types != null
               ? types.length === 2
                 ? `linear-gradient(` +
                   typeColours[types[0].type.name] +
                   `,` +
                   typeColours[types[1].type.name] +
                   `)`
-                : `linear-gradient(#808081,` +
+                : `linear-gradient(` +
                   typeColours[types[0].type.name] +
-                  `)`
+                  `,
+                   #808081
+                  )`
               : `linear-gradient(100deg,  #808081 0%,  #808081 0%)`,
         }}
       >
