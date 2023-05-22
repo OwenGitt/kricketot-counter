@@ -7,23 +7,25 @@
   max-height: 100%;
   transition: all 0.6s;
   min-width: 200px;
-  min-height: 250px;
+  min-height: 180px;
   max-width: 200px;
-  max-height: 250px;
+  max-height: 180px;
   margin-left: 5%;
+
+  border-radius: 5px;
+  background: #808081;
 }
-.pokemonCard:hover {
-  box-shadow: -8px -8px 1px 2px rgb(235, 144, 41);
+/*.pokemonCard:hover {
   cursor: pointer;
-}
-.pokemonCard:hover {
-  color: rgb(235, 144, 41);
-}
+  box-shadow: -6px -6px 0px 0px #878788;
+}*/
 
 .pokemonCardName {
   display: inline-block;
   width: 100%;
-  color: rgb(235, 144, 41);
+  color: #fdebaf;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .pokemonCardTypes {

@@ -32,6 +32,10 @@ function PokemonCard(props) {
   const [typesCount, setTypesCount] = useState(0);
   const [normalEffective, setNormalEffective] = useState([]);
   const [everythingElse, setEverythingElse] = useState([]);
+  const [mouseOver, setMouseOver] = useState([false]);
+
+  const handleMouseOver = () => setMouseOver(true);
+  const handleMouseOut = () => setMouseOver(false);
 
   const handleClose = () => setShow(false);
 
@@ -163,6 +167,13 @@ function PokemonCard(props) {
     setShow(true);
   };
 
+  /*
+`linear-gradient(100deg, #202020 0%, ` +
+                  typeColours[types[0].type.name] +
+                  ` 50%)`
+
+*/
+
   return (
     <div>
       {initialisePokemonCardData()}
@@ -170,6 +181,22 @@ function PokemonCard(props) {
         key={props.value.name}
         className="pokemonCard"
         onClick={fetchPokemonData}
+        onMouseEnter={handleMouseOver}
+        onMouseLeave={handleMouseOut}
+        style={{
+          background:
+            mouseOver === true
+              ? types.length === 2
+                ? `linear-gradient(` +
+                  typeColours[types[0].type.name] +
+                  `,` +
+                  typeColours[types[1].type.name] +
+                  `)`
+                : `linear-gradient( #202020,` +
+                  typeColours[types[0].type.name] +
+                  `)`
+              : `linear-gradient(100deg,  #808081 0%,  #808081 0%)`,
+        }}
       >
         <img src={basicSprite}></img>
         <div className="pokemonCardName">

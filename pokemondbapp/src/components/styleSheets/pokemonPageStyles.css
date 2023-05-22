@@ -29,6 +29,7 @@
 .column {
   float: left;
   width: 25%;
+  margin: 0.5%;
 }
 .row {
   width: 100%;
@@ -37,4 +38,8 @@
 
 .pageButtons {
   width: 10%;
+}
+
+.pokemonCardSection {
+  margin-left: 1%;
 }

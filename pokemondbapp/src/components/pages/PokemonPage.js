@@ -56,7 +56,7 @@ function PokemonPage(props) {
     .filter(searchPokemon)
     .slice(LowerLimit, UpperLimit)
     .map((value, index) => (
-      <section key={value.name}>
+      <section key={value.name} className="pokemonCardSection">
         <DataCard
           value={value}
           shinies={shinySprites}
