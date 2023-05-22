@@ -30,8 +30,13 @@ function PokemonCard(props) {
   const [evolutions, setEvolutions] = useState([]);
   const [flavourText, setFlavourText] = useState("");
   const [typesCount, setTypesCount] = useState(0);
+  const [notEffective, setNotEffective] = useState([]);
   const [normalEffective, setNormalEffective] = useState([]);
-  const [everythingElse, setEverythingElse] = useState([]);
+  const [superEffective, setSuperEffective] = useState([]);
+  const [ultraEffective, setUltraEffective] = useState([]);
+  const [inEffective, setIneffective] = useState([]);
+  const [doubleUneffective, setDoubleUneffective] = useState([]);
+  const [calculated, setCalculated] = useState([]);
   const [mouseOver, setMouseOver] = useState([false]);
 
   const handleMouseOver = () => setMouseOver(true);
@@ -56,6 +61,7 @@ function PokemonCard(props) {
         fetchFlavourText(json.id);
         fetchEvolutionChain(json.id);
         getPokemonData(json.stats);
+        resetTypeList();
       })
       .catch((e) => {
         console.log(e.message);
@@ -148,11 +154,87 @@ function PokemonCard(props) {
             {evolutions.evolves_to[0].evolves_to[0].species.name
               .charAt(0)
               .toUpperCase() +
-              evolutions.evolves_to[0].evolves_to[0].species.name.slice(1)}{" "}
+              evolutions.evolves_to[0].evolves_to[0].species.name.slice(1)}
           </div>
         ) : null}
       </div>
     );
+  };
+
+  const resetTypeList = () => {
+    setUltraEffective([]);
+    setSuperEffective([]);
+    setNormalEffective([]);
+    setNotEffective([]);
+    setIneffective([]);
+    setCalculated(false);
+
+    calculateTypes();
+  };
+
+  const calculateTypes = () => {
+    setCalculated(true);
+    props.allTypes
+      .slice(0, 18)
+      .map((a_type, key) =>
+        a_type.name === "shadow" ||
+        a_type.name === "unknown" ||
+        a_type.name === "colour"
+          ? null
+          : types[1] === undefined
+          ? data[types[0].type.name][a_type.name] === 0
+            ? setIneffective((inEffective) => [...inEffective, a_type.name])
+            : data[types[0].type.name][a_type.name] === 0.5
+            ? setNotEffective((notEffective) => [...notEffective, a_type.name])
+            : data[types[0].type.name][a_type.name] === 1
+            ? setNormalEffective((normalEffective) => [
+                ...normalEffective,
+                a_type.name,
+              ])
+            : data[types[0].type.name][a_type.name] === 2
+            ? setSuperEffective((superEffective) => [
+                ...superEffective,
+                a_type.name,
+              ])
+            : null
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            0
+          ? setIneffective((inEffective) => [...inEffective, a_type.name])
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            0.25
+          ? setDoubleUneffective((doubleUneffective) => [
+              ...doubleUneffective,
+              a_type.name,
+            ])
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            0.5
+          ? setNotEffective((notEffective) => [...notEffective, a_type.name])
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            1
+          ? setNormalEffective((normalEffective) => [
+              ...normalEffective,
+              a_type.name,
+            ])
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            2
+          ? setSuperEffective((superEffective) => [
+              ...superEffective,
+              a_type.name,
+            ])
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            4
+          ? setUltraEffective((ultraEffective) => [
+              ...ultraEffective,
+              a_type.name,
+            ])
+          : null
+      );
   };
 
   const getPokemonData = (jStats) => {
@@ -166,13 +248,6 @@ function PokemonCard(props) {
     setVisible(!visible);
     setShow(true);
   };
-
-  /*
-`linear-gradient(100deg, #202020 0%, ` +
-                  typeColours[types[0].type.name] +
-                  ` 50%)`
-
-*/
 
   return (
     <div>
@@ -320,31 +395,74 @@ function PokemonCard(props) {
               )}
             </div>
 
+            {console.log(calculated)}
+
+            {console.log(superEffective)}
             <h4>Type Matchups</h4>
             <div className="typeMatchupsContainer">
-              {props.allTypes.slice(0, 18).map(
+              {ultraEffective.map(
                 (a_type, key) => (
                   <div
                     key={key}
                     className="typeMatchup"
-                    style={{ backgroundColor: typeColours[a_type.name] }}
+                    style={{ backgroundColor: typeColours[a_type] }}
                   >
-                    {a_type.name === "shadow" ||
-                    a_type.name === "unknown" ||
-                    a_type.name === "colour" ? null : types[1] === undefined ? (
-                      <div>
-                        {data[types[0].type.name][a_type.name] +
-                          "x " +
-                          a_type.name}
-                      </div>
-                    ) : (
-                      <div>
-                        {data[types[0].type.name][a_type.name] *
-                          data[types[1].type.name][a_type.name] +
-                          "x " +
-                          a_type.name}
-                      </div>
-                    )}
+                    {"4x " + a_type}
+                  </div>
+                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
+              )}
+              {superEffective.map(
+                (a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"2x " + a_type}
+                  </div>
+                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
+              )}
+              {normalEffective.map(
+                (a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"1x " + a_type}
+                  </div>
+                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
+              )}
+              {notEffective.map(
+                (a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"0.5x " + a_type}
+                  </div>
+                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
+              )}
+              {inEffective.map(
+                (a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"0x " + a_type}
+                  </div>
+                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
+              )}
+              {doubleUneffective.map(
+                (a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"0.25x " + a_type}
                   </div>
                 ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
               )}
@@ -409,6 +527,78 @@ const checkEvolutionDetails = () => {
           </div>
        )}
        </div>
+
+
+
+
+         <h4>Type Matchups</h4>
+            <div className="typeMatchupsContainer">
+              {props.allTypes.slice(0, 18).map(
+                (a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type.name] }}
+                  >
+                    {a_type.name === "shadow" ||
+                    a_type.name === "unknown" ||
+                    a_type.name === "colour" ? null : types[1] === undefined ? (
+                      <div>
+                        {data[types[0].type.name][a_type.name] +
+                          "x " +
+                          a_type.name}
+                      </div>
+                    ) : (
+                      <div>
+                        {data[types[0].type.name][a_type.name] *
+                          data[types[1].type.name][a_type.name] +
+                          "x " +
+                          a_type.name}
+                      </div>
+                    )}
+                  </div>
+                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
+              )}
+            </div>
+
+
+
+            const calculateTypes = () => {
+    setCalculated(true);
+    props.allTypes
+      .slice(0, 18)
+      .map((a_type, key) =>
+        a_type.name === "shadow" ||
+        a_type.name === "unknown" ||
+        a_type.name === "colour"
+          ? null
+          : types[1] === undefined
+          ? data[types[0].type.name][a_type.name] === 0.5
+            ? notEffective.push(a_type.name)
+            : data[types[0].type.name][a_type.name] === 1
+            ? normalEffective.push(a_type.name)
+            : data[types[0].type.name][a_type.name] === 2
+            ? superEffective.push(a_type.name)
+            : null
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            0.5
+          ? notEffective.push(a_type.name)
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            1
+          ? normalEffective.push(a_type.name)
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            2
+          ? superEffective.push(a_type.name)
+          : data[types[0].type.name][a_type.name] *
+              data[types[1].type.name][a_type.name] ===
+            4
+          ? ultraEffective.push(a_type.name)
+          : null
+      );
+  };
 
 */
 
