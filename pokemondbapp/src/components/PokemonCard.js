@@ -192,7 +192,7 @@ function PokemonCard(props) {
                   `,` +
                   typeColours[types[1].type.name] +
                   `)`
-                : `linear-gradient( #202020,` +
+                : `linear-gradient(#808081,` +
                   typeColours[types[0].type.name] +
                   `)`
               : `linear-gradient(100deg,  #808081 0%,  #808081 0%)`,
