@@ -95,18 +95,28 @@
 }
 
 .typeMatchupsContainer {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.typeMatchupsContainer-column {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .typeMatchup {
-  padding: 20px;
+  padding: 15px;
   font-size: 13px;
   font-weight: 600;
   opacity: 0.8;
   text-align: center;
   margin: 1px;
   border-radius: 30px;
+  min-width: 30%;
+  max-width: 30%;
 }
 
 .statContainer {

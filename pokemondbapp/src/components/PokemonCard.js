@@ -395,13 +395,12 @@ function PokemonCard(props) {
               )}
             </div>
 
-            {console.log(calculated)}
-
-            {console.log(superEffective)}
             <h4>Type Matchups</h4>
+
             <div className="typeMatchupsContainer">
-              {ultraEffective.map(
-                (a_type, key) => (
+              <h5>Super Effective</h5>
+              <div className="typeMatchupsContainer-column" id="superEffective">
+                {ultraEffective.map((a_type, key) => (
                   <div
                     key={key}
                     className="typeMatchup"
@@ -409,10 +408,9 @@ function PokemonCard(props) {
                   >
                     {"4x " + a_type}
                   </div>
-                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
-              )}
-              {superEffective.map(
-                (a_type, key) => (
+                ))}
+
+                {superEffective.map((a_type, key) => (
                   <div
                     key={key}
                     className="typeMatchup"
@@ -420,10 +418,15 @@ function PokemonCard(props) {
                   >
                     {"2x " + a_type}
                   </div>
-                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
-              )}
-              {normalEffective.map(
-                (a_type, key) => (
+                ))}
+              </div>
+
+              <h5>Normal Effective</h5>
+              <div
+                className="typeMatchupsContainer-column"
+                id="normalEffective"
+              >
+                {normalEffective.map((a_type, key) => (
                   <div
                     key={key}
                     className="typeMatchup"
@@ -431,10 +434,14 @@ function PokemonCard(props) {
                   >
                     {"1x " + a_type}
                   </div>
-                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
-              )}
-              {notEffective.map(
-                (a_type, key) => (
+                ))}
+              </div>
+              <h5>Not Very Effective</h5>
+              <div
+                className="typeMatchupsContainer-column"
+                id="notVeryEffective"
+              >
+                {notEffective.map((a_type, key) => (
                   <div
                     key={key}
                     className="typeMatchup"
@@ -442,21 +449,8 @@ function PokemonCard(props) {
                   >
                     {"0.5x " + a_type}
                   </div>
-                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
-              )}
-              {inEffective.map(
-                (a_type, key) => (
-                  <div
-                    key={key}
-                    className="typeMatchup"
-                    style={{ backgroundColor: typeColours[a_type] }}
-                  >
-                    {"0x " + a_type}
-                  </div>
-                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
-              )}
-              {doubleUneffective.map(
-                (a_type, key) => (
+                ))}
+                {doubleUneffective.map((a_type, key) => (
                   <div
                     key={key}
                     className="typeMatchup"
@@ -464,8 +458,20 @@ function PokemonCard(props) {
                   >
                     {"0.25x " + a_type}
                   </div>
-                ) // use arrays to split the data by adding them to "2x, 1/2x, 0x, 4x" arrays and sorting them
-              )}
+                ))}
+              </div>
+              <h5>Immunities</h5>
+              <div className="typeMatchupsContainer-column" id="immune">
+                {inEffective.map((a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"0x " + a_type}
+                  </div>
+                ))}
+              </div>
             </div>
           </Offcanvas.Body>
         </Offcanvas>
