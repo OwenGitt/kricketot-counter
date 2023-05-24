@@ -1,5 +1,6 @@
 .offCanvasContainer {
   position: relative;
+
   background-color: #666565;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   height: 100%;
@@ -7,6 +8,13 @@
   margin-left: 2.5%;
   margin-top: 5.5%;
   padding: 1%;
+  padding-right: 2%;
+}
+.offCanvasContainer::before {
+  width: 0%;
+}
+.offCanvasContainer::after {
+  width: 20%;
 }
 
 .sidebar_pokemonCardTypes {

@@ -84,7 +84,7 @@ function PokemonPage(props) {
       setIneffective([]);
       setDoubleUneffective([]);
       setTimeout(() => {
-        resetTypeList();
+        calculateTypes();
       }, 100);
     }, 200);
   }, [pokemonID]);
@@ -226,10 +226,6 @@ function PokemonPage(props) {
     setStatTotal(statTotal);
     setVisible(true);
     setShow(true);
-  };
-
-  const resetTypeList = () => {
-    calculateTypes();
   };
 
   const calculateTypes = () => {
