@@ -19,6 +19,7 @@ function DataCard(props) {
           allTypes={props.allTypes}
           id={props.id}
           key={props.value.name}
+          fetchPokemonData={props.fetchPokemonData}
         />
       </div>
     </div>
