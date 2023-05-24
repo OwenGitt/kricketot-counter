@@ -40,16 +40,16 @@ function Sidebar(props) {
   };
 
   return (
-    <div className="offCanvasContainer">
+    <div className="sidebarContainer">
       <div
         show={props.show}
         onHide={props.handleClose}
-        className="offCanvasContents"
+        className="sidebarContents"
       >
         <span></span>
-        <div className="offCanvasHeader">
-          <div className="offCanvasTitle">
-            <h2>
+        <div className="sidebarHeader">
+          <div className="sidebarTitle">
+            <h2 className="sidebarTitle-h2">
               #{props.pokemonID + " "}
               {props.pokemonName.charAt(0).toUpperCase() +
                 props.pokemonName.slice(1)}
@@ -76,13 +76,13 @@ function Sidebar(props) {
           ))}
         </div>
 
-        <div className="offCanvasBody">
-          <h4>Description</h4>
-          <div>
+        <div className="sidebarBody">
+          <h4 className="sidebarDescriptionTitle">Description</h4>
+          <div className="sidebarDescription">
             {props.flavourText != "" ? props.flavourText : <div>LOADING</div>}
           </div>
 
-          <h4>Stats</h4>
+          <h4 className="sidebarStatsTitle">Stats</h4>
           <div className="statContainer">
             {props.stats.map((stat, key) => (
               <div key={key} className="statBox">
@@ -106,7 +106,7 @@ function Sidebar(props) {
           </div>
 
           <div>
-            <h4>Abilities</h4>
+            <h4 className="sidebarAbilitiesTitle">Abilities</h4>
             <div className="abilityContainer">
               {props.abilities.map((ability, key) => (
                 <div key={key} className="abilityBox">
@@ -117,7 +117,7 @@ function Sidebar(props) {
             </div>
           </div>
 
-          <h4>Height & weight</h4>
+          <h4 className="sidebarHWTitle">Height & Weight</h4>
           <div className="pokemon_height_weight_container">
             <div className="pokemon_height_weight_box" key="height">
               {props.pokemonHeight / 10 + "m"}
@@ -127,7 +127,7 @@ function Sidebar(props) {
             </div>
           </div>
 
-          <h4>Evolutions</h4>
+          <h4 className="sidebarEvosTitle">Evolutions</h4>
           <div className="pokemon_Evolution_Container">
             {props.evolutions.length != 0 ? (
               props.evolutions.evolves_to.length === 1 ? (
@@ -142,10 +142,10 @@ function Sidebar(props) {
             )}
           </div>
 
-          <h4>Type Matchups</h4>
+          <h4 className="sidebarTypeMTitle">Type Matchups</h4>
 
           <div className="typeMatchupsContainer">
-            <h5>Super Effective</h5>
+            <h5 className="sidebarSETitle">Super Effective</h5>
             <div className="typeMatchupsContainer-column" id="superEffective">
               {props.ultraEffective.map((a_type, key) => (
                 <div
@@ -168,7 +168,7 @@ function Sidebar(props) {
               ))}
             </div>
 
-            <h5>Normal Effective</h5>
+            <h5 className="sidebarNETitle">Normal Effective</h5>
             <div className="typeMatchupsContainer-column" id="normalEffective">
               {props.normalEffective.map((a_type, key) => (
                 <div
@@ -180,7 +180,7 @@ function Sidebar(props) {
                 </div>
               ))}
             </div>
-            <h5>Not Very Effective</h5>
+            <h5 className="sidebarNVETitle">Not Very Effective</h5>
             <div className="typeMatchupsContainer-column" id="notVeryEffective">
               {props.notEffective.map((a_type, key) => (
                 <div
@@ -201,7 +201,7 @@ function Sidebar(props) {
                 </div>
               ))}
             </div>
-            <h5>Immunities</h5>
+            <h5 className="sidebarITitle">Immunities</h5>
             <div className="typeMatchupsContainer-column" id="immune">
               {props.inEffective.map((a_type, key) => (
                 <div

@@ -1,4 +1,4 @@
-.offCanvasContainer {
+.sidebarContainer {
   position: relative;
 
   background-color: #666565;
@@ -8,13 +8,45 @@
   margin-left: 2.5%;
   margin-top: 5.5%;
   padding: 1%;
-  padding-right: 2%;
 }
-.offCanvasContainer::before {
+.sidebarContainer::before {
   width: 0%;
 }
-.offCanvasContainer::after {
+.sidebarContainer::after {
   width: 20%;
+}
+
+.sidebarContents {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidebarTitle-h2 {
+  color: #fdeebc;
+  font-size: 32px;
+}
+
+.sidebarDescriptionTitle,
+.sidebarStatsTitle,
+.sidebarAbilitiesTitle,
+.sidebarHWTitle,
+.sidebarEvosTitle,
+.sidebarTypeMTitle {
+  color: #fdeebc;
+  font-size: 26px;
+}
+.sidebarSETitle,
+.sidebarNETitle,
+.sidebarNVETitle,
+.sidebarITitle {
+  font-size: 20px;
+  color: #fdeebc;
+  margin-top: 2%;
+}
+
+.sidebarDescription {
+  color: #fdeebc;
+  margin-bottom: 5%;
 }
 
 .sidebar_pokemonCardTypes {
@@ -49,24 +81,26 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 2.5%;
 }
 
 .typeMatchup {
-  padding: 15px;
+  padding: 13px;
   font-size: 13px;
   font-weight: 600;
   opacity: 0.8;
   text-align: center;
   margin: 1px;
   border-radius: 30px;
-  min-width: 31%;
-  max-width: 31%;
+  min-width: 32%;
+  max-width: 32%;
 }
 
 .statContainer {
   display: flex;
   flex-direction: row;
   padding-bottom: 10px;
+  margin-bottom: 5%;
 }
 
 .statBox {
@@ -98,6 +132,7 @@
   flex-direction: row;
   justify-content: center;
   text-align: center;
+  margin-bottom: 5%;
 }
 
 .abilityBox {
@@ -119,6 +154,7 @@
   flex-direction: row;
   justify-content: center;
   text-align: center;
+  margin-bottom: 5%;
 }
 
 .pokemon_height_weight_box {
@@ -139,6 +175,7 @@
   flex-direction: row;
   justify-content: center;
   text-align: center;
+  margin-bottom: 5%;
 }
 
 .pokemon_Evolution_Box {
