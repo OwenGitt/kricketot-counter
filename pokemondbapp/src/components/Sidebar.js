@@ -60,6 +60,9 @@ function Sidebar(props) {
               {props.pokemonName.charAt(0).toUpperCase() +
                 props.pokemonName.slice(1)}
             </h2>
+            <span className="closeButton" onClick={props.handleSidebarClose}>
+              &#10005;
+            </span>
           </div>
           {props.shinies.includes(props.pokemonName) ? (
             <div>

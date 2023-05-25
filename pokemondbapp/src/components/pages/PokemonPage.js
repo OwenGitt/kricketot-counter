@@ -73,6 +73,8 @@ function PokemonPage(props) {
   const [inEffective, setIneffective] = useState([]);
   const [doubleUneffective, setDoubleUneffective] = useState([]);
 
+  const handleSidebarClose = () => setVisible(false);
+
   const handleClose = () => setShow(false);
 
   useEffect(() => {
@@ -349,6 +351,7 @@ function PokemonPage(props) {
           handleClose={handleClose}
           show={props.show}
           visible={visible}
+          handleSidebarClose={handleSidebarClose}
         />
 
         <div className="cardContainer">{allPokemon}</div>

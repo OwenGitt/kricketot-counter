@@ -9,7 +9,7 @@
   margin-top: 5.5%;
   overflow-x: hidden;
   border-radius: 8px;
-  transition: width 0.75s;
+  transition: width 0.6s;
 }
 
 .sidebarContents {
@@ -20,8 +20,17 @@
 
 .sidebarTitle-h2 {
   color: #fdeebc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 32px;
   transition: 0.5s;
+  display: inline-block;
+}
+.closeButton {
+  position: absolute;
+  display: inline-block;
+  margin-left: 15%;
+  font-size: 26px;
+  font-weight: 600;
 }
 
 .sidebarDescriptionTitle,
