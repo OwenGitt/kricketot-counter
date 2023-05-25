@@ -41,7 +41,7 @@ function Sidebar(props) {
 
   return (
     <div
-      className="sidebarContainer"
+      className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
       style={{
         width: props.visible ? "20%" : 0,
         padding: props.visible ? "1%" : 0,

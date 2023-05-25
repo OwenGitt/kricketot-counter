@@ -12,6 +12,20 @@
   transition: width 0.6s;
 }
 
+.hideSidebarContainer {
+  position: relative;
+  background-color: #666565;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  height: 100%;
+  min-height: 800px;
+  width: 0;
+  margin-left: 2.5%;
+  margin-top: 5.5%;
+  overflow-x: hidden;
+  border-radius: 8px;
+  transition: width 0.3s;
+}
+
 .sidebarContents {
   margin-left: auto;
   margin-right: auto;
