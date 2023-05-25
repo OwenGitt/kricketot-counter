@@ -1,29 +1,27 @@
 .sidebarContainer {
   position: relative;
-
   background-color: #666565;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   height: 100%;
-  width: 20%;
+  min-height: 800px;
+  width: 0;
   margin-left: 2.5%;
   margin-top: 5.5%;
-  padding: 1%;
-}
-.sidebarContainer::before {
-  width: 0%;
-}
-.sidebarContainer::after {
-  width: 20%;
+  overflow-x: hidden;
+  border-radius: 8px;
+  transition: width 0.75s;
 }
 
 .sidebarContents {
   margin-left: auto;
   margin-right: auto;
+  transition: 0.5s;
 }
 
 .sidebarTitle-h2 {
   color: #fdeebc;
   font-size: 32px;
+  transition: 0.5s;
 }
 
 .sidebarDescriptionTitle,
@@ -34,6 +32,7 @@
 .sidebarTypeMTitle {
   color: #fdeebc;
   font-size: 26px;
+  transition: 0.5s;
 }
 .sidebarSETitle,
 .sidebarNETitle,
@@ -42,11 +41,13 @@
   font-size: 20px;
   color: #fdeebc;
   margin-top: 2%;
+  transition: 0.5s;
 }
 
 .sidebarDescription {
   color: #fdeebc;
   margin-bottom: 5%;
+  transition: 0.5s;
 }
 
 .sidebar_pokemonCardTypes {
@@ -54,6 +55,7 @@
   flex-direction: row;
   justify-content: center;
   text-align: center;
+  transition: 0.5s;
 }
 
 .sidebar_pokemonType {
@@ -68,12 +70,14 @@
   font-size: 14px;
   opacity: 0.8;
   text-align: center;
+  transition: 0.5s;
 }
 
 .typeMatchupsContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
+  transition: 0.5s;
 }
 
 .typeMatchupsContainer-column {
@@ -82,6 +86,7 @@
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 2.5%;
+  transition: 0.5s;
 }
 
 .typeMatchup {
@@ -94,6 +99,7 @@
   border-radius: 30px;
   min-width: 32%;
   max-width: 32%;
+  transition: 0.5s;
 }
 
 .statContainer {
@@ -101,6 +107,7 @@
   flex-direction: row;
   padding-bottom: 10px;
   margin-bottom: 5%;
+  transition: 0.5s;
 }
 
 .statBox {
@@ -114,17 +121,20 @@
   margin: 2px;
   padding: 8px;
   background-color: rgb(241, 241, 241);
+  transition: 0.5s;
 }
 
 .statTitle {
   border-radius: 30px;
   padding: 5px;
   text-align: center;
+  transition: 0.5s;
 }
 
 .statNumber {
   border-radius: 25px;
   text-align: center;
+  transition: 0.5s;
 }
 
 .abilityContainer {
@@ -133,6 +143,7 @@
   justify-content: center;
   text-align: center;
   margin-bottom: 5%;
+  transition: 0.5s;
 }
 
 .abilityBox {
@@ -147,6 +158,7 @@
   margin: 5px;
   padding: 8px;
   background-color: rgb(241, 241, 241);
+  transition: 0.5s;
 }
 
 .pokemon_height_weight_container {
@@ -155,6 +167,7 @@
   justify-content: center;
   text-align: center;
   margin-bottom: 5%;
+  transition: 0.5s;
 }
 
 .pokemon_height_weight_box {
@@ -168,6 +181,7 @@
   margin: 5px;
   padding: 8px;
   background-color: rgb(241, 241, 241);
+  transition: 0.5s;
 }
 
 .pokemon_Evolution_Container {
@@ -176,6 +190,7 @@
   justify-content: center;
   text-align: center;
   margin-bottom: 5%;
+  transition: 0.5s;
 }
 
 .pokemon_Evolution_Box {
@@ -189,6 +204,7 @@
   margin: 1px;
   padding: 6px;
   background-color: rgb(241, 241, 241);
+  transition: 0.5s;
 }
 
 .pokemon_Evolution_Arrow_Box {
@@ -203,4 +219,5 @@
   padding: 6px;
   padding-top: 8px;
   background-color: rgb(241, 241, 241);
+  transition: 0.5s;
 }

@@ -326,31 +326,31 @@ function PokemonPage(props) {
         </div>
       </div>
       <div className="pokemonListAndDataContainer">
-        {visible && (
-          <Sidebar
-            pokemonID={pokemonID}
-            pokemonName={pokemonName}
-            pokemonWeight={pokemonWeight}
-            pokemonHeight={pokemonHeight}
-            abilities={abilities}
-            types={types}
-            stats={stats}
-            sprite={sprite}
-            shinySprite={shinySprite}
-            total={total}
-            evolutions={evolutions}
-            flavourText={flavourText}
-            notEffective={notEffective}
-            normalEffective={normalEffective}
-            superEffective={superEffective}
-            ultraEffective={ultraEffective}
-            inEffective={inEffective}
-            doubleUneffective={doubleUneffective}
-            shinies={shinySprites}
-            handleClose={handleClose}
-            show={props.show}
-          />
-        )}
+        <Sidebar
+          pokemonID={pokemonID}
+          pokemonName={pokemonName}
+          pokemonWeight={pokemonWeight}
+          pokemonHeight={pokemonHeight}
+          abilities={abilities}
+          types={types}
+          stats={stats}
+          sprite={sprite}
+          shinySprite={shinySprite}
+          total={total}
+          evolutions={evolutions}
+          flavourText={flavourText}
+          notEffective={notEffective}
+          normalEffective={normalEffective}
+          superEffective={superEffective}
+          ultraEffective={ultraEffective}
+          inEffective={inEffective}
+          doubleUneffective={doubleUneffective}
+          shinies={shinySprites}
+          handleClose={handleClose}
+          show={props.show}
+          visible={visible}
+        />
+
         <div className="cardContainer">{allPokemon}</div>
       </div>
       <div className="pageButtonsContainer">

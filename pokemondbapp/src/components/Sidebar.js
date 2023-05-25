@@ -40,7 +40,13 @@ function Sidebar(props) {
   };
 
   return (
-    <div className="sidebarContainer">
+    <div
+      className="sidebarContainer"
+      style={{
+        width: props.visible ? "20%" : 0,
+        padding: props.visible ? "1%" : 0,
+      }}
+    >
       <div
         show={props.show}
         onHide={props.handleClose}
