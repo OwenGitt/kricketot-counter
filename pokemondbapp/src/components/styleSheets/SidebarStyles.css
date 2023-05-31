@@ -41,10 +41,12 @@
 }
 .closeButton {
   position: absolute;
-  display: inline-block;
-  margin-left: 15%;
+  margin-top: 5%;
+  margin-right: 5%;
   font-size: 26px;
   font-weight: 600;
+  top: 0;
+  right: 0;
 }
 
 .sidebarDescriptionTitle,
