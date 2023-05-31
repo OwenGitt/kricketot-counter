@@ -16,6 +16,8 @@ function PokemonCard(props) {
   const [basicSprite, setBasicSprite] = useState("");
   const [typesCount, setTypesCount] = useState(0);
   const [mouseOver, setMouseOver] = useState([false]);
+  const [loading, setLoading] = useState(undefined);
+  const [completed, setCompleted] = useState(undefined);
 
   const handleMouseOver = () => setMouseOver(true);
   const handleMouseOut = () => setMouseOver(false);
@@ -33,6 +35,8 @@ function PokemonCard(props) {
               json.id +
               ".png"
           );
+          setCompleted(true);
+          setLoading(false);
         })
         .catch((e) => {
           console.log(e.message);
@@ -43,50 +47,57 @@ function PokemonCard(props) {
   return (
     <div>
       {initialisePokemonCardData()}
-      <div
-        key={props.value.name}
-        className="pokemonCard"
-        onClick={() => props.fetchPokemonData(props.value.url)}
-        onMouseEnter={handleMouseOver}
-        onMouseLeave={handleMouseOut}
-        style={{
-          background:
-            mouseOver === true && types !== null
-              ? types.length === 2
-                ? `linear-gradient(` +
-                  typeColours[types[0].type.name] +
-                  `,` +
-                  typeColours[types[1].type.name] +
-                  `)`
-                : `linear-gradient(` +
-                  typeColours[types[0].type.name] +
-                  `,
+      {!completed ? (
+        <>{loading !== false && <div className="pokemonCard"></div>}</>
+      ) : (
+        <>
+          <div
+            key={props.value.name}
+            className="pokemonCard"
+            onClick={() => props.fetchPokemonData(props.value.url)}
+            onMouseEnter={handleMouseOver}
+            onMouseLeave={handleMouseOut}
+            style={{
+              background:
+                mouseOver === true && types !== null
+                  ? types.length === 2
+                    ? `linear-gradient(` +
+                      typeColours[types[0].type.name] +
+                      `,` +
+                      typeColours[types[1].type.name] +
+                      `)`
+                    : `linear-gradient(` +
+                      typeColours[types[0].type.name] +
+                      `,
                    #808081
                   )`
-              : `linear-gradient(100deg,  #808081 0%,  #808081 0%)`,
-        }}
-      >
-        <img src={basicSprite}></img>
-        <div className="pokemonCardName">
-          {props.value.name.charAt(0).toUpperCase() + props.value.name.slice(1)}
-        </div>
+                  : `linear-gradient(100deg,  #808081 0%,  #808081 0%)`,
+            }}
+          >
+            <img src={basicSprite}></img>
+            <div className="pokemonCardName">
+              {props.value.name.charAt(0).toUpperCase() +
+                props.value.name.slice(1)}
+            </div>
 
-        <div className="pokemonCardTypes">
-          {types != [] ? (
-            types.map((type) => (
-              <div
-                className="pokemonType"
-                style={{ backgroundColor: typeColours[type.type.name] }}
-              >
-                {type.type.name.charAt(0).toUpperCase() +
-                  type.type.name.slice(1)}
-              </div>
-            ))
-          ) : (
-            <div>LOADING</div>
-          )}
-        </div>
-      </div>
+            <div className="pokemonCardTypes">
+              {types != [] ? (
+                types.map((type) => (
+                  <div
+                    className="pokemonType"
+                    style={{ backgroundColor: typeColours[type.type.name] }}
+                  >
+                    {type.type.name.charAt(0).toUpperCase() +
+                      type.type.name.slice(1)}
+                  </div>
+                ))
+              ) : (
+                <div>LOADING</div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 } //
