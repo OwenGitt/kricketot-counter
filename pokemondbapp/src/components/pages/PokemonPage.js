@@ -62,7 +62,6 @@ function PokemonPage(props) {
   const [stats, setStats] = useState([]);
   const [sprite, setSprite] = useState("");
   const [shinySprite, setSpriteShiny] = useState("");
-  const [show, setShow] = useState(false);
   const [total, setStatTotal] = useState(0);
   const [evolutions, setEvolutions] = useState([]);
   const [flavourText, setFlavourText] = useState("");
@@ -76,8 +75,6 @@ function PokemonPage(props) {
   const [clicked, setClicked] = useState(false);
 
   const handleSidebarClose = () => setVisible(false);
-
-  const handleClose = () => setShow(false);
 
   const handleClick = () => setClicked(!clicked);
 
@@ -185,7 +182,7 @@ function PokemonPage(props) {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 140);
+    window.scrollTo(0, 0);
   }, [UpperLimit, LowerLimit, clicked]);
 
   const fetchEvolutionChain = (id) => {
@@ -232,7 +229,6 @@ function PokemonPage(props) {
     }
     setStatTotal(statTotal);
     setVisible(true);
-    setShow(true);
   };
 
   const calculateTypes = () => {
@@ -353,10 +349,9 @@ function PokemonPage(props) {
           inEffective={inEffective}
           doubleUneffective={doubleUneffective}
           shinies={shinySprites}
-          handleClose={handleClose}
-          show={props.show}
           visible={visible}
           handleSidebarClose={handleSidebarClose}
+          fetchData={fetchPokemonData}
         />
 
         <div className="cardContainer">{allPokemon}</div>

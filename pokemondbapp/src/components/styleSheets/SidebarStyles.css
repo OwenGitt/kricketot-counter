@@ -218,7 +218,8 @@
   transition: 0.5s;
 }
 
-.pokemon_Evolution_Box {
+.pokemon_Evolution_Box,
+.pokemon_NO_Evolution_Box {
   border-radius: 25px;
   min-width: 40px;
   max-width: 400px;
@@ -230,6 +231,10 @@
   padding: 6px;
   background-color: rgb(241, 241, 241);
   transition: 0.5s;
+}
+
+.pokemon_Evolution_Box {
+  cursor: pointer;
 }
 
 .pokemon_Evolution_Arrow_Box {

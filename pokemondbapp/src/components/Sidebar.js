@@ -13,12 +13,28 @@ function Sidebar(props) {
           evolutions.evolves_to[0].evolves_to[0].species.name.charAt(0).toUpperCase() +  evolutions.evolves_to[0].evolves_to[0].species.name.slice(1)  : "") : <div className='pokemon_Evolution_Box'> This pokemon has no evolutions in generations 1-5 </div>)}  
       </div> */
       <div className="pokemon_Evolution_Container">
-        <div className="pokemon_Evolution_Box">
+        <div
+          className="pokemon_Evolution_Box"
+          onClick={() =>
+            props.fetchData(
+              "https://pokeapi.co/api/v2/pokemon/" +
+                props.evolutions.species.name
+            )
+          }
+        >
           {props.evolutions.species.name.charAt(0).toUpperCase() +
             props.evolutions.species.name.slice(1)}
         </div>
         <div className="pokemon_Evolution_Arrow_Box">{" -> "} </div>
-        <div className="pokemon_Evolution_Box">
+        <div
+          className="pokemon_Evolution_Box"
+          onClick={() =>
+            props.fetchData(
+              "https://pokeapi.co/api/v2/pokemon/" +
+                props.evolutions.evolves_to[0].species.name
+            )
+          }
+        >
           {props.evolutions.evolves_to[0].species.name.charAt(0).toUpperCase() +
             props.evolutions.evolves_to[0].species.name.slice(1)}
         </div>
@@ -26,7 +42,15 @@ function Sidebar(props) {
           <div className="pokemon_Evolution_Arrow_Box">{" -> "} </div>
         ) : null}
         {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
-          <div className="pokemon_Evolution_Box">
+          <div
+            className="pokemon_Evolution_Box"
+            onClick={() =>
+              props.fetchData(
+                "https://pokeapi.co/api/v2/pokemon/" +
+                  props.evolutions.evolves_to[0].evolves_to[0].species.name
+              )
+            }
+          >
             {props.evolutions.evolves_to[0].evolves_to[0].species.name
               .charAt(0)
               .toUpperCase() +
@@ -47,7 +71,7 @@ function Sidebar(props) {
         padding: props.visible ? "1%" : 0,
       }}
     >
-      <div show={props.show} className="sidebarContents">
+      <div className="sidebarContents">
         <span></span>
         <div className="sidebarHeader">
           <div className="sidebarTitle">
@@ -135,7 +159,7 @@ function Sidebar(props) {
               props.evolutions.evolves_to.length === 1 ? (
                 Evolutions()
               ) : (
-                <div className="pokemon_Evolution_Box">
+                <div className="pokemon_NO_Evolution_Box">
                   This pokemon has no evolutions in generations 1-5
                 </div>
               )
