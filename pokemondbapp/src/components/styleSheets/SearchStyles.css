@@ -1,0 +1,11 @@
+.searchBar {
+  position: relative;
+  width: 12%;
+  height: 0.5%;
+  min-height: 30px;
+  max-height: 30px;
+  border-radius: 10px;
+  border-color: #666565;
+  outline: none;
+  z-index: 2;
+}

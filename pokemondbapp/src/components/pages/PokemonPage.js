@@ -44,6 +44,7 @@ function PokemonPage(props) {
     "marill",
     "azumarill",
     "growlithe",
+    "duskull",
   ]);
   const [UpperLimit, setUpper] = useState(100);
   const [LowerLimit, setLower] = useState(0);
@@ -72,10 +73,13 @@ function PokemonPage(props) {
   const [ultraEffective, setUltraEffective] = useState([]);
   const [inEffective, setIneffective] = useState([]);
   const [doubleUneffective, setDoubleUneffective] = useState([]);
+  const [clicked, setClicked] = useState(false);
 
   const handleSidebarClose = () => setVisible(false);
 
   const handleClose = () => setShow(false);
+
+  const handleClick = () => setClicked(!clicked);
 
   useEffect(() => {
     setTimeout(() => {
@@ -116,6 +120,7 @@ function PokemonPage(props) {
         fetchFlavourText(json.id);
         fetchEvolutionChain(json.id);
         getPokemonData(json.stats);
+        handleClick();
       })
       .catch((e) => {
         console.log(e.message);
@@ -180,8 +185,8 @@ function PokemonPage(props) {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [UpperLimit, LowerLimit]);
+    window.scrollTo(0, 140);
+  }, [UpperLimit, LowerLimit, clicked]);
 
   const fetchEvolutionChain = (id) => {
     fetch("https://pokeapi.co/api/v2/pokemon-species/" + id)
@@ -308,7 +313,7 @@ function PokemonPage(props) {
               variant="dark"
               onClick={LowerLimit === 0 ? lowLimit : showLessPapers}
               style={{ margin: "20px" }}
-              className="pageButtons"
+              className="nextBackButtons"
             >
               Back
             </button>
@@ -320,7 +325,7 @@ function PokemonPage(props) {
                 UpperLimit > props.pokemon.length ? maxLimit : showMorePapers
               }
               style={{ margin: "20px" }}
-              className="pageButtons"
+              className="nextBackButtons"
             >
               Next
             </button>
@@ -362,7 +367,7 @@ function PokemonPage(props) {
             variant="dark"
             onClick={LowerLimit === 0 ? lowLimit : showLessPapers}
             style={{ margin: "20px" }}
-            className="pageButtons"
+            className="nextBackButtons"
           >
             Back
           </button>
@@ -374,7 +379,7 @@ function PokemonPage(props) {
               UpperLimit > props.pokemon.length ? maxLimit : showMorePapers
             }
             style={{ margin: "20px" }}
-            className="pageButtons"
+            className="nextBackButtons"
           >
             Next
           </button>

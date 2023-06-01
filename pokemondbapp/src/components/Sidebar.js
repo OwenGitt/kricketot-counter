@@ -47,11 +47,7 @@ function Sidebar(props) {
         padding: props.visible ? "1%" : 0,
       }}
     >
-      <div
-        show={props.show}
-        onHide={props.handleClose}
-        className="sidebarContents"
-      >
+      <div show={props.show} className="sidebarContents">
         <span></span>
         <div className="sidebarHeader">
           <div className="sidebarTitle">
@@ -64,13 +60,10 @@ function Sidebar(props) {
           <span className="closeButton" onClick={props.handleSidebarClose}>
             &#10005;
           </span>
-          {props.shinies.includes(props.pokemonName) ? (
-            <div>
-              <img src={props.shinySprite}></img> <img src={props.sprite}></img>
-            </div>
-          ) : (
-            <img src={props.sprite}></img>
-          )}
+
+          <div>
+            <img src={props.shinySprite}></img> <img src={props.sprite}></img>
+          </div>
         </div>
         <div className="sidebar_pokemonCardTypes">
           {props.types.map((type) => (

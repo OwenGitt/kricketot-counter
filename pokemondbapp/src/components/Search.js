@@ -1,21 +1,28 @@
+import "./styleSheets/SearchStyles.css";
+
 /**
  * Search
- * 
+ *
  * This function creates a search bar that can be used.
  * The 'handler' prop determines what should happen when
- * the search value is changed. 
- * 
+ * the search value is changed.
+ *
  * @author Owen Gittins
  */
 
 function Search(props) {
-    const onChange = (event) => props.handler(event.target.value);
-   
-    return (
-    <div>
-      <input  value={props.searchTerm} onChange={onChange} id="defaultValue" placeholder={props.default}/>
-    </div>
-    )
+  const onChange = (event) => props.handler(event.target.value);
 
-  }
-  export default Search;
+  return (
+    <div>
+      <input
+        value={props.searchTerm}
+        onChange={onChange}
+        id="defaultValue"
+        placeholder={props.default}
+        className="searchBar"
+      />
+    </div>
+  );
+}
+export default Search;
