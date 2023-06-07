@@ -1,129 +1,152 @@
-
 {
-    "totodile":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 4,
-        "Method": "Soft Reset"
+  "hunts": [
+    {
+      "Name": "Totodile",
+      "Encounters": "0",
+      "Location": "Proffessor Elm's Lab",
+      "Generation": "4",
+      "Method": "Soft Reset"
     },
-    "hoothoot":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "hoothoot",
+      "Encounters": "0",
+      "Location": "",
+      "Generation": "4",
+      "Method": "Random Encounters"
     },
-    "moltres":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "moltres",
+      "Encounters": "0",
+      "Location": "Victory Road",
+      "Generation": "1",
+      "Method": "Soft Reset"
     },
-    "zubat":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "zubat",
+      "Encounters": "0",
+      "Location": "",
+      "Generation": "4",
+      "Method": "Random Encounters"
     },
-    "sandshrew":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "sandshrew",
+      "Encounters": "0",
+      "Location": "Goldenrod Game Corner",
+      "Generation": "4",
+      "Method": "Soft Reset"
     },
-    "stantler":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "stantler",
+      "Encounters": "0",
+      "Location": "",
+      "Generation": "4",
+      "Method": "Random Encounters"
     },
-    "shroomish":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "dunsparce",
+      "Encounters": "0",
+      "Location": "",
+      "Generation": "3",
+      "Method": "Random Encounters"
     },
-    "dratini":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "shroomish",
+      "Encounters": "0",
+      "Location": "",
+      "Generation": "0",
+      "Method": "Random Encounters"
     },
-    "venonat":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "dratini",
+      "Encounters": "0",
+      "Location": "",
+      "Generation": "1",
+      "Method": "Random Encounters"
     },
-    "golbat":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "venonat",
+      "Encounters": "0",
+      "Location": "FR/LG Safari Zone (Zone 1)",
+      "Generation": "3",
+      "Method": "Random Encounters"
     },
-    "delibird":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "golbat",
+      "Encounters": "31000~",
+      "Location": "Ice Path",
+      "Generation": "4",
+      "Method": "Random Encounters"
     },
-    "rhyhorn":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "delibird",
+      "Encounters": "0",
+      "Location": "",
+      "Generation": "4",
+      "Method": "Random Encounters"
     },
-    "zapdos":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "rhyhorn",
+      "Encounters": "0",
+      "Location": "FR/LG Safari Zone (Zone 1)",
+      "Generation": "3",
+      "Method": "Random Encounters"
     },
-    "lugia":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "zapdos",
+      "Encounters": "0",
+      "Location": "Power Plant",
+      "Generation": "3",
+      "Method": "Soft Reset"
     },
-    "ho-oh":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "lugia",
+      "Encounters": "11000~",
+      "Location": "Whirl Island",
+      "Generation": "2",
+      "Method": "Soft Reset"
     },
-    "dunsparce":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "ho-oh",
+      "Encounters": "0",
+      "Location": "",
+      "Generation": "4",
+      "Method": "Soft Reset"
     },
-    "psyduck":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+
+    {
+      "Name": "psyduck",
+      "Encounters": "11000~",
+      "Location": "Floccesy Ranch",
+      "Generation": "5",
+      "Method": "Random Encounters"
     },
-    "lillipup":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "lillipup",
+      "Encounters": "1125",
+      "Location": "Floccesy Ranch",
+      "Generation": "5",
+      "Method": "Random Encounters"
     },
-    "azurill":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "azurill",
+      "Encounters": "4000~",
+      "Location": "Floccesy Ranch",
+      "Generation": "5",
+      "Method": "Random Encounters"
     },
-    "growlithe":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "growlithe",
+      "Encounters": "9803",
+      "Location": "Virbank Complex (Inside)",
+      "Generation": "5",
+      "Method": "Random Encounters"
     },
-    "duskull":{
-        "Encounters": 0,
-        "Location": "",
-        "Generation": 0,
-        "Method": ""
+    {
+      "Name": "duskull",
+      "Encounters": "10891",
+      "Location": "HG Safari Zone (Swamp)",
+      "Generation": "4",
+      "Method": "Random Encounters (Repel Trick)"
     }
+  ]
 }
