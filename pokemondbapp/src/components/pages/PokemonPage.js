@@ -14,38 +14,6 @@ import data from "../jsonData/types.json";
 function PokemonPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
   //Turn into JSON file at some point
-  const [shinySprites] = useState([
-    "totodile",
-    "croconaw",
-    "feraligatr",
-    "hoothoot",
-    "noctowl",
-    "moltres",
-    "zubat",
-    "sandshrew",
-    "sandslash",
-    "stantler",
-    "shroomish",
-    "dratini",
-    "dragonair",
-    "dragonite",
-    "venonat",
-    "golbat",
-    "delibird",
-    "rhyhorn",
-    "zapdos",
-    "lugia",
-    "ho-oh",
-    "dunsparce",
-    "psyduck",
-    "lillipup",
-    "herdier",
-    "azurill",
-    "marill",
-    "azumarill",
-    "growlithe",
-    "duskull",
-  ]);
   const [UpperLimit, setUpper] = useState(100);
   const [LowerLimit, setLower] = useState(0);
   const [backVisible, setBackVisible] = useState(false);
@@ -139,7 +107,6 @@ function PokemonPage(props) {
       <section key={value.name} className="pokemonCardSection">
         <DataCard
           value={value}
-          shinies={shinySprites}
           allTypes={props.allTypes}
           id={index + 1}
           key={value.name}
@@ -348,7 +315,6 @@ function PokemonPage(props) {
           ultraEffective={ultraEffective}
           inEffective={inEffective}
           doubleUneffective={doubleUneffective}
-          shinies={shinySprites}
           visible={visible}
           handleSidebarClose={handleSidebarClose}
           fetchData={fetchPokemonData}

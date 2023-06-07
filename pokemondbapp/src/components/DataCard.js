@@ -15,7 +15,6 @@ function DataCard(props) {
       <div className="column">
         <PokemonCard
           value={props.value}
-          shinies={props.shinies}
           allTypes={props.allTypes}
           id={props.id}
           key={props.value.name}
