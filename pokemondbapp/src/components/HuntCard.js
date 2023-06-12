@@ -17,7 +17,7 @@ function HuntCard(props) {
   const [basicSprite, setBasicSprite] = useState("");
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/" + props.value.Name)
+    fetch("https://pokeapi.co/api/v2/pokemon/" + props.value.Target)
       .then((response) => response.json())
       .then((json) => {
         setBasicSprite(
@@ -31,11 +31,21 @@ function HuntCard(props) {
       });
   }, []);
 
+  const handleCardClick = () => {
+    props.passHuntData(
+      props.value.Name,
+      props.value.Target,
+      props.value.Shinies,
+      props.value.Total_Encounters,
+      props.value.Generation,
+      props.value.Location
+    );
+    console.log("a");
+  };
+
   return (
-    <div className="huntCard">
+    <div className="huntCard" onClick={handleCardClick}>
       <p>{props.value.Name}</p>
-      <p>Generation: {props.value.Generation}</p>
-      <p>Encounters: {props.value.Encounters}</p>
       <img src={basicSprite}></img>
     </div>
   );

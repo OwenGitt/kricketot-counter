@@ -1,128 +1,139 @@
 {
   "hunts": [
     {
-      "Name": "totodile",
-      "Encounters": "0",
+      "Name": "Starting out",
+      "Target": "totodile",
+      "Shinies": [{ "Name": "totodile", "Encounters": "8000~" }],
+      "Total_Encounters": "8000~",
       "Location": "Proffessor Elm's Lab",
       "Generation": "4",
       "Method": "Soft Reset",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
+      "Generation_URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "hoothoot",
-      "Encounters": "8000~",
-      "Location": "",
+      "Name": "Huntin' for me booty!",
+      "Target": "hoothoot",
+      "Shinies": [{ "Name": "hoothoot", "Encounters": "8000~" }],
+      "Total_Encounters": "8000~",
+      "Location": "Route 29",
       "Generation": "4",
       "Method": "Random Encounters",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
+      "Generation_URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "moltres",
-      "Encounters": "0",
+      "Name": "Placeholder",
+      "Target": "moltres",
+      "Shinies": [{ "Name": "moltres", "Encounters": "0" }],
+      "Total_Encounters": "0",
       "Location": "Victory Road",
       "Generation": "1",
       "Method": "Soft Reset",
       "Generation-URL": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "zubat",
-      "Encounters": "0",
+      "Name": "Placeholder",
+      "Target": "sandshrew",
+      "Shinies": [
+        { "Name": "zubat", "Encounters": "4000~" },
+        { "Name": "sandshrew", "Encounters": "15000~" }
+      ],
+      "Total_Encounters": "19000~",
+      "Location": "Union Cave & Goldenrod City Gamecorner",
+      "Generation": "4",
+      "Method": "Random Encounters",
+      "Generation-URL": "generation-iv/heartgold-soulsilver"
+    },
+    {
+      "Name": "Placeholder",
+      "Target": "stantler",
+      "Shinies": [{ "Name": "stantler", "Encounters": "0" }],
+      "Total_Encounters": "0",
       "Location": "",
       "Generation": "4",
       "Method": "Random Encounters",
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "sandshrew",
-      "Encounters": "15000~",
-      "Location": "Goldenrod Game Corner",
-      "Generation": "4",
-      "Method": "Soft Reset",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
-    },
-    {
-      "Name": "stantler",
-      "Encounters": "0",
-      "Location": "",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
-    },
-    {
-      "Name": "dunsparce",
-      "Encounters": "0",
+      "Name": "Placeholder",
+      "Target": "dunsparce",
+      "Shinies": [{ "Name": "dunsparce", "Encounters": "0" }],
+      "Total_Encounters": "0",
       "Location": "",
       "Generation": "3",
       "Method": "Random Encounters",
       "Generation-URL": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "shroomish",
-      "Encounters": "1100~",
+      "Name": "Finding a Fun-Gi",
+      "Target": "shroomish",
+      "Shinies": [{ "Name": "shroomish", "Encounters": "1100~" }],
+      "Total_Encounters": "1100~",
       "Location": "Petalburg Woods",
       "Generation": "3",
       "Method": "Random Encounters",
       "Generation-URL": "generation-iii/ruby-sapphire"
     },
     {
-      "Name": "dratini",
-      "Encounters": "0",
+      "Name": "Placeholder",
+      "Target": "dratini",
+      "Shinies": [{ "Name": "dratini", "Encounters": "0" }],
+      "Total_Encounters": "0",
       "Location": "",
       "Generation": "1",
       "Method": "Random Encounters",
       "Generation-URL": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "venonat",
-      "Encounters": "13000~",
-      "Location": "FR/LG Safari Zone (Zone 1)",
+      "Name": "Safari Week 2022",
+      "Target": "venonat",
+      "Shinies": [
+        { "Name": "venonat", "Encounters": "13000~" },
+        { "Name": "rhyhorn", "Encounters": "15000~" }
+      ],
+      "Total_Encounters": "28000~",
+      "Location": "FireRed/LeafGreen Safari Zone (Zone 1)",
       "Generation": "3",
       "Method": "Random Encounters",
       "Generation-URL": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "golbat",
-      "Encounters": "31000~",
+      "Name": "Placeholder",
+      "Target": "delibird",
+      "Shinies": [
+        { "Name": "golbat", "Encounters": "31000~" },
+        { "Name": "delibird", "Encounters": "1400~" }
+      ],
+      "Total_Encounters": "31000~",
       "Location": "Ice Path",
       "Generation": "4",
       "Method": "Random Encounters",
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "delibird",
-      "Encounters": "0",
-      "Location": "Ice Path",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
-    },
-    {
-      "Name": "rhyhorn",
-      "Encounters": "0",
-      "Location": "FR/LG Safari Zone (Zone 1)",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iii/firered-leafgreen"
-    },
-    {
-      "Name": "zapdos",
-      "Encounters": "0",
+      "Name": "Placeholder",
+      "Target": "zapdos",
+      "Shinies": [{ "Name": "zapdos", "Encounters": "0" }],
+      "Total_Encounters": "0",
       "Location": "Power Plant",
       "Generation": "3",
       "Method": "Soft Reset",
       "Generation-URL": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "lugia",
-      "Encounters": "11000~",
+      "Name": "Placeholder",
+      "Target": "lugia",
+      "Shinies": [{ "Name": "lugia", "Encounters": "11000~" }],
+      "Total_Encounters": "11000~",
       "Location": "Whirl Island",
       "Generation": "2",
       "Method": "Soft Reset",
       "Generation-URL": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "ho-oh",
-      "Encounters": "0",
+      "Name": "Placeholder",
+      "Target": "ho-oh",
+      "Shinies": [{ "Name": "ho-oh", "Encounters": "0" }],
+      "Total_Encounters": "0",
       "Location": "",
       "Generation": "4",
       "Method": "Soft Reset",
@@ -130,41 +141,38 @@
     },
 
     {
-      "Name": "psyduck",
-      "Encounters": "11000~",
-      "Location": "Floccesy Ranch",
+      "Name": "Placeholder",
+      "Target": "azurill",
+      "Shinies": [
+        { "Name": "psyduck", "Encounters": "11000~" },
+        { "Name": "lillipup", "Encounters": "1125" },
+        { "Name": "azurill", "Encounters": "4000~" }
+      ],
+      "Total_Encounters": "16125~",
+      "Location": "Floccesy Ranch (Black 2)",
       "Generation": "5",
       "Method": "Random Encounters",
       "Generation-URL": "generation-v/black-white"
     },
     {
-      "Name": "lillipup",
-      "Encounters": "1125",
-      "Location": "Floccesy Ranch",
+      "Name": "Placeholder",
+      "Target": "growlithe",
+      "Shinies": [{ "Name": "growlithe", "Encounters": "9803" }],
+      "Total_Encounters": "9803",
+      "Location": "Virbank Complex Inside (Black 2)",
       "Generation": "5",
       "Method": "Random Encounters",
       "Generation-URL": "generation-v/black-white"
     },
     {
-      "Name": "azurill",
-      "Encounters": "4000~",
-      "Location": "Floccesy Ranch",
-      "Generation": "5",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-v/black-white"
-    },
-    {
-      "Name": "growlithe",
-      "Encounters": "9803",
-      "Location": "Virbank Complex (Inside)",
-      "Generation": "5",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-v/black-white"
-    },
-    {
-      "Name": "duskull",
-      "Encounters": "10891",
-      "Location": "HG Safari Zone (Swamp)",
+      "Name": "Safari Week 2023",
+      "Target": "duskull",
+      "Shinies": [
+        { "Name": "duskull", "Encounters": "10891" },
+        { "Name": "duskull", "Encounters": "8228" }
+      ],
+      "Total_Encounters": "19119",
+      "Location": "HeartGold SoulSilver Safari Zone (Swamp)",
       "Generation": "4",
       "Method": "Random Encounters (Repel Trick)",
       "Generation-URL": "generation-iv/heartgold-soulsilver"
