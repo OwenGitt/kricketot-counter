@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/kricketot-counter/static/css/main.591dae26.css",
+    "main.css": "/kricketot-counter/static/css/main.65983c6c.css",
     "main.js": "/kricketot-counter/static/js/main.b866eda5.js",
     "static/js/787.8d214ec7.chunk.js": "/kricketot-counter/static/js/787.8d214ec7.chunk.js",
     "index.html": "/kricketot-counter/index.html",
-    "main.591dae26.css.map": "/kricketot-counter/static/css/main.591dae26.css.map",
+    "main.65983c6c.css.map": "/kricketot-counter/static/css/main.65983c6c.css.map",
     "main.b866eda5.js.map": "/kricketot-counter/static/js/main.b866eda5.js.map",
     "787.8d214ec7.chunk.js.map": "/kricketot-counter/static/js/787.8d214ec7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.591dae26.css",
+    "static/css/main.65983c6c.css",
     "static/js/main.b866eda5.js"
   ]
 }
