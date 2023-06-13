@@ -49,6 +49,26 @@
   transform: translate(-50%, -50%);
   border-radius: 5px;
   box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.5);
+  color: #fdebaf;
+}
+.moreInfoTitle {
+  font-size: 34px;
+}
+
+.locationText,
+.targetText,
+.totalEncountersText {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.targetTitle {
+  font-size: 30px;
+}
+
+.shinyEncounterTitle,
+.totalEncounterTitle {
+  font-size: 25px;
 }
 
 .shinyGrid {
@@ -71,6 +91,7 @@
 .shinyEncounterName {
   margin-bottom: 10%;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .shinyEncounters {
@@ -82,4 +103,6 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 10%);
+  width: auto;
+  height: auto;
 }

@@ -50,17 +50,19 @@ function AboutPage() {
           className="moreInfoHuntCard"
           onClick={() => setMoreInfoVisible(false)}
         >
-          <h1>{name}</h1>
-          <p>
+          <h1 className="moreInfoTitle">{name}</h1>
+          <p className="locationText">
             Generation {generation}, {location}
           </p>
-          <h2>Target </h2>
-          <p>{target.charAt(0).toUpperCase() + target.slice(1)}</p>
+          <h2 className="targetTitle">Target </h2>
+          <p className="targetText">
+            {target.charAt(0).toUpperCase() + target.slice(1)}
+          </p>
           <img src={spriteURL} />
-          <h3>Total Encounters </h3>
-          <p>{totalEncounters}</p>
+          <h3 className="totalEncounterTitle">Total Encounters </h3>
+          <p className="totalEncountersText">{totalEncounters}</p>
 
-          <h3>Shiny Encounters</h3>
+          <h3 className="shinyEncounterTitle">Shiny Encounters</h3>
           <div className="shinyGrid">
             {shinies.map((shiny, index) => (
               <div className="shinyGridItem">

@@ -1,7 +1,7 @@
 {
   "hunts": [
     {
-      "Name": "Starting out",
+      "Name": "Starting out 2020/21",
       "Target": "totodile",
       "Shinies": [{ "Name": "totodile", "Encounters": "8000~", "ID": "158" }],
       "Total_Encounters": "8000~",
