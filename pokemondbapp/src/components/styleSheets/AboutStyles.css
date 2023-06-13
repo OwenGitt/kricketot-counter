@@ -50,6 +50,9 @@
   border-radius: 5px;
   box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.5);
   color: #fdebaf;
+  opacity: 0;
+  transition: opacity 750ms;
+  visibility: hidden;
 }
 .moreInfoTitle {
   font-size: 34px;

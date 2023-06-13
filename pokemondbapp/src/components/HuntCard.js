@@ -41,7 +41,6 @@ function HuntCard(props) {
       props.value.Location,
       sprite
     );
-    console.log("a");
   };
 
   return (

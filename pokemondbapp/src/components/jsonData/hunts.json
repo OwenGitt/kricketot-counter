@@ -112,7 +112,7 @@
     {
       "Name": "Placeholder",
       "Target": "zapdos",
-      "Shinies": [{ "Name": "zapdos", "Encounters": "145" }],
+      "Shinies": [{ "Name": "zapdos", "Encounters": "0", "ID": "145" }],
       "Total_Encounters": "0",
       "Location": "Power Plant",
       "Generation": "3",
