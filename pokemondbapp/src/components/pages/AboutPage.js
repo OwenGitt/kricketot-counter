@@ -50,6 +50,7 @@ function AboutPage() {
           className="moreInfoHuntCard"
           onClick={() => setMoreInfoVisible(false)}
         >
+          <span className="closeButton">&#10005;</span>
           <h1 className="moreInfoTitle">{name}</h1>
           <p className="locationText">
             Generation {generation}, {location}
