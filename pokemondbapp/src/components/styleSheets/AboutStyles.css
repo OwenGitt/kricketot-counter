@@ -42,9 +42,44 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  padding: 0% 5% 5% 5%;
+  min-height: 500px;
+  min-width: 500px;
   background-color: #808081;
-  padding: 200px;
   transform: translate(-50%, -50%);
   border-radius: 5px;
   box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.5);
+}
+
+.shinyGrid {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.shinyGridItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100px;
+  width: auto;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.shinyEncounterName {
+  margin-bottom: 10%;
+  font-weight: bold;
+}
+
+.shinyEncounters {
+  font-weight: 500 !important;
+}
+
+.shinyEncounterImg {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 10%);
 }

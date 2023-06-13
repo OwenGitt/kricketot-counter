@@ -11,6 +11,7 @@ function AboutPage() {
   const [totalEncounters, setTotalEncounters] = useState("");
   const [generation, setGeneration] = useState("");
   const [location, setLocation] = useState("");
+  const [spriteURL, setSpriteURL] = useState("");
 
   const allHunts = hunts["hunts"].map((value, index) => (
     <section key={index} className="huntCardSection">
@@ -28,7 +29,8 @@ function AboutPage() {
     shinies,
     total_encounters,
     generation,
-    location
+    location,
+    spriteURL
   ) {
     setName(huntName);
     setTarget(target);
@@ -37,6 +39,7 @@ function AboutPage() {
     setGeneration(generation);
     setLocation(location);
     setMoreInfoVisible(!moreInfoVisible);
+    setSpriteURL(spriteURL);
   }
 
   return (
@@ -48,9 +51,36 @@ function AboutPage() {
           onClick={() => setMoreInfoVisible(false)}
         >
           <h1>{name}</h1>
-          <p>{target}</p>
+          <p>
+            Generation {generation}, {location}
+          </p>
+          <h2>Target </h2>
+          <p>{target.charAt(0).toUpperCase() + target.slice(1)}</p>
+          <img src={spriteURL} />
+          <h3>Total Encounters </h3>
           <p>{totalEncounters}</p>
-          <p>{location}</p>
+
+          <h3>Shiny Encounters</h3>
+          <div className="shinyGrid">
+            {shinies.map((shiny, index) => (
+              <div className="shinyGridItem">
+                <div className="shinyEncounterName">
+                  {shiny.Name.charAt(0).toUpperCase() + shiny.Name.slice(1)}
+                  <p className="shinyEncounters">{shiny.Encounters}</p>
+                </div>
+                <div className="imgContainer">
+                  <img
+                    className="shinyEncounterImg"
+                    src={
+                      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/" +
+                      shiny.ID +
+                      ".gif"
+                    }
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

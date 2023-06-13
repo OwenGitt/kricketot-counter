@@ -14,13 +14,13 @@ import { useEffect, useState } from "react";
 import "./styleSheets/HuntCardStyles.css";
 
 function HuntCard(props) {
-  const [basicSprite, setBasicSprite] = useState("");
+  const [sprite, setSprite] = useState("");
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/" + props.value.Target)
       .then((response) => response.json())
       .then((json) => {
-        setBasicSprite(
+        setSprite(
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/" +
             json.id +
             ".gif"
@@ -38,7 +38,8 @@ function HuntCard(props) {
       props.value.Shinies,
       props.value.Total_Encounters,
       props.value.Generation,
-      props.value.Location
+      props.value.Location,
+      sprite
     );
     console.log("a");
   };
@@ -46,7 +47,7 @@ function HuntCard(props) {
   return (
     <div className="huntCard" onClick={handleCardClick}>
       <p>{props.value.Name}</p>
-      <img src={basicSprite}></img>
+      <img src={sprite}></img>
     </div>
   );
 }

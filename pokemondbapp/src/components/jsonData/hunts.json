@@ -3,9 +3,9 @@
     {
       "Name": "Starting out",
       "Target": "totodile",
-      "Shinies": [{ "Name": "totodile", "Encounters": "8000~" }],
+      "Shinies": [{ "Name": "totodile", "Encounters": "8000~", "ID": "158" }],
       "Total_Encounters": "8000~",
-      "Location": "Proffessor Elm's Lab",
+      "Location": "Professor Elm's Lab",
       "Generation": "4",
       "Method": "Soft Reset",
       "Generation_URL": "generation-iv/heartgold-soulsilver"
@@ -13,7 +13,7 @@
     {
       "Name": "Huntin' for me booty!",
       "Target": "hoothoot",
-      "Shinies": [{ "Name": "hoothoot", "Encounters": "8000~" }],
+      "Shinies": [{ "Name": "hoothoot", "Encounters": "8000~", "ID": "163" }],
       "Total_Encounters": "8000~",
       "Location": "Route 29",
       "Generation": "4",
@@ -23,7 +23,7 @@
     {
       "Name": "Placeholder",
       "Target": "moltres",
-      "Shinies": [{ "Name": "moltres", "Encounters": "0" }],
+      "Shinies": [{ "Name": "moltres", "Encounters": "0", "ID": "146" }],
       "Total_Encounters": "0",
       "Location": "Victory Road",
       "Generation": "1",
@@ -34,8 +34,8 @@
       "Name": "Placeholder",
       "Target": "sandshrew",
       "Shinies": [
-        { "Name": "zubat", "Encounters": "4000~" },
-        { "Name": "sandshrew", "Encounters": "15000~" }
+        { "Name": "zubat", "Encounters": "4000~", "ID": "41" },
+        { "Name": "sandshrew", "Encounters": "15000~", "ID": "27" }
       ],
       "Total_Encounters": "19000~",
       "Location": "Union Cave & Goldenrod City Gamecorner",
@@ -46,7 +46,7 @@
     {
       "Name": "Placeholder",
       "Target": "stantler",
-      "Shinies": [{ "Name": "stantler", "Encounters": "0" }],
+      "Shinies": [{ "Name": "stantler", "Encounters": "0", "ID": "234" }],
       "Total_Encounters": "0",
       "Location": "",
       "Generation": "4",
@@ -56,7 +56,7 @@
     {
       "Name": "Placeholder",
       "Target": "dunsparce",
-      "Shinies": [{ "Name": "dunsparce", "Encounters": "0" }],
+      "Shinies": [{ "Name": "dunsparce", "Encounters": "0", "ID": "206" }],
       "Total_Encounters": "0",
       "Location": "",
       "Generation": "3",
@@ -66,7 +66,7 @@
     {
       "Name": "Finding a Fun-Gi",
       "Target": "shroomish",
-      "Shinies": [{ "Name": "shroomish", "Encounters": "1100~" }],
+      "Shinies": [{ "Name": "shroomish", "Encounters": "1100~", "ID": "285" }],
       "Total_Encounters": "1100~",
       "Location": "Petalburg Woods",
       "Generation": "3",
@@ -76,7 +76,7 @@
     {
       "Name": "Placeholder",
       "Target": "dratini",
-      "Shinies": [{ "Name": "dratini", "Encounters": "0" }],
+      "Shinies": [{ "Name": "dratini", "Encounters": "0", "ID": "147" }],
       "Total_Encounters": "0",
       "Location": "",
       "Generation": "1",
@@ -87,8 +87,8 @@
       "Name": "Safari Week 2022",
       "Target": "venonat",
       "Shinies": [
-        { "Name": "venonat", "Encounters": "13000~" },
-        { "Name": "rhyhorn", "Encounters": "15000~" }
+        { "Name": "venonat", "Encounters": "13000~", "ID": "48" },
+        { "Name": "rhyhorn", "Encounters": "15000~", "ID": "111" }
       ],
       "Total_Encounters": "28000~",
       "Location": "FireRed/LeafGreen Safari Zone (Zone 1)",
@@ -100,8 +100,8 @@
       "Name": "Placeholder",
       "Target": "delibird",
       "Shinies": [
-        { "Name": "golbat", "Encounters": "31000~" },
-        { "Name": "delibird", "Encounters": "1400~" }
+        { "Name": "golbat", "Encounters": "31000~", "ID": "42" },
+        { "Name": "delibird", "Encounters": "1400~", "ID": "225" }
       ],
       "Total_Encounters": "31000~",
       "Location": "Ice Path",
@@ -112,7 +112,7 @@
     {
       "Name": "Placeholder",
       "Target": "zapdos",
-      "Shinies": [{ "Name": "zapdos", "Encounters": "0" }],
+      "Shinies": [{ "Name": "zapdos", "Encounters": "145" }],
       "Total_Encounters": "0",
       "Location": "Power Plant",
       "Generation": "3",
@@ -122,7 +122,7 @@
     {
       "Name": "Placeholder",
       "Target": "lugia",
-      "Shinies": [{ "Name": "lugia", "Encounters": "11000~" }],
+      "Shinies": [{ "Name": "lugia", "Encounters": "11000~", "ID": "249" }],
       "Total_Encounters": "11000~",
       "Location": "Whirl Island",
       "Generation": "2",
@@ -132,7 +132,7 @@
     {
       "Name": "Placeholder",
       "Target": "ho-oh",
-      "Shinies": [{ "Name": "ho-oh", "Encounters": "0" }],
+      "Shinies": [{ "Name": "ho-oh", "Encounters": "0", "ID": "250" }],
       "Total_Encounters": "0",
       "Location": "",
       "Generation": "4",
@@ -144,9 +144,9 @@
       "Name": "Placeholder",
       "Target": "azurill",
       "Shinies": [
-        { "Name": "psyduck", "Encounters": "11000~" },
-        { "Name": "lillipup", "Encounters": "1125" },
-        { "Name": "azurill", "Encounters": "4000~" }
+        { "Name": "psyduck", "Encounters": "11000~", "ID": "54" },
+        { "Name": "lillipup", "Encounters": "1125", "ID": "506" },
+        { "Name": "azurill", "Encounters": "4000~", "ID": "298" }
       ],
       "Total_Encounters": "16125~",
       "Location": "Floccesy Ranch (Black 2)",
@@ -157,7 +157,7 @@
     {
       "Name": "Placeholder",
       "Target": "growlithe",
-      "Shinies": [{ "Name": "growlithe", "Encounters": "9803" }],
+      "Shinies": [{ "Name": "growlithe", "Encounters": "9803", "ID": "58" }],
       "Total_Encounters": "9803",
       "Location": "Virbank Complex Inside (Black 2)",
       "Generation": "5",
@@ -168,8 +168,8 @@
       "Name": "Safari Week 2023",
       "Target": "duskull",
       "Shinies": [
-        { "Name": "duskull", "Encounters": "10891" },
-        { "Name": "duskull", "Encounters": "8228" }
+        { "Name": "duskull", "Encounters": "10891", "ID": "355" },
+        { "Name": "duskull", "Encounters": "8228", "ID": "355" }
       ],
       "Total_Encounters": "19119",
       "Location": "HeartGold SoulSilver Safari Zone (Swamp)",
