@@ -54,7 +54,7 @@
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Irida causes a tragedy",
       "Target": "dunsparce",
       "Shinies": [{ "Name": "dunsparce", "Encounters": "0", "ID": "206" }],
       "Total_Encounters": "0",
@@ -97,20 +97,20 @@
       "Generation-URL": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Sub-Zero Suffering",
       "Target": "delibird",
       "Shinies": [
         { "Name": "golbat", "Encounters": "31000~", "ID": "42" },
         { "Name": "delibird", "Encounters": "1400~", "ID": "225" }
       ],
-      "Total_Encounters": "31000~",
+      "Total_Encounters": "32400~",
       "Location": "Ice Path",
       "Generation": "4",
       "Method": "Random Encounters",
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Wait is that shiny?",
       "Target": "zapdos",
       "Shinies": [{ "Name": "zapdos", "Encounters": "0", "ID": "145" }],
       "Total_Encounters": "0",

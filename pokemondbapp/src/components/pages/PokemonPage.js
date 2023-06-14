@@ -14,7 +14,7 @@ import data from "../jsonData/types.json";
 function PokemonPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
   //Turn into JSON file at some point
-  const [UpperLimit, setUpper] = useState(100);
+  const [UpperLimit, setUpper] = useState(102);
   const [LowerLimit, setLower] = useState(0);
   const [backVisible, setBackVisible] = useState(false);
   const [nextVisible, setNextVisible] = useState(true);
@@ -115,23 +115,23 @@ function PokemonPage(props) {
       </section>
     ));
 
-  const showMorePapers = () => {
+  const showMorePokemon = () => {
     setPageNum(pageNum + 1);
-    setUpper(UpperLimit + 100);
-    setLower(LowerLimit + 100);
+    setUpper(UpperLimit + 102);
+    setLower(LowerLimit + 102);
     setBackVisible(true);
-    if (UpperLimit === 600) {
+    if (UpperLimit === 612) {
       console.log(UpperLimit);
       setNextVisible(false);
     }
   };
 
-  const showLessPapers = () => {
-    setUpper(UpperLimit - 100);
-    setLower(LowerLimit - 100);
+  const showLessPokemon = () => {
+    setUpper(UpperLimit - 102);
+    setLower(LowerLimit - 102);
     setPageNum(pageNum - 1);
     setNextVisible(true);
-    if (LowerLimit === 100) {
+    if (LowerLimit === 102) {
       setBackVisible(false);
     }
   };
@@ -274,7 +274,7 @@ function PokemonPage(props) {
           {backVisible && (
             <button
               variant="dark"
-              onClick={LowerLimit === 0 ? lowLimit : showLessPapers}
+              onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
               style={{ margin: "20px" }}
               className="nextBackButtons"
             >
@@ -285,7 +285,7 @@ function PokemonPage(props) {
             <button
               variant="dark"
               onClick={
-                UpperLimit > props.pokemon.length ? maxLimit : showMorePapers
+                UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
               }
               style={{ margin: "20px" }}
               className="nextBackButtons"
@@ -326,7 +326,7 @@ function PokemonPage(props) {
         {backVisible && (
           <button
             variant="dark"
-            onClick={LowerLimit === 0 ? lowLimit : showLessPapers}
+            onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
             style={{ margin: "20px" }}
             className="nextBackButtons"
           >
@@ -337,7 +337,7 @@ function PokemonPage(props) {
           <button
             variant="dark"
             onClick={
-              UpperLimit > props.pokemon.length ? maxLimit : showMorePapers
+              UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
             }
             style={{ margin: "20px" }}
             className="nextBackButtons"

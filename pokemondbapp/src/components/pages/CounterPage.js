@@ -1,3 +1,6 @@
+import React from "react";
+import "../styleSheets/CounterPageStyles.css";
+
 function CounterPage() {
   return (
     <div className="counterPageContainer">
