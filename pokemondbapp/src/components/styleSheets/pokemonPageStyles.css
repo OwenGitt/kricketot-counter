@@ -4,11 +4,20 @@
   min-height: 100vh;
   padding-bottom: 1%;
   padding-top: 5%;
-  background-color: #666565;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(102, 101, 101, 0) 0px,
+      rgba(102, 101, 101, 0.5) 500px,
+      rgba(102, 101, 101, 1) 800px
+    ),
+    url("../background.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
+  z-index: 1;
 }
 
 .pokemonListAndDataContainer {
