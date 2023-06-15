@@ -1,9 +1,9 @@
-.aboutPageContainer {
+.huntsPageContainer {
   position: relative;
   height: 100%;
   min-height: 100vh;
   padding-bottom: 1%;
-  padding-top: 5%;
+  padding-top: 2%;
   background-color: #666565;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   overflow-y: auto;
 }
 
-.aboutCardContainer {
+.huntsCardContainer {
   height: 100%;
   width: 80%;
   display: flex;
@@ -29,11 +29,11 @@
   margin-right: 0.8%;
 }
 
-.aboutRow {
+.huntsRow {
   width: 100%;
   height: 100%;
 }
-.aboutColumn {
+.huntsColumn {
   float: left;
   width: 100%;
 }

@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import PokemonPage from "./components/pages/PokemonPage";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CounterPage from "./components/pages/CounterPage.js";
-import AboutPage from "./components/pages/AboutPage.js";
+import HuntsPage from "./components/pages/HuntsPage.js";
 import Navbar from "./components/Navbar";
+import AboutPage from "./components/pages/AboutPage.js";
 
 /**
  * App
@@ -54,7 +54,7 @@ function App() {
             />
           }
         />
-        <Route path="/counter" element={<CounterPage />} />
+        <Route path="/hunts" element={<HuntsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
