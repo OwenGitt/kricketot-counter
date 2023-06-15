@@ -51,6 +51,9 @@ function Navbar(props) {
         <NavLink to="/">Pokemon</NavLink>
       </li>
       <li>
+        <NavLink to="/counter">Counter</NavLink>
+      </li>
+      <li>
         <NavLink to="/hunts">Hunts</NavLink>
       </li>
       <li>

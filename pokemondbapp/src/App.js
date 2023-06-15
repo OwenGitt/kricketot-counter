@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HuntsPage from "./components/pages/HuntsPage.js";
 import Navbar from "./components/Navbar";
 import AboutPage from "./components/pages/AboutPage.js";
+import CounterPage from "./components/pages/CounterPage";
 
 /**
  * App
@@ -55,6 +56,7 @@ function App() {
           }
         />
         <Route path="/hunts" element={<HuntsPage />} />
+        <Route path="/counter" element={<CounterPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<p>Not Found</p>} />
       </Routes>
