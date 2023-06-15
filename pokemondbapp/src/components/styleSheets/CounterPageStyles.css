@@ -19,6 +19,7 @@
   font-weight: bold;
   border-radius: 50%;
   color: aliceblue;
+  visibility: hidden;
 }
 
 .counter:hover {

@@ -10,3 +10,9 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.aboutPara {
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
