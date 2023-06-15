@@ -1,7 +1,7 @@
 {
   "hunts": [
     {
-      "Name": "Starting out 2020/21",
+      "Name": "Starting Out 2020/21",
       "Target": "totodile",
       "Shinies": [{ "Name": "totodile", "Encounters": "8000~", "ID": "158" }],
       "Total_Encounters": "8000~",
@@ -11,7 +11,7 @@
       "Generation_URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Huntin' for booty!",
+      "Name": "Huntin' for Booty!",
       "Target": "hoothoot",
       "Shinies": [{ "Name": "hoothoot", "Encounters": "8000~", "ID": "163" }],
       "Total_Encounters": "8000~",
@@ -31,7 +31,7 @@
       "Generation-URL": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Gambling for a Green Shrew",
       "Target": "sandshrew",
       "Shinies": [
         { "Name": "zubat", "Encounters": "4000~", "ID": "41" },
@@ -44,7 +44,7 @@
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Expedition for Shiny Antlers",
       "Target": "stantler",
       "Shinies": [{ "Name": "stantler", "Encounters": "0", "ID": "234" }],
       "Total_Encounters": "0",
@@ -54,7 +54,7 @@
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "An Irida tragedy",
+      "Name": "An Irida Tragedy",
       "Target": "dunsparce",
       "Shinies": [
         { "Name": "dunsparce", "Encounters": "0", "ID": "206" },
@@ -77,7 +77,7 @@
       "Generation-URL": "generation-iii/ruby-sapphire"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Dragon's Glimmer",
       "Target": "dratini",
       "Shinies": [{ "Name": "dratini", "Encounters": "0", "ID": "147" }],
       "Total_Encounters": "0",
@@ -123,7 +123,7 @@
       "Generation-URL": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Whirlwind Shimmers",
       "Target": "lugia",
       "Shinies": [{ "Name": "lugia", "Encounters": "11000~", "ID": "249" }],
       "Total_Encounters": "11000~",
