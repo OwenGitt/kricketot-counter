@@ -21,7 +21,7 @@
       "Generation_URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Winner Winner Chicken Dinner",
       "Target": "moltres",
       "Shinies": [{ "Name": "moltres", "Encounters": "0", "ID": "146" }],
       "Total_Encounters": "0",
@@ -56,7 +56,10 @@
     {
       "Name": "Irida causes a tragedy",
       "Target": "dunsparce",
-      "Shinies": [{ "Name": "dunsparce", "Encounters": "0", "ID": "206" }],
+      "Shinies": [
+        { "Name": "dunsparce", "Encounters": "0", "ID": "206" },
+        { "Name": "dunsparce", "Encounters": "0", "ID": "206" }
+      ],
       "Total_Encounters": "0",
       "Location": "",
       "Generation": "3",
