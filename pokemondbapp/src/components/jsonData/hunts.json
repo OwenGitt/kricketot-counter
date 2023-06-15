@@ -11,7 +11,7 @@
       "Generation_URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Huntin' for me booty!",
+      "Name": "Huntin' for booty!",
       "Target": "hoothoot",
       "Shinies": [{ "Name": "hoothoot", "Encounters": "8000~", "ID": "163" }],
       "Total_Encounters": "8000~",
@@ -54,7 +54,7 @@
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Irida causes a tragedy",
+      "Name": "An Irida tragedy",
       "Target": "dunsparce",
       "Shinies": [
         { "Name": "dunsparce", "Encounters": "0", "ID": "206" },
@@ -113,7 +113,7 @@
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Wait is that shiny?",
+      "Name": "Shiny?",
       "Target": "zapdos",
       "Shinies": [{ "Name": "zapdos", "Encounters": "0", "ID": "145" }],
       "Total_Encounters": "0",
@@ -133,7 +133,7 @@
       "Generation-URL": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "Placeholder",
+      "Name": "HG DTQ Finished!",
       "Target": "ho-oh",
       "Shinies": [{ "Name": "ho-oh", "Encounters": "0", "ID": "250" }],
       "Total_Encounters": "0",
@@ -158,7 +158,7 @@
       "Generation-URL": "generation-v/black-white"
     },
     {
-      "Name": "Placeholder",
+      "Name": "Shiny Collector Special",
       "Target": "growlithe",
       "Shinies": [{ "Name": "growlithe", "Encounters": "9803", "ID": "58" }],
       "Total_Encounters": "9803",
