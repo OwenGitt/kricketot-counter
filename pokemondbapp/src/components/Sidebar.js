@@ -3,32 +3,11 @@ import { useState } from "react";
 import typeColours from "./jsonData/typeColours.json";
 import statNames from "./jsonData/statNames.json";
 import "./styleSheets/SidebarStyles.css";
+import EvolutionItem from "./EvolutionItem";
 
 function Sidebar(props) {
-  console.log(props.evolutions.evolves_to);
-  const DisplayItem = (url) => {
-    const [itemSprite, setItemSprite] = useState("");
-    fetch(
-      props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0].item.url
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        setItemSprite(json.sprites.default);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      });
-    return <img src={itemSprite}></img>;
-  };
-
   const Evolutions = () => {
     return (
-      /*<div className='pokemon_Evolution_Box'>
-        {(evolutions.evolves_to.length === 1 ? evolutions.species.name.charAt(0).toUpperCase() + evolutions.species.name.slice(1) + 
-        (evolutions.evolves_to.length === 1 ? " -> " + evolutions.evolves_to[0].species.name.charAt(0).toUpperCase() + evolutions.evolves_to[0].species.name.slice(1) : "" ) +
-        (evolutions.evolves_to[0].evolves_to.length === 1 ?  " -> " +
-          evolutions.evolves_to[0].evolves_to[0].species.name.charAt(0).toUpperCase() +  evolutions.evolves_to[0].evolves_to[0].species.name.slice(1)  : "") : <div className='pokemon_Evolution_Box'> This pokemon has no evolutions in generations 1-5 </div>)}  
-      </div> */
       <div className="pokemon_Evolution_Container">
         {/* Display first pokemon in evolution line */}
         <div
@@ -45,21 +24,91 @@ function Sidebar(props) {
         </div>
         {/* Display an arrow box */}
         <div className="pokemon_Evolution_Arrow_Box">
-          {props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0]
-            .trigger.name === "level-up"
-            ? "Lv." +
-              props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0]
-                .min_level
-            : props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0]
-                .trigger.name === "trade"
-            ? "Trade"
-            : props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0]
-                .trigger.name === "use-item"
-            ? DisplayItem(
-                props.evolutions.evolves_to[0].evolves_to[0]
-                  .evolution_details[0].item.url
-              )
-            : null}
+          {props.evolutions.evolves_to.length === 1 ? (
+            props.evolutions.evolves_to[0].evolution_details[0].trigger.name ===
+            "level-up" ? (
+              "Lv." +
+              props.evolutions.evolves_to[0].evolution_details[0].min_level
+            ) : props.evolutions.evolves_to[0].evolution_details[0].trigger
+                .name === "trade" ? (
+              props.evolutions.evolves_to[0].evolution_details[0].held_item
+                .url !== "" ? (
+                <EvolutionItem
+                  method={"Trade"}
+                  url={
+                    props.evolutions.evolves_to[0].evolution_details[0]
+                      .held_item.url
+                  }
+                />
+              ) : null
+            ) : props.evolutions.evolves_to[0].evolution_details[0].trigger
+                .name === "use-item" ? (
+              <EvolutionItem
+                method={null}
+                url={
+                  props.evolutions.evolves_to[0].evolution_details[0].item.url
+                }
+              />
+            ) : null
+          ) : props.evolutions.evolves_to.length === 2 ? (
+            <div className="item_Evolution_Container">
+              {props.evolutions.evolves_to[0].evolution_details[0].trigger
+                .name === "level-up" ? (
+                <div>
+                  Lv.
+                  {
+                    props.evolutions.evolves_to[0].evolution_details[0]
+                      .min_level
+                  }
+                </div>
+              ) : props.evolutions.evolves_to[0].evolution_details[0].trigger
+                  .name === "trade" ? (
+                props.evolutions.evolves_to[0].evolution_details[0].held_item
+                  .url !== "" ? (
+                  <EvolutionItem
+                    method={"Trade"}
+                    url={
+                      props.evolutions.evolves_to[0].evolution_details[0]
+                        .held_item.url
+                    }
+                  />
+                ) : null
+              ) : props.evolutions.evolves_to[0].evolution_details[0].trigger
+                  .name === "use-item" ? (
+                <EvolutionItem
+                  method={"Trade"}
+                  url={
+                    props.evolutions.evolves_to[0].evolution_details[0].item.url
+                  }
+                />
+              ) : null}
+              {props.evolutions.evolves_to[1].evolution_details[0].trigger
+                .name === "level-up" ? (
+                "Lv." +
+                props.evolutions.evolves_to[1].evolution_details[0].min_level
+              ) : props.evolutions.evolves_to[1].evolution_details[0].trigger
+                  .name === "trade" ? (
+                props.evolutions.evolves_to[1].evolution_details[0].held_item
+                  .url !== "" ? (
+                  <EvolutionItem
+                    method={"Trade"}
+                    url={
+                      props.evolutions.evolves_to[1].evolution_details[0]
+                        .held_item.url
+                    }
+                  />
+                ) : null
+              ) : props.evolutions.evolves_to[1].evolution_details[0].trigger
+                  .name === "use-item" ? (
+                <EvolutionItem
+                  method={"Trade"}
+                  url={
+                    props.evolutions.evolves_to[1].evolution_details[0].item.url
+                  }
+                />
+              ) : null}
+            </div>
+          ) : null}
         </div>
         {/* Display split evolution line if there is one */}
         {props.evolutions.evolves_to.length === 2 ? (
@@ -111,25 +160,96 @@ function Sidebar(props) {
                 props.evolutions.evolves_to[0].species.name.slice(1)}
             </div>
             {/* Check if there is another pokemon in the evolution line, if so display another arrow */}
-            {props.evolutions.evolves_to[0].evolves_to.length >= 1 ? (
-              <div className="pokemon_Evolution_Arrow_Box">
-                {props.evolutions.evolves_to[0].evolves_to[0]
-                  .evolution_details[0].trigger.name === "level-up"
-                  ? "Lv." +
-                    props.evolutions.evolves_to[0].evolves_to[0]
-                      .evolution_details[0].min_level
-                  : props.evolutions.evolves_to[0].evolves_to[0]
-                      .evolution_details[0].trigger.name === "trade"
-                  ? "Trade"
-                  : props.evolutions.evolves_to[0].evolves_to[0]
-                      .evolution_details[0].trigger.name === "use-item"
-                  ? DisplayItem(
+            <div className="pokemon_Evolution_Arrow_Box">
+              {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
+                props.evolutions.evolves_to[0].evolves_to[0]
+                  .evolution_details[0].trigger.name === "level-up" ? (
+                  "Lv." +
+                  props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].min_level
+                ) : props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].trigger.name === "trade" ? (
+                  props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].held_item.url !== "" ? (
+                    <EvolutionItem
+                      method={"Trade"}
+                      url={
+                        props.evolutions.evolves_to[0].evolves_to[1]
+                          .evolution_details[0].held_item.url
+                      }
+                    />
+                  ) : null
+                ) : props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].trigger.name === "use-item" ? (
+                  <EvolutionItem
+                    method={"Trade"}
+                    url={
                       props.evolutions.evolves_to[0].evolves_to[0]
                         .evolution_details[0].item.url
-                    )
-                  : null}
-              </div>
-            ) : null}
+                    }
+                  />
+                ) : null
+              ) : props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
+                <div className="item_Evolution_Container">
+                  {props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].trigger.name === "level-up" ? (
+                    "Lv." +
+                    props.evolutions.evolves_to[0].evolves_to[0]
+                      .evolution_details[0].min_level
+                  ) : props.evolutions.evolves_to[0].evolves_to[0]
+                      .evolution_details[0].trigger.name === "trade" ? (
+                    props.evolutions.evolves_to[0].evolves_to[0]
+                      .evolution_details[0].held_item.url !== "" ? (
+                      <EvolutionItem
+                        method={"Trade"}
+                        url={
+                          props.evolutions.evolves_to[0].evolves_to[0]
+                            .evolution_details[0].held_item.url
+                        }
+                      />
+                    ) : null
+                  ) : props.evolutions.evolves_to[0].evolves_to[0]
+                      .evolution_details[0].trigger.name === "use-item" ? (
+                    <EvolutionItem
+                      method={null}
+                      url={
+                        props.evolutions.evolves_to[0].evolves_to[0]
+                          .evolution_details[0].item.url
+                      }
+                    />
+                  ) : null}
+                  {props.evolutions.evolves_to[0].evolves_to[1]
+                    .evolution_details[0].trigger.name === "level-up" ? (
+                    "Lv." +
+                    props.evolutions.evolves_to[0].evolves_to[1]
+                      .evolution_details[0].min_level
+                  ) : props.evolutions.evolves_to[0].evolves_to[1]
+                      .evolution_details[0].trigger.name === "trade" ? (
+                    "Trade" +
+                      props.evolutions.evolves_to[0].evolves_to[1]
+                        .evolution_details[0].held_item.url !==
+                    "" ? (
+                      <EvolutionItem
+                        method={"Trade"}
+                        url={
+                          props.evolutions.evolves_to[0].evolves_to[1]
+                            .evolution_details[0].held_item.url
+                        }
+                      />
+                    ) : null
+                  ) : props.evolutions.evolves_to[0].evolves_to[1]
+                      .evolution_details[0].trigger.name === "use-item" ? (
+                    <EvolutionItem
+                      method={null}
+                      url={
+                        props.evolutions.evolves_to[0].evolves_to[1]
+                          .evolution_details[0].item.url
+                      }
+                    />
+                  ) : null}
+                </div>
+              ) : null}
+            </div>
             {/* If there is only 1 evolution left to do display it in a box */}
             {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
               <div
@@ -191,6 +311,11 @@ function Sidebar(props) {
         )}
       </div>
     );
+  };
+
+  const DisplayItem = (method, url) => {
+    console.log(method);
+    <EvolutionItem method={method} url={url} />;
   };
 
   return (
