@@ -4,7 +4,7 @@ import statNames from "./jsonData/statNames.json";
 import "./styleSheets/SidebarStyles.css";
 
 function Sidebar(props) {
-  console.log(props.evolutions.evolves_to);
+  console.log(props.evolutions.evolves_to[0].evolves_to);
   const Evolutions = () => {
     return (
       /*<div className='pokemon_Evolution_Box'>
@@ -27,39 +27,113 @@ function Sidebar(props) {
             props.evolutions.species.name.slice(1)}
         </div>
         <div className="pokemon_Evolution_Arrow_Box">{" -> "} </div>
-        <div
-          className="pokemon_Evolution_Box"
-          onClick={() =>
-            props.fetchData(
-              "https://pokeapi.co/api/v2/pokemon/" +
-                props.evolutions.evolves_to[0].species.name
-            )
-          }
-        >
-          {props.evolutions.evolves_to[0].species.name.charAt(0).toUpperCase() +
-            props.evolutions.evolves_to[0].species.name.slice(1)}
-        </div>
-        {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
-          <div className="pokemon_Evolution_Arrow_Box">{" -> "} </div>
-        ) : null}
-        {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
-          <div
-            className="pokemon_Evolution_Box"
-            onClick={() =>
-              props.fetchData(
-                "https://pokeapi.co/api/v2/pokemon/" +
-                  props.evolutions.evolves_to[0].evolves_to[0].species.name
-              )
-            }
-          >
-            {props.evolutions.evolves_to[0].evolves_to[0].species.name
-              .charAt(0)
-              .toUpperCase() +
-              props.evolutions.evolves_to[0].evolves_to[0].species.name.slice(
-                1
-              )}
+        {props.evolutions.evolves_to.length === 2 ? (
+          <div>
+            <div
+              className="pokemon_Evolution_Box"
+              onClick={() =>
+                props.fetchData(
+                  "https://pokeapi.co/api/v2/pokemon/" +
+                    props.evolutions[0].species.name
+                )
+              }
+            >
+              {props.evolutions.evolves_to[0].species.name
+                .charAt(0)
+                .toUpperCase() +
+                props.evolutions.evolves_to[0].species.name.slice(1)}
+            </div>
+            <div
+              className="pokemon_Evolution_Box"
+              onClick={() =>
+                props.fetchData(
+                  "https://pokeapi.co/api/v2/pokemon/" +
+                    props.evolutions[1].species.name
+                )
+              }
+            >
+              {props.evolutions.evolves_to[1].species.name
+                .charAt(0)
+                .toUpperCase() +
+                props.evolutions.evolves_to[1].species.name.slice(1)}
+            </div>
           </div>
-        ) : null}
+        ) : (
+          <div className="pokemon_Evolution_Box_Container">
+            <div
+              className="pokemon_Evolution_Box"
+              onClick={() =>
+                props.fetchData(
+                  "https://pokeapi.co/api/v2/pokemon/" +
+                    props.evolutions.evolves_to[0].species.name
+                )
+              }
+            >
+              {props.evolutions.evolves_to[0].species.name
+                .charAt(0)
+                .toUpperCase() +
+                props.evolutions.evolves_to[0].species.name.slice(1)}
+            </div>
+            {props.evolutions.evolves_to[0].evolves_to.length >= 1 ? (
+              <div className="pokemon_Evolution_Arrow_Box">{" -> "} </div>
+            ) : null}
+            {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
+              <div
+                className="pokemon_Evolution_Box"
+                onClick={() =>
+                  props.fetchData(
+                    "https://pokeapi.co/api/v2/pokemon/" +
+                      props.evolutions.evolves_to[0].evolves_to[0].species.name
+                  )
+                }
+              >
+                {props.evolutions.evolves_to[0].evolves_to[0].species.name
+                  .charAt(0)
+                  .toUpperCase() +
+                  props.evolutions.evolves_to[0].evolves_to[0].species.name.slice(
+                    1
+                  )}
+              </div>
+            ) : (
+              <div>
+                <div
+                  className="pokemon_Evolution_Box"
+                  onClick={() =>
+                    props.fetchData(
+                      "https://pokeapi.co/api/v2/pokemon/" +
+                        props.evolutions.evolves_to[0].evolves_to[0].species
+                          .name
+                    )
+                  }
+                >
+                  {props.evolutions.evolves_to[0].evolves_to[0].species.name
+                    .charAt(0)
+                    .toUpperCase() +
+                    props.evolutions.evolves_to[0].evolves_to[0].species.name.slice(
+                      1
+                    )}
+                </div>
+                <div
+                  className="pokemon_Evolution_Box"
+                  onClick={() =>
+                    props.fetchData(
+                      "https://pokeapi.co/api/v2/pokemon/" +
+                        props.evolutions.evolves_to[0].evolves_to[1].species
+                          .name
+                    )
+                  }
+                >
+                  {props.evolutions.evolves_to[0].evolves_to[1].species.name
+                    .charAt(0)
+                    .toUpperCase() +
+                    props.evolutions.evolves_to[0].evolves_to[1].species.name.slice(
+                      1
+                    )}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     );
   };

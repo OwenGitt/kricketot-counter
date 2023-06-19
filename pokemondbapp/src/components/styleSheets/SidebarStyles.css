@@ -220,6 +220,10 @@
   text-align: center;
   margin-bottom: 5%;
   transition: 0.5s;
+  vertical-align: middle;
+}
+.pokemon_Evolution_Box_Container {
+  display: flex;
 }
 
 .pokemon_Evolution_Box,
@@ -239,6 +243,8 @@
 
 .pokemon_Evolution_Box {
   cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .pokemon_Evolution_Arrow_Box {
@@ -254,4 +260,6 @@
   padding-top: 8px;
   background-color: rgb(241, 241, 241);
   transition: 0.5s;
+  margin-top: auto;
+  margin-bottom: auto;
 }
