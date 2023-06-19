@@ -13,7 +13,6 @@ import CounterPage from "./components/pages/CounterPage";
  *
  * Main page for the app. Designates the routes to each page
  * calling each relevant function for each page.
- * <Route index                    element={<PapersPage papers={papers} loading={loading}            />} />
  * @author Owen Gittins
  */
 function App() {

@@ -4,6 +4,7 @@ import statNames from "./jsonData/statNames.json";
 import "./styleSheets/SidebarStyles.css";
 
 function Sidebar(props) {
+  console.log(props.evolutions.evolves_to);
   const Evolutions = () => {
     return (
       /*<div className='pokemon_Evolution_Box'>
@@ -156,7 +157,7 @@ function Sidebar(props) {
           <h4 className="sidebarEvosTitle">Evolutions</h4>
           <div className="pokemon_Evolution_Container">
             {props.evolutions.length != 0 ? (
-              props.evolutions.evolves_to.length === 1 ? (
+              props.evolutions.evolves_to.length >= 1 ? (
                 Evolutions()
               ) : (
                 <div className="pokemon_NO_Evolution_Box">

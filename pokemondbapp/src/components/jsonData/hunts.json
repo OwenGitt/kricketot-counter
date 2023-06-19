@@ -31,7 +31,7 @@
       "Generation-URL": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "Gambling for a Green Shrew",
+      "Name": "Green Shrew Gambling",
       "Target": "sandshrew",
       "Shinies": [
         { "Name": "zubat", "Encounters": "4000~", "ID": "41" },
@@ -44,7 +44,7 @@
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Expedition for Shiny Antlers",
+      "Name": "Poaching Shiny Antlers",
       "Target": "stantler",
       "Shinies": [{ "Name": "stantler", "Encounters": "0", "ID": "234" }],
       "Total_Encounters": "0",
