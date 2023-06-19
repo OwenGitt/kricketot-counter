@@ -1,10 +1,26 @@
 import React from "react";
+import { useState } from "react";
 import typeColours from "./jsonData/typeColours.json";
 import statNames from "./jsonData/statNames.json";
 import "./styleSheets/SidebarStyles.css";
 
 function Sidebar(props) {
   console.log(props.evolutions.evolves_to);
+  const DisplayItem = (url) => {
+    const [itemSprite, setItemSprite] = useState("");
+    fetch(
+      props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0].item.url
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setItemSprite(json.sprites.default);
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+    return <img src={itemSprite}></img>;
+  };
+
   const Evolutions = () => {
     return (
       /*<div className='pokemon_Evolution_Box'>
@@ -28,7 +44,23 @@ function Sidebar(props) {
             props.evolutions.species.name.slice(1)}
         </div>
         {/* Display an arrow box */}
-        <div className="pokemon_Evolution_Arrow_Box">{" -> "} </div>
+        <div className="pokemon_Evolution_Arrow_Box">
+          {props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0]
+            .trigger.name === "level-up"
+            ? "Lv." +
+              props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0]
+                .min_level
+            : props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0]
+                .trigger.name === "trade"
+            ? "Trade"
+            : props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0]
+                .trigger.name === "use-item"
+            ? DisplayItem(
+                props.evolutions.evolves_to[0].evolves_to[0]
+                  .evolution_details[0].item.url
+              )
+            : null}
+        </div>
         {/* Display split evolution line if there is one */}
         {props.evolutions.evolves_to.length === 2 ? (
           <div>
@@ -78,9 +110,27 @@ function Sidebar(props) {
                 .toUpperCase() +
                 props.evolutions.evolves_to[0].species.name.slice(1)}
             </div>
+            {/* Check if there is another pokemon in the evolution line, if so display another arrow */}
             {props.evolutions.evolves_to[0].evolves_to.length >= 1 ? (
-              <div className="pokemon_Evolution_Arrow_Box">{" -> "} </div>
+              <div className="pokemon_Evolution_Arrow_Box">
+                {props.evolutions.evolves_to[0].evolves_to[0]
+                  .evolution_details[0].trigger.name === "level-up"
+                  ? "Lv." +
+                    props.evolutions.evolves_to[0].evolves_to[0]
+                      .evolution_details[0].min_level
+                  : props.evolutions.evolves_to[0].evolves_to[0]
+                      .evolution_details[0].trigger.name === "trade"
+                  ? "Trade"
+                  : props.evolutions.evolves_to[0].evolves_to[0]
+                      .evolution_details[0].trigger.name === "use-item"
+                  ? DisplayItem(
+                      props.evolutions.evolves_to[0].evolves_to[0]
+                        .evolution_details[0].item.url
+                    )
+                  : null}
+              </div>
             ) : null}
+            {/* If there is only 1 evolution left to do display it in a box */}
             {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
               <div
                 className="pokemon_Evolution_Box"
@@ -98,7 +148,8 @@ function Sidebar(props) {
                     1
                   )}
               </div>
-            ) : props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
+            ) : /* Otherwise display the split evolution line */
+            props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
               <div>
                 <div
                   className="pokemon_Evolution_Box"
@@ -286,37 +337,37 @@ function Sidebar(props) {
               ))}
             </div>
             <h5 className="sidebarNVETitle">Not Very Effective</h5>
-            <div className="typeMatchupsContainer-column" id="notVeryEffective">
-              {props.notEffective.length === 0 &&
-              props.doubleUneffective.length === 0 ? (
-                <div className="emptyTypeMatchupList"> None </div>
-              ) : (
-                <div>
-                  {props.notEffective.map((a_type, key) => (
-                    <div
-                      key={key}
-                      className="typeMatchup"
-                      style={{ backgroundColor: typeColours[a_type] }}
-                    >
-                      {"0.5x " +
-                        a_type.charAt(0).toUpperCase() +
-                        a_type.slice(1)}
-                    </div>
-                  ))}
-                  {props.doubleUneffective.map((a_type, key) => (
-                    <div
-                      key={key}
-                      className="typeMatchup"
-                      style={{ backgroundColor: typeColours[a_type] }}
-                    >
-                      {"0.25x " +
-                        a_type.charAt(0).toUpperCase() +
-                        a_type.slice(1)}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            {props.notEffective.length === 0 &&
+            props.doubleUneffective.length === 0 ? (
+              <div className="emptyTypeMatchupList"> None </div>
+            ) : (
+              <div
+                className="typeMatchupsContainer-column"
+                id="notVeryEffective"
+              >
+                {props.notEffective.map((a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"0.5x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                  </div>
+                ))}
+                {props.doubleUneffective.map((a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"0.25x " +
+                      a_type.charAt(0).toUpperCase() +
+                      a_type.slice(1)}
+                  </div>
+                ))}
+              </div>
+            )}
+
             <h5 className="sidebarITitle">Immunities</h5>
             <div className="typeMatchupsContainer-column" id="immune">
               {props.inEffective.length === 0 ? (

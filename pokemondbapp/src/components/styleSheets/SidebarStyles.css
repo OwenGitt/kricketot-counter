@@ -116,6 +116,7 @@
   width: 100%;
   margin-bottom: 2.5%;
   transition: 0.5s;
+  justify-content: center;
 }
 
 .typeMatchup {
@@ -129,8 +130,6 @@
   min-width: 32%;
   max-width: 32%;
   transition: 0.5s;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .emptyTypeMatchupList {
@@ -146,8 +145,6 @@
   min-width: 32%;
   max-width: 32%;
   transition: 0.5s;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .statContainer {
@@ -277,7 +274,7 @@
   margin: 1px;
   padding: 6px;
   padding-top: 8px;
-  background-color: rgb(241, 241, 241);
+  color: rgb(241, 241, 241);
   transition: 0.5s;
   margin-top: auto;
   margin-bottom: auto;

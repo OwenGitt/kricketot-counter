@@ -64,7 +64,6 @@ function PokemonPage(props) {
     fetch(pokemonURL)
       .then((response) => response.json())
       .then((json) => {
-        console.log(superEffective);
         setTypes(json.types);
         setPokemonID(json.id);
         setSprite(
