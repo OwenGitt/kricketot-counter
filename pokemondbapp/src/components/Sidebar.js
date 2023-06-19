@@ -4,7 +4,7 @@ import statNames from "./jsonData/statNames.json";
 import "./styleSheets/SidebarStyles.css";
 
 function Sidebar(props) {
-  console.log(props.evolutions.evolves_to[0].evolves_to);
+  console.log(props.evolutions.evolves_to);
   const Evolutions = () => {
     return (
       /*<div className='pokemon_Evolution_Box'>
@@ -14,6 +14,7 @@ function Sidebar(props) {
           evolutions.evolves_to[0].evolves_to[0].species.name.charAt(0).toUpperCase() +  evolutions.evolves_to[0].evolves_to[0].species.name.slice(1)  : "") : <div className='pokemon_Evolution_Box'> This pokemon has no evolutions in generations 1-5 </div>)}  
       </div> */
       <div className="pokemon_Evolution_Container">
+        {/* Display first pokemon in evolution line */}
         <div
           className="pokemon_Evolution_Box"
           onClick={() =>
@@ -26,7 +27,9 @@ function Sidebar(props) {
           {props.evolutions.species.name.charAt(0).toUpperCase() +
             props.evolutions.species.name.slice(1)}
         </div>
+        {/* Display an arrow box */}
         <div className="pokemon_Evolution_Arrow_Box">{" -> "} </div>
+        {/* Display split evolution line if there is one */}
         {props.evolutions.evolves_to.length === 2 ? (
           <div>
             <div
@@ -59,6 +62,7 @@ function Sidebar(props) {
             </div>
           </div>
         ) : (
+          /* Otherwise display next pokemon in the evolution line */
           <div className="pokemon_Evolution_Box_Container">
             <div
               className="pokemon_Evolution_Box"
@@ -94,7 +98,7 @@ function Sidebar(props) {
                     1
                   )}
               </div>
-            ) : (
+            ) : props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
               <div>
                 <div
                   className="pokemon_Evolution_Box"
@@ -131,7 +135,7 @@ function Sidebar(props) {
                     )}
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
         )}
       </div>
@@ -254,7 +258,7 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  {"4x " + a_type}
+                  {"4x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                 </div>
               ))}
 
@@ -264,7 +268,7 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  {"2x " + a_type}
+                  {"2x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                 </div>
               ))}
             </div>
@@ -277,42 +281,57 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  {"1x " + a_type}
+                  {"1x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                 </div>
               ))}
             </div>
             <h5 className="sidebarNVETitle">Not Very Effective</h5>
             <div className="typeMatchupsContainer-column" id="notVeryEffective">
-              {props.notEffective.map((a_type, key) => (
-                <div
-                  key={key}
-                  className="typeMatchup"
-                  style={{ backgroundColor: typeColours[a_type] }}
-                >
-                  {"0.5x " + a_type}
+              {props.notEffective.length === 0 &&
+              props.doubleUneffective.length === 0 ? (
+                <div className="emptyTypeMatchupList"> None </div>
+              ) : (
+                <div>
+                  {props.notEffective.map((a_type, key) => (
+                    <div
+                      key={key}
+                      className="typeMatchup"
+                      style={{ backgroundColor: typeColours[a_type] }}
+                    >
+                      {"0.5x " +
+                        a_type.charAt(0).toUpperCase() +
+                        a_type.slice(1)}
+                    </div>
+                  ))}
+                  {props.doubleUneffective.map((a_type, key) => (
+                    <div
+                      key={key}
+                      className="typeMatchup"
+                      style={{ backgroundColor: typeColours[a_type] }}
+                    >
+                      {"0.25x " +
+                        a_type.charAt(0).toUpperCase() +
+                        a_type.slice(1)}
+                    </div>
+                  ))}
                 </div>
-              ))}
-              {props.doubleUneffective.map((a_type, key) => (
-                <div
-                  key={key}
-                  className="typeMatchup"
-                  style={{ backgroundColor: typeColours[a_type] }}
-                >
-                  {"0.25x " + a_type}
-                </div>
-              ))}
+              )}
             </div>
             <h5 className="sidebarITitle">Immunities</h5>
             <div className="typeMatchupsContainer-column" id="immune">
-              {props.inEffective.map((a_type, key) => (
-                <div
-                  key={key}
-                  className="typeMatchup"
-                  style={{ backgroundColor: typeColours[a_type] }}
-                >
-                  {"0x " + a_type}
-                </div>
-              ))}
+              {props.inEffective.length === 0 ? (
+                <div className="emptyTypeMatchupList"> None </div>
+              ) : (
+                props.inEffective.map((a_type, key) => (
+                  <div
+                    key={key}
+                    className="typeMatchup"
+                    style={{ backgroundColor: typeColours[a_type] }}
+                  >
+                    {"0x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
