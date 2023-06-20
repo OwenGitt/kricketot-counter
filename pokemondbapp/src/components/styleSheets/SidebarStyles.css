@@ -252,11 +252,18 @@
   font-size: 14px;
   font-weight: 600;
   opacity: 0.8;
-  height: 35px;
   margin: 1px;
   padding: 5px 10px 5px 10px;
   background-color: rgb(241, 241, 241);
   transition: 0.5s;
+}
+
+.pokemon_Evolution_Box {
+  height: 35px;
+}
+
+.pokemon_NO_Evolution_Box {
+  height: 50px;
 }
 
 .pokemon_Evolution_Box {
