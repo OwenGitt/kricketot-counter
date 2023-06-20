@@ -1,11 +1,22 @@
 .searchBar {
-  position: relative;
+  position: absolute;
   width: 12%;
   height: 0.5%;
   min-height: 30px;
   max-height: 30px;
-  border-radius: 10px;
-  border-color: #666565;
-  outline: none;
   z-index: 2;
+  background-color: #666565;
+  left: 2.8%;
+  top: 200px;
+  border: none;
+  padding: 5px 10px;
+  outline: none;
+  border-bottom: 1px solid #dc6b4b;
+  color: #fdeebc;
+  z-index: 4;
+}
+
+::placeholder {
+  color: #fdeebc;
+  opacity: 0.6;
 }

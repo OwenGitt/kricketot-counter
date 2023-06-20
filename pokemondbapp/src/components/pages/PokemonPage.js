@@ -263,37 +263,36 @@ function PokemonPage(props) {
 
   return (
     <div className="pageContainer">
-      <div>
-        <Search
-          searchTerm={searchTerm}
-          handler={searchHandler}
-          default={"Search for a Pokémon"}
-        />
-        <div className="pageButtonsContainer">
-          {backVisible && (
-            <button
-              variant="dark"
-              onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
-              style={{ margin: "20px" }}
-              className="nextBackButtons"
-            >
-              Back
-            </button>
-          )}
-          {nextVisible && (
-            <button
-              variant="dark"
-              onClick={
-                UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
-              }
-              style={{ margin: "20px" }}
-              className="nextBackButtons"
-            >
-              Next
-            </button>
-          )}
-        </div>
+      <Search
+        searchTerm={searchTerm}
+        handler={searchHandler}
+        default={"Search for a Pokémon"}
+      />
+      <div className="pageButtons">
+        {backVisible && (
+          <button
+            variant="dark"
+            onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
+            style={{ margin: "20px" }}
+            className="nextBackButtons"
+          >
+            Back
+          </button>
+        )}
+        {nextVisible && (
+          <button
+            variant="dark"
+            onClick={
+              UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
+            }
+            style={{ margin: "20px" }}
+            className="nextBackButtons"
+          >
+            Next
+          </button>
+        )}
       </div>
+
       <div className="pokemonListAndDataContainer">
         <Sidebar
           pokemonID={pokemonID}
