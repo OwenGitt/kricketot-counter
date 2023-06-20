@@ -44,7 +44,7 @@ function Sidebar(props) {
             ) : props.evolutions.evolves_to[0].evolution_details[0].trigger
                 .name === "use-item" ? (
               <EvolutionItem
-                method={null}
+                method={"Use"}
                 url={
                   props.evolutions.evolves_to[0].evolution_details[0].item.url
                 }
@@ -78,7 +78,7 @@ function Sidebar(props) {
               ) : props.evolutions.evolves_to[0].evolution_details[0].trigger
                   .name === "use-item" ? (
                 <EvolutionItem
-                  method={"Trade"}
+                  method={"Use"}
                   url={
                     props.evolutions.evolves_to[0].evolution_details[0].item.url
                   }
@@ -104,7 +104,7 @@ function Sidebar(props) {
               ) : props.evolutions.evolves_to[1].evolution_details[0].trigger
                   .name === "use-item" ? (
                 <EvolutionItem
-                  method={"Trade"}
+                  method={"Use"}
                   url={
                     props.evolutions.evolves_to[1].evolution_details[0].item.url
                   }
@@ -163,10 +163,10 @@ function Sidebar(props) {
                 props.evolutions.evolves_to[0].species.name.slice(1)}
             </div>
             {/* Check if there is another pokemon in the evolution line, if so display another arrow */}
-            <div className="pokemon_Evolution_Arrow_Box">
-              {/* Display evolution method for the next evolution */}
-              {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
-                props.evolutions.evolves_to[0].evolves_to[0]
+            {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
+              <div className="pokemon_Evolution_Arrow_Box">
+                {/* Display evolution method for the next evolution */}(
+                {props.evolutions.evolves_to[0].evolves_to[0]
                   .evolution_details[0].trigger.name === "level-up" ? (
                   "Lv." +
                   props.evolutions.evolves_to[0].evolves_to[0]
@@ -178,7 +178,7 @@ function Sidebar(props) {
                     <EvolutionItem
                       method={"Trade"}
                       url={
-                        props.evolutions.evolves_to[0].evolves_to[1]
+                        props.evolutions.evolves_to[0].evolves_to[0]
                           .evolution_details[0].held_item.url
                       }
                     />
@@ -186,15 +186,19 @@ function Sidebar(props) {
                 ) : props.evolutions.evolves_to[0].evolves_to[0]
                     .evolution_details[0].trigger.name === "use-item" ? (
                   <EvolutionItem
-                    method={"Trade"}
+                    method={"Use"}
                     url={
                       props.evolutions.evolves_to[0].evolves_to[0]
                         .evolution_details[0].item.url
                     }
                   />
-                ) : null
-              ) : /*If the evolution is split at stage 3 display both evolution methods*/
-              props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
+                ) : null}
+                ) :{" "}
+                {
+                  /*If the evolution is split at stage 3 display both evolution methods*/
+                  props.evolutions.evolves_to[0].evolves_to.length === 2
+                }{" "}
+                ? (
                 <div className="item_Evolution_Container">
                   {/* Display evolution method for the first pokemon in the split evolution */}
                   {props.evolutions.evolves_to[0].evolves_to[0]
@@ -217,7 +221,7 @@ function Sidebar(props) {
                   ) : props.evolutions.evolves_to[0].evolves_to[0]
                       .evolution_details[0].trigger.name === "use-item" ? (
                     <EvolutionItem
-                      method={null}
+                      method={"Use"}
                       url={
                         props.evolutions.evolves_to[0].evolves_to[0]
                           .evolution_details[0].item.url
@@ -247,7 +251,7 @@ function Sidebar(props) {
                   ) : props.evolutions.evolves_to[0].evolves_to[1]
                       .evolution_details[0].trigger.name === "use-item" ? (
                     <EvolutionItem
-                      method={null}
+                      method={"Use"}
                       url={
                         props.evolutions.evolves_to[0].evolves_to[1]
                           .evolution_details[0].item.url
@@ -255,8 +259,9 @@ function Sidebar(props) {
                     />
                   ) : null}
                 </div>
-              ) : null}
-            </div>
+                )
+              </div>
+            ) : null}
             {/* If there is only 1 evolution left to do display it in a box */}
             {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
               <div

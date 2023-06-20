@@ -217,8 +217,8 @@
 
 .pokemon_height_weight_box {
   border-radius: 25px;
-  min-width: 40px;
-  max-width: 100px;
+  min-width: 60px;
+  max-width: 60px;
   font-size: 14px;
   font-weight: 600;
   opacity: 0.8;
