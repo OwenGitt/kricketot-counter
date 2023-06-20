@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import typeColours from "./jsonData/typeColours.json";
 import statNames from "./jsonData/statNames.json";
 import "./styleSheets/SidebarStyles.css";
@@ -24,6 +23,7 @@ function Sidebar(props) {
         </div>
         {/* Display an arrow box */}
         <div className="pokemon_Evolution_Arrow_Box">
+          {/** Check to see if the evolution is split or not, then determine the pokemons evolution method */}
           {props.evolutions.evolves_to.length === 1 ? (
             props.evolutions.evolves_to[0].evolution_details[0].trigger.name ===
             "level-up" ? (
@@ -50,8 +50,10 @@ function Sidebar(props) {
                 }
               />
             ) : null
-          ) : props.evolutions.evolves_to.length === 2 ? (
+          ) : /*If the evolution is split at stage 2 display both evolution methods*/
+          props.evolutions.evolves_to.length === 2 ? (
             <div className="item_Evolution_Container">
+              {/* Display evolution method for the first pokemon in the split evolution */}
               {props.evolutions.evolves_to[0].evolution_details[0].trigger
                 .name === "level-up" ? (
                 <div>
@@ -82,6 +84,7 @@ function Sidebar(props) {
                   }
                 />
               ) : null}
+              {/* Display evolution method for the second pokemon in the split evolution */}
               {props.evolutions.evolves_to[1].evolution_details[0].trigger
                 .name === "level-up" ? (
                 "Lv." +
@@ -110,7 +113,7 @@ function Sidebar(props) {
             </div>
           ) : null}
         </div>
-        {/* Display split evolution line if there is one */}
+        {/* Display split evolution line if there is one at the third stage*/}
         {props.evolutions.evolves_to.length === 2 ? (
           <div>
             <div
@@ -161,6 +164,7 @@ function Sidebar(props) {
             </div>
             {/* Check if there is another pokemon in the evolution line, if so display another arrow */}
             <div className="pokemon_Evolution_Arrow_Box">
+              {/* Display evolution method for the next evolution */}
               {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
                 props.evolutions.evolves_to[0].evolves_to[0]
                   .evolution_details[0].trigger.name === "level-up" ? (
@@ -189,8 +193,10 @@ function Sidebar(props) {
                     }
                   />
                 ) : null
-              ) : props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
+              ) : /*If the evolution is split at stage 3 display both evolution methods*/
+              props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
                 <div className="item_Evolution_Container">
+                  {/* Display evolution method for the first pokemon in the split evolution */}
                   {props.evolutions.evolves_to[0].evolves_to[0]
                     .evolution_details[0].trigger.name === "level-up" ? (
                     "Lv." +
@@ -218,6 +224,7 @@ function Sidebar(props) {
                       }
                     />
                   ) : null}
+                  {/* Display evolution method for the second pokemon in the split evolution */}
                   {props.evolutions.evolves_to[0].evolves_to[1]
                     .evolution_details[0].trigger.name === "level-up" ? (
                     "Lv." +
