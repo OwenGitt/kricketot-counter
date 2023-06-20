@@ -22,7 +22,7 @@ function Sidebar(props) {
             props.evolutions.species.name.slice(1)}
         </div>
         {/* Display an arrow box */}
-        <div className="pokemon_Evolution_Arrow_Box">
+        <div className="pokemon_Evolution_Method_Box">
           {/** Check to see if the evolution is split or not, then determine the pokemons evolution method */}
           {props.evolutions.evolves_to.length === 1 ? (
             props.evolutions.evolves_to[0].evolution_details[0].trigger.name ===
@@ -164,8 +164,8 @@ function Sidebar(props) {
             </div>
             {/* Check if there is another pokemon in the evolution line, if so display another arrow */}
             {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
-              <div className="pokemon_Evolution_Arrow_Box">
-                {/* Display evolution method for the next evolution */}(
+              <div className="pokemon_Evolution_Method_Box">
+                {/* Display evolution method for the next evolution */}
                 {props.evolutions.evolves_to[0].evolves_to[0]
                   .evolution_details[0].trigger.name === "level-up" ? (
                   "Lv." +
@@ -193,75 +193,70 @@ function Sidebar(props) {
                     }
                   />
                 ) : null}
-                ) :{" "}
-                {
-                  /*If the evolution is split at stage 3 display both evolution methods*/
-                  props.evolutions.evolves_to[0].evolves_to.length === 2
-                }{" "}
-                ? (
-                <div className="item_Evolution_Container">
-                  {/* Display evolution method for the first pokemon in the split evolution */}
-                  {props.evolutions.evolves_to[0].evolves_to[0]
-                    .evolution_details[0].trigger.name === "level-up" ? (
-                    "Lv." +
-                    props.evolutions.evolves_to[0].evolves_to[0]
-                      .evolution_details[0].min_level
-                  ) : props.evolutions.evolves_to[0].evolves_to[0]
-                      .evolution_details[0].trigger.name === "trade" ? (
-                    props.evolutions.evolves_to[0].evolves_to[0]
-                      .evolution_details[0].held_item.url !== "" ? (
-                      <EvolutionItem
-                        method={"Trade"}
-                        url={
-                          props.evolutions.evolves_to[0].evolves_to[0]
-                            .evolution_details[0].held_item.url
-                        }
-                      />
-                    ) : null
-                  ) : props.evolutions.evolves_to[0].evolves_to[0]
-                      .evolution_details[0].trigger.name === "use-item" ? (
+              </div>
+            ) : props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
+              <div className="item_Evolution_Container">
+                {/* Display evolution method for the first pokemon in the split evolution */}
+                {props.evolutions.evolves_to[0].evolves_to[0]
+                  .evolution_details[0].trigger.name === "level-up" ? (
+                  "Lv." +
+                  props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].min_level
+                ) : props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].trigger.name === "trade" ? (
+                  props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].held_item.url !== "" ? (
                     <EvolutionItem
-                      method={"Use"}
+                      method={"Trade"}
                       url={
                         props.evolutions.evolves_to[0].evolves_to[0]
-                          .evolution_details[0].item.url
+                          .evolution_details[0].held_item.url
                       }
                     />
-                  ) : null}
-                  {/* Display evolution method for the second pokemon in the split evolution */}
-                  {props.evolutions.evolves_to[0].evolves_to[1]
-                    .evolution_details[0].trigger.name === "level-up" ? (
-                    "Lv." +
+                  ) : null
+                ) : props.evolutions.evolves_to[0].evolves_to[0]
+                    .evolution_details[0].trigger.name === "use-item" ? (
+                  <EvolutionItem
+                    method={"Use"}
+                    url={
+                      props.evolutions.evolves_to[0].evolves_to[0]
+                        .evolution_details[0].item.url
+                    }
+                  />
+                ) : null}
+                {/* Display evolution method for the second pokemon in the split evolution */}
+                {props.evolutions.evolves_to[0].evolves_to[1]
+                  .evolution_details[0].trigger.name === "level-up" ? (
+                  "Lv." +
+                  props.evolutions.evolves_to[0].evolves_to[1]
+                    .evolution_details[0].min_level
+                ) : props.evolutions.evolves_to[0].evolves_to[1]
+                    .evolution_details[0].trigger.name === "trade" ? (
+                  "Trade" +
                     props.evolutions.evolves_to[0].evolves_to[1]
-                      .evolution_details[0].min_level
-                  ) : props.evolutions.evolves_to[0].evolves_to[1]
-                      .evolution_details[0].trigger.name === "trade" ? (
-                    "Trade" +
-                      props.evolutions.evolves_to[0].evolves_to[1]
-                        .evolution_details[0].held_item.url !==
-                    "" ? (
-                      <EvolutionItem
-                        method={"Trade"}
-                        url={
-                          props.evolutions.evolves_to[0].evolves_to[1]
-                            .evolution_details[0].held_item.url
-                        }
-                      />
-                    ) : null
-                  ) : props.evolutions.evolves_to[0].evolves_to[1]
-                      .evolution_details[0].trigger.name === "use-item" ? (
+                      .evolution_details[0].held_item.url !==
+                  "" ? (
                     <EvolutionItem
-                      method={"Use"}
+                      method={"Trade"}
                       url={
                         props.evolutions.evolves_to[0].evolves_to[1]
-                          .evolution_details[0].item.url
+                          .evolution_details[0].held_item.url
                       }
                     />
-                  ) : null}
-                </div>
-                )
+                  ) : null
+                ) : props.evolutions.evolves_to[0].evolves_to[1]
+                    .evolution_details[0].trigger.name === "use-item" ? (
+                  <EvolutionItem
+                    method={"Use"}
+                    url={
+                      props.evolutions.evolves_to[0].evolves_to[1]
+                        .evolution_details[0].item.url
+                    }
+                  />
+                ) : null}
               </div>
             ) : null}
+
             {/* If there is only 1 evolution left to do display it in a box */}
             {props.evolutions.evolves_to[0].evolves_to.length === 1 ? (
               <div
