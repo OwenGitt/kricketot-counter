@@ -6,7 +6,6 @@ function EvolutionItem(props) {
     .then((response) => response.json())
     .then((json) => {
       setItemSprite(json.sprites.default);
-      console.log(json);
     })
     .catch((e) => {
       console.log(e.message);

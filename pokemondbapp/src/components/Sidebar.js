@@ -3,7 +3,7 @@ import typeColours from "./jsonData/typeColours.json";
 import statNames from "./jsonData/statNames.json";
 import "./styleSheets/SidebarStyles.css";
 import EvolutionItem from "./EvolutionItem";
-
+import CheckEvolution from "./CheckEvolution";
 function Sidebar(props) {
   const Evolutions = () => {
     return (
@@ -25,31 +25,30 @@ function Sidebar(props) {
         <div className="pokemon_Evolution_Method_Box">
           {/** Check to see if the evolution is split or not, then determine the pokemons evolution method */}
           {props.evolutions.evolves_to.length === 1 ? (
-            props.evolutions.evolves_to[0].evolution_details[0].trigger.name ===
-            "level-up" ? (
-              "Lv." +
-              props.evolutions.evolves_to[0].evolution_details[0].min_level
-            ) : props.evolutions.evolves_to[0].evolution_details[0].trigger
-                .name === "trade" ? (
-              props.evolutions.evolves_to[0].evolution_details[0].held_item
-                .url !== "" ? (
-                <EvolutionItem
-                  method={"Trade"}
-                  url={
-                    props.evolutions.evolves_to[0].evolution_details[0]
-                      .held_item.url
-                  }
-                />
-              ) : null
-            ) : props.evolutions.evolves_to[0].evolution_details[0].trigger
-                .name === "use-item" ? (
+            props.evolutions.evolves_to[0].evolution_details[0].item !==
+            null ? (
               <EvolutionItem
                 method={"Use"}
                 url={
                   props.evolutions.evolves_to[0].evolution_details[0].item.url
                 }
               />
-            ) : null
+            ) : props.evolutions.evolves_to[0].evolution_details[0]
+                .held_item !== null ? (
+              <EvolutionItem
+                method={"Trade"}
+                url={
+                  props.evolutions.evolves_to[0].evolution_details[0].held_item
+                    .url
+                }
+              />
+            ) : (
+              <CheckEvolution
+                evolutionDetails={
+                  props.evolutions.evolves_to[0].evolution_details[0]
+                }
+              ></CheckEvolution>
+            )
           ) : /*If the evolution is split at stage 2 display both evolution methods*/
           props.evolutions.evolves_to.length === 2 ? (
             <div className="item_Evolution_Container">
@@ -174,7 +173,7 @@ function Sidebar(props) {
                 ) : props.evolutions.evolves_to[0].evolves_to[0]
                     .evolution_details[0].trigger.name === "trade" ? (
                   props.evolutions.evolves_to[0].evolves_to[0]
-                    .evolution_details[0].held_item.url !== "" ? (
+                    .evolution_details[0].held_item !== null ? (
                     <EvolutionItem
                       method={"Trade"}
                       url={
@@ -182,7 +181,9 @@ function Sidebar(props) {
                           .evolution_details[0].held_item.url
                       }
                     />
-                  ) : null
+                  ) : (
+                    "Trade"
+                  )
                 ) : props.evolutions.evolves_to[0].evolves_to[0]
                     .evolution_details[0].trigger.name === "use-item" ? (
                   <EvolutionItem
@@ -195,7 +196,7 @@ function Sidebar(props) {
                 ) : null}
               </div>
             ) : props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
-              <div className="item_Evolution_Container">
+              <div className="pokemon_Evolution_Method_Box">
                 {/* Display evolution method for the first pokemon in the split evolution */}
                 {props.evolutions.evolves_to[0].evolves_to[0]
                   .evolution_details[0].trigger.name === "level-up" ? (
@@ -224,7 +225,7 @@ function Sidebar(props) {
                     }
                   />
                 ) : null}
-                {/* Display evolution method for the second pokemon in the split evolution */}
+                {/* Display evolution method for the second pokemon if its a split evolution */}
                 {props.evolutions.evolves_to[0].evolves_to[1]
                   .evolution_details[0].trigger.name === "level-up" ? (
                   "Lv." +
@@ -277,7 +278,7 @@ function Sidebar(props) {
               </div>
             ) : /* Otherwise display the split evolution line */
             props.evolutions.evolves_to[0].evolves_to.length === 2 ? (
-              <div>
+              <div className="split_Evolution_Box_Container">
                 <div
                   className="pokemon_Evolution_Box"
                   onClick={() =>
@@ -318,11 +319,6 @@ function Sidebar(props) {
         )}
       </div>
     );
-  };
-
-  const DisplayItem = (method, url) => {
-    console.log(method);
-    <EvolutionItem method={method} url={url} />;
   };
 
   return (
@@ -367,7 +363,7 @@ function Sidebar(props) {
         <div className="sidebarBody">
           <h4 className="sidebarDescriptionTitle">Description</h4>
           <div className="sidebarDescription">
-            {props.flavourText != "" ? props.flavourText : <div>LOADING</div>}
+            {props.flavourText !== "" ? props.flavourText : <div>LOADING</div>}
           </div>
 
           <h4 className="sidebarStatsTitle">Stats</h4>
@@ -417,7 +413,7 @@ function Sidebar(props) {
 
           <h4 className="sidebarEvosTitle">Evolutions</h4>
           <div className="pokemon_Evolution_Container">
-            {props.evolutions.length != 0 ? (
+            {props.evolutions.length !== 0 ? (
               props.evolutions.evolves_to.length >= 1 ? (
                 Evolutions()
               ) : (
