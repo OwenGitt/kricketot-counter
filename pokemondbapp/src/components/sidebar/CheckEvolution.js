@@ -42,22 +42,26 @@ function CheckEvolution(props) {
   ];
 
   useEffect(() => {
-    methodsToCheck.map((method, index) =>
-      props.evolutionDetails[method] !== "" &&
-      props.evolutionDetails[method] !== null &&
-      props.evolutionDetails[method] !== false
-        ? method === "known_move" ||
-          method === "location" ||
-          method === "known_move_type"
-          ? setToReturn(
-              dict[method] +
-                " " +
-                props.evolutionDetails[method].name.charAt(0).toUpperCase() +
-                props.evolutionDetails[method].name.slice(1)
-            )
-          : setToReturn(dict[method] + props.evolutionDetails[method])
-        : null
-    );
+    props.evolutionDetails.trigger.name === "trade"
+      ? setToReturn("Trade")
+      : methodsToCheck.map((method, index) =>
+          props.evolutionDetails[method] !== "" &&
+          props.evolutionDetails[method] !== null &&
+          props.evolutionDetails[method] !== false
+            ? method === "known_move" ||
+              method === "location" ||
+              method === "known_move_type"
+              ? setToReturn(
+                  dict[method] +
+                    " " +
+                    props.evolutionDetails[method].name
+                      .charAt(0)
+                      .toUpperCase() +
+                    props.evolutionDetails[method].name.slice(1)
+                )
+              : setToReturn(dict[method] + props.evolutionDetails[method])
+            : null
+        );
   }, [props.evolutionDetails]);
   return <div>{toReturn}</div>;
 }
