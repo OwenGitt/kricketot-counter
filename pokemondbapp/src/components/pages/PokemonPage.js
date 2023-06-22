@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DataCard from "../DataCard";
 import Search from "../Search";
 import "../styleSheets/pokemonPageStyles.css";
-import Sidebar from "../Sidebar";
+import Sidebar from "../sidebar/Sidebar";
 import data from "../jsonData/types.json";
 
 /**
@@ -13,13 +13,11 @@ import data from "../jsonData/types.json";
  */
 function PokemonPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
-  //Turn into JSON file at some point
   const [UpperLimit, setUpper] = useState(102);
   const [LowerLimit, setLower] = useState(0);
   const [backVisible, setBackVisible] = useState(false);
   const [nextVisible, setNextVisible] = useState(true);
   const [pageNum, setPageNum] = useState(1);
-
   const [pokemonID, setPokemonID] = useState("");
   const [pokemonName, setPokemonName] = useState("");
   const [pokemonWeight, setPokemonWeight] = useState("");

@@ -46,7 +46,16 @@ function CheckEvolution(props) {
       props.evolutionDetails[method] !== "" &&
       props.evolutionDetails[method] !== null &&
       props.evolutionDetails[method] !== false
-        ? setToReturn(dict[method] + props.evolutionDetails[method])
+        ? method === "known_move" ||
+          method === "location" ||
+          method === "known_move_type"
+          ? setToReturn(
+              dict[method] +
+                " " +
+                props.evolutionDetails[method].name.charAt(0).toUpperCase() +
+                props.evolutionDetails[method].name.slice(1)
+            )
+          : setToReturn(dict[method] + props.evolutionDetails[method])
         : null
     );
   }, [props.evolutionDetails]);
