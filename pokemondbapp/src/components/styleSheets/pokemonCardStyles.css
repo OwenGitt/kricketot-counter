@@ -9,7 +9,6 @@
   max-height: 180px;
   margin-left: 5%;
   border-radius: 5px;
-  background-image: #808081;
 }
 .pokemonCard:hover {
   cursor: pointer;
