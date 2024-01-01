@@ -11,6 +11,7 @@ function Sidebar(props) {
       style={{
         width: props.visible ? "20%" : 0,
         padding: props.visible ? "1%" : 0,
+        minWidth: props.visible ? "400px" : 0,
       }}
     >
       <div className="sidebarContents">
