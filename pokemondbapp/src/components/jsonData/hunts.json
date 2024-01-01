@@ -179,6 +179,26 @@
       "Generation": "4",
       "Method": "Random Encounters (Repel Trick)",
       "Generation-URL": "generation-iv/heartgold-soulsilver"
+    },
+    {
+      "Name": "LeafGreen Badge Quest - Squirtle",
+      "Target": "squirtle",
+      "Shinies": [{ "Name": "squirtle", "Encounters": "231", "ID": "7" }],
+      "Total_Encounters": "231",
+      "Location": "FireRed/LeafGreen Professor Oak's Lab",
+      "Generation": "3",
+      "Method": "Soft Reset",
+      "Generation-URL": "generation-iii/firered-leafgreen"
+    },
+    {
+      "Name": "Buggin the Game Corner",
+      "Target": "scyther",
+      "Shinies": [{ "Name": "scyther", "Encounters": "973", "ID": "123" }],
+      "Total_Encounters": "973",
+      "Location": "FireRed/LeafGreen Game Corner",
+      "Generation": "4",
+      "Method": "Soft Reset",
+      "Generation-URL": "generation-iii/firered-leafgreen"
     }
   ]
 }
