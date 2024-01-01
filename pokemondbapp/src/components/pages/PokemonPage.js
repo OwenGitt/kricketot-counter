@@ -4,6 +4,7 @@ import Search from "../Search";
 import "../styleSheets/pokemonPageStyles.css";
 import Sidebar from "../sidebar/Sidebar";
 import data from "../jsonData/types.json";
+import { useOutlet } from "react-router-dom";
 
 /**
  *
@@ -94,9 +95,18 @@ function PokemonPage(props) {
     return pokemonName.toLowerCase().includes(searchTerm.toLowerCase());
   };
 
+  useEffect(() => {
+    searchTerm
+      ? props.pokemon.filter(searchPokemon).length > UpperLimit
+        ? setNextVisible(true)
+        : setNextVisible(false)
+      : setNextVisible(true);
+  }, [searchTerm]);
+
   const searchHandler = (event) => {
     setSearchTerm(event);
   };
+
   const allPokemon = props.pokemon
     .filter(searchPokemon)
     .slice(LowerLimit, UpperLimit)
@@ -118,7 +128,6 @@ function PokemonPage(props) {
     setLower(LowerLimit + 102);
     setBackVisible(true);
     if (UpperLimit === 612) {
-      console.log(UpperLimit);
       setNextVisible(false);
     }
   };
