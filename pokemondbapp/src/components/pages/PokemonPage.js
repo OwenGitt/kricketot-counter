@@ -23,7 +23,7 @@ function PokemonPage(props) {
   const [pokemonName, setPokemonName] = useState("");
   const [pokemonWeight, setPokemonWeight] = useState("");
   const [pokemonHeight, setPokemonHeight] = useState("");
-  const [visible, setVisible] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
   const [abilities, setAbilites] = useState([]);
   const [types, setTypes] = useState([]);
   const [stats, setStats] = useState([]);
@@ -40,8 +40,11 @@ function PokemonPage(props) {
   const [inEffective, setIneffective] = useState([]);
   const [doubleUneffective, setDoubleUneffective] = useState([]);
   const [clicked, setClicked] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
-  const handleSidebarClose = () => setVisible(false);
+  const isMobile = width <= 768;
+
+  const handleSidebarClose = () => setSidebarVisible(false);
 
   const handleClick = () => setClicked(!clicked);
 
@@ -58,6 +61,17 @@ function PokemonPage(props) {
       }, 100);
     }, 200);
   }, [pokemonID]);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
 
   function fetchPokemonData(pokemonURL) {
     fetch(pokemonURL)
@@ -201,7 +215,7 @@ function PokemonPage(props) {
       });
     }
     setStatTotal(statTotal);
-    setVisible(true);
+    setSidebarVisible(true);
   };
 
   const calculateTypes = () => {
@@ -320,12 +334,18 @@ function PokemonPage(props) {
           ultraEffective={ultraEffective}
           inEffective={inEffective}
           doubleUneffective={doubleUneffective}
-          visible={visible}
+          visible={sidebarVisible}
           handleSidebarClose={handleSidebarClose}
           fetchData={fetchPokemonData}
+          isMobile={isMobile}
         />
 
-        <div className="cardContainer">{allPokemon}</div>
+        <div
+          className="cardContainer"
+          style={{ width: sidebarVisible && isMobile ? 0 : "70%" }}
+        >
+          {allPokemon}
+        </div>
       </div>
       <div className="pageButtonsContainer">
         {backVisible && (

@@ -1,7 +1,6 @@
 .searchBar {
   position: absolute;
-  width: 14%;
-  height: 0.5%;
+  height: 30px;
   min-height: 30px;
   max-height: 30px;
   z-index: 2;
