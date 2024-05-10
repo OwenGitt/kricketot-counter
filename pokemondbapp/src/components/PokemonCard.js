@@ -14,6 +14,7 @@ function PokemonCard(props) {
   const [pokemonID, setPokemonID] = useState("");
   const [types, setTypes] = useState([]);
   const [basicSprite, setBasicSprite] = useState("");
+  const [movingSprite, setMovingSprite] = useState("");
   const [typesCount, setTypesCount] = useState(0);
   const [mouseOver, setMouseOver] = useState([false]);
   const [loading, setLoading] = useState(undefined);
@@ -34,6 +35,11 @@ function PokemonCard(props) {
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
               json.id +
               ".png"
+          );
+          setMovingSprite(
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/" +
+              json.id +
+              ".gif"
           );
           setCompleted(true);
           setLoading(false);
@@ -74,7 +80,14 @@ function PokemonCard(props) {
                   : `linear-gradient(100deg,  #808081 0%,  #808081 0%)`,
             }}
           >
-            <img src={basicSprite}></img>
+            <img
+              src={basicSprite}
+              alt={
+                props.value.name.charAt(0).toUpperCase() +
+                props.value.name.slice(1)
+              }
+              loading="lazy"
+            ></img>
             <div className="pokemonCardName">
               {props.value.name.charAt(0).toUpperCase() +
                 props.value.name.slice(1)}

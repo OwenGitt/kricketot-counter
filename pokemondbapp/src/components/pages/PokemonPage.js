@@ -4,7 +4,6 @@ import Search from "../Search";
 import "../styleSheets/pokemonPageStyles.css";
 import Sidebar from "../sidebar/Sidebar";
 import data from "../jsonData/types.json";
-import { useOutlet } from "react-router-dom";
 
 /**
  *
@@ -198,7 +197,11 @@ function PokemonPage(props) {
     fetch("https://pokeapi.co/api/v2/pokemon-species/" + id)
       .then((response) => response.json())
       .then((json) => {
-        const text = json.flavor_text_entries[1].flavor_text;
+        let enEntry = json.flavor_text_entries.find(
+          (key) => key.language.name === "en"
+        );
+
+        const text = enEntry.flavor_text;
         const noSpecialChars = text.replace("", " ");
         setFlavourText(noSpecialChars);
       })
@@ -338,11 +341,15 @@ function PokemonPage(props) {
           handleSidebarClose={handleSidebarClose}
           fetchData={fetchPokemonData}
           isMobile={isMobile}
+          abilityDataVisible={false}
         />
 
         <div
           className="cardContainer"
-          style={{ width: sidebarVisible && isMobile ? 0 : "70%" }}
+          style={{
+            width: sidebarVisible && isMobile ? 0 : "70%",
+            display: sidebarVisible && isMobile ? "none" : "flex",
+          }}
         >
           {allPokemon}
         </div>
