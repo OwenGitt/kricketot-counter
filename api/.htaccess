@@ -1,4 +1,0 @@
-RewriteEngine on
-Header set Access-Control-Allow-Origin "*"
-RewriteRule ai/ - [L]
-RewriteRule ^(.*)$ index.php
