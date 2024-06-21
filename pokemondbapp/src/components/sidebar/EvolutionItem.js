@@ -12,7 +12,7 @@ function EvolutionItem(props) {
     });
 
   return (
-    <div>
+    <div className="pokemon_Evolution_Method_Box">
       <img src={itemSprite}></img>
       {props.method}
     </div>

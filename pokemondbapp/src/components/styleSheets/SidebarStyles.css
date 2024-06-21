@@ -168,8 +168,11 @@
 }
 
 .pokemon_Evolution_Method_Box {
+  align-items: center;
   border-radius: 25px;
   color: rgb(241, 241, 241);
+  display: flex;
+  flex-wrap: wrap;
   font-size: 12px;
   font-weight: 600;
   height: auto;
@@ -178,7 +181,7 @@
   min-width: 40px;
   opacity: 0.8;
   padding: 6px;
-  padding-top: 8px;
+  text-align: center;
   transition: 0.5s;
 }
 
@@ -234,8 +237,9 @@
 }
 
 .split_Evolution_Box_Container {
-  margin-bottom: auto;
-  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .statBox {
@@ -282,7 +286,7 @@
   max-width: 32%;
   min-width: 32%;
   opacity: 0.8;
-  padding: 13px;
+  padding: 10px;
   text-align: center;
   transition: 0.5s;
 }

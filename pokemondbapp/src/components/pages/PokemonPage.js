@@ -108,12 +108,22 @@ function PokemonPage(props) {
     return pokemonName.toLowerCase().includes(searchTerm.toLowerCase());
   };
 
+  const updateNextBackButtons = (buttonsVisible) => {
+    setNextVisible(buttonsVisible);
+    if (props.pokemon.filter(searchPokemon).length < UpperLimit) {
+      setBackVisible(false);
+      setUpper(102);
+      setLower(0);
+      setPageNum(0);
+    }
+  };
+
   useEffect(() => {
     searchTerm
       ? props.pokemon.filter(searchPokemon).length > UpperLimit
-        ? setNextVisible(true)
-        : setNextVisible(false)
-      : setNextVisible(true);
+        ? updateNextBackButtons(true)
+        : updateNextBackButtons(false)
+      : updateNextBackButtons(true);
   }, [searchTerm]);
 
   const searchHandler = (event) => {

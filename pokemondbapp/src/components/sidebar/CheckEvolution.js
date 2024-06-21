@@ -63,6 +63,6 @@ function CheckEvolution(props) {
             : null
         );
   }, [props.evolutionDetails]);
-  return <div>{toReturn}</div>;
+  return <div className="pokemon_Evolution_Method_Box">{toReturn}</div>;
 }
 export default CheckEvolution;
