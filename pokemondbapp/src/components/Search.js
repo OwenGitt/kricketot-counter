@@ -14,15 +14,13 @@ function Search(props) {
   const onChange = (event) => props.handler(event.target.value);
 
   return (
-    <div>
-      <input
-        value={props.searchTerm}
-        onChange={onChange}
-        id="defaultValue"
-        placeholder={props.default}
-        className="searchBar"
-      />
-    </div>
+    <input
+      value={props.searchTerm}
+      onChange={onChange}
+      id="defaultValue"
+      placeholder={props.default}
+      className="searchBar"
+    />
   );
 }
 export default Search;

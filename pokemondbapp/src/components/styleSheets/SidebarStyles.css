@@ -15,8 +15,7 @@
   border-radius: 8px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   height: 100%;
-  margin-left: 40px;
-  margin-top: 200px;
+  margin: 10px 0 0 40px;
   min-height: 800px;
   overflow-x: hidden;
   position: relative;
@@ -310,18 +309,18 @@
 
 @media (max-width: 450px) {
   .sidebarContainer {
-    margin: 200px 0 0;
+    margin: 10px 0 0 0;
   }
 }
 
 @media (min-width: 451px) and (max-width: 768px) {
   .sidebarContainer {
-    margin: 200px 40px 0;
+    margin: 10px 0 40px 0;
   }
 }
 
 @media (min-width: 769px) {
   .sidebarContainer {
-    margin: 200px 0 0 40px;
+    margin: 10px 0 0 40px;
   }
 }

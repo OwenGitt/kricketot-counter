@@ -7,6 +7,9 @@ import Evolutions from "./Evolutions";
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
   const [abilityDataVisible, setAbilityDataVisible] = useState(false);
+  const [locationData, setLocationData] = useState([]);
+  const [normalSprite, setNormalSprite] = useState("");
+  const [shinySprite, setShinySprite] = useState("");
 
   const fetchAbilityData = (name) => {
     fetch("https://pokeapi.co/api/v2/ability/" + name)
@@ -23,9 +26,62 @@ function Sidebar(props) {
       });
   };
 
+  function fetchLocationData() {
+    fetch(
+      "https://pokeapi.co/api/v2/pokemon/" + props.pokemonID + "/encounters"
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setLocationData(json);
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }
+
   useEffect(() => {
+    if (props.visible) {
+      fetchLocationData();
+    }
     setAbilityDataVisible(props.abilityDataVisible);
   }, [props.pokemonID]);
+
+  useEffect(() => {
+    let url =
+      "https://pokeapi.co/api/v2/pokemon/" +
+      (props.pokemonID === "" ? 1 : props.pokemonID) +
+      "/";
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        if (props.generation !== "generation-v") {
+          setNormalSprite(
+            json.sprites.versions[props.generation][
+              Object.keys(json.sprites.versions[props.generation])[0]
+            ].front_default
+          );
+          setShinySprite(
+            json.sprites.versions[props.generation][
+              Object.keys(json.sprites.versions[props.generation])[0]
+            ].front_shiny
+          );
+        } else {
+          setNormalSprite(
+            json.sprites.versions[props.generation][
+              Object.keys(json.sprites.versions[props.generation])[0]
+            ].animated.front_default
+          );
+          setShinySprite(
+            json.sprites.versions[props.generation][
+              Object.keys(json.sprites.versions[props.generation])[0]
+            ].animated.front_shiny
+          );
+        }
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }, [props.generation, props.pokemonID]);
 
   return (
     <div
@@ -56,16 +112,18 @@ function Sidebar(props) {
           </span>
 
           <div>
+            {shinySprite !== undefined ? (
+              <img
+                src={shinySprite}
+                alt={
+                  "Shiny " +
+                  props.pokemonName.charAt(0).toUpperCase() +
+                  props.pokemonName.slice(1)
+                }
+              ></img>
+            ) : null}
             <img
-              src={props.shinySprite}
-              alt={
-                "Shiny " +
-                props.pokemonName.charAt(0).toUpperCase() +
-                props.pokemonName.slice(1)
-              }
-            ></img>
-            <img
-              src={props.sprite}
+              src={normalSprite}
               alt={
                 props.pokemonName.charAt(0).toUpperCase() +
                 props.pokemonName.slice(1)
@@ -115,6 +173,24 @@ function Sidebar(props) {
             </div>
           </div>
 
+          <h4 className="sidebarEvosTitle">Evolutions</h4>
+          <div className="pokemon_Evolution_Container">
+            {props.evolutions.length !== 0 ? (
+              props.evolutions.evolves_to.length >= 1 ? (
+                <Evolutions
+                  evolutions={props.evolutions}
+                  fetchData={props.fetchData}
+                ></Evolutions>
+              ) : (
+                <div className="pokemon_NO_Evolution_Box">
+                  This pokemon has no evolutions in generations 1-5
+                </div>
+              )
+            ) : (
+              <div>LOADING</div>
+            )}
+          </div>
+
           <div>
             <h4 className="sidebarAbilitiesTitle">Abilities</h4>
             <div className="abilityContainer">
@@ -147,24 +223,6 @@ function Sidebar(props) {
             <div className="pokemon_height_weight_box" key="weight">
               {props.pokemonWeight / 10 + "kg"}
             </div>
-          </div>
-
-          <h4 className="sidebarEvosTitle">Evolutions</h4>
-          <div className="pokemon_Evolution_Container">
-            {props.evolutions.length !== 0 ? (
-              props.evolutions.evolves_to.length >= 1 ? (
-                <Evolutions
-                  evolutions={props.evolutions}
-                  fetchData={props.fetchData}
-                ></Evolutions>
-              ) : (
-                <div className="pokemon_NO_Evolution_Box">
-                  This pokemon has no evolutions in generations 1-5
-                </div>
-              )
-            ) : (
-              <div>LOADING</div>
-            )}
           </div>
 
           <h4 className="sidebarTypeMTitle">Type Matchups</h4>
@@ -253,6 +311,13 @@ function Sidebar(props) {
                 ))
               )}
             </div>
+
+            {/*<h5 className="sidebarTitle">Locations</h5>
+            <div>
+              {locationData.map((location, key) => (
+                <div>{location.location_area.name}</div>
+              ))}
+            </div>*/}
           </div>
         </div>
       </div>
