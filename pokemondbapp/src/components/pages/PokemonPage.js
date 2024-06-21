@@ -40,6 +40,29 @@ function PokemonPage(props) {
   const [doubleUneffective, setDoubleUneffective] = useState([]);
   const [clicked, setClicked] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const [generation, setGeneration] = useState("generation-v");
+  const [generationTotals] = useState({
+    "generation-i": 151,
+    "generation-ii": 251,
+    "generation-iii": 386,
+    "generation-iv": 493,
+    "generation-v": 649,
+  });
+  const [generationPokemon, setGenerationPokemon] = useState([]);
+  const [generationSelectOptions] = useState([
+    "Generation 1",
+    "Generation 2",
+    "Generation 3",
+    "Generation 4",
+    "Generation 5",
+  ]);
+  const [generationSelectValues] = useState({
+    "Generation 1": "generation-i",
+    "Generation 2": "generation-ii",
+    "Generation 3": "generation-iii",
+    "Generation 4": "generation-iv",
+    "Generation 5": "generation-v",
+  });
 
   const isMobile = width <= 768;
 
@@ -130,7 +153,7 @@ function PokemonPage(props) {
     setSearchTerm(event);
   };
 
-  const allPokemon = props.pokemon
+  const allPokemon = generationPokemon
     .filter(searchPokemon)
     .slice(LowerLimit, UpperLimit)
     .map((value, index) => (
@@ -141,9 +164,14 @@ function PokemonPage(props) {
           id={index + 1}
           key={value.name}
           fetchPokemonData={fetchPokemonData}
+          generation={generation}
         />
       </section>
     ));
+
+  useEffect(() => {
+    setGenerationPokemon(props.pokemon.slice(0, generationTotals[generation]));
+  }, [generation, props.pokemon]);
 
   const showMorePokemon = () => {
     setPageNum(pageNum + 1);
@@ -295,36 +323,47 @@ function PokemonPage(props) {
       );
   };
 
+  const onOptionChangeHandler = (event) => {
+    setGeneration(generationSelectValues[event.target.value]);
+  };
+
   return (
     <div className="pageContainer">
-      <Search
-        searchTerm={searchTerm}
-        handler={searchHandler}
-        default={"Search for a Pokémon"}
-      />
-      <div className="pageButtons">
-        {backVisible && (
-          <button
-            variant="dark"
-            onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
-            style={{ margin: "20px" }}
-            className="nextBackButtons"
-          >
-            Back
-          </button>
-        )}
-        {nextVisible && (
-          <button
-            variant="dark"
-            onClick={
-              UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
-            }
-            style={{ margin: "20px" }}
-            className="nextBackButtons"
-          >
-            Next
-          </button>
-        )}
+      <div className="pokemonPageTop">
+        <Search
+          searchTerm={searchTerm}
+          handler={searchHandler}
+          default={"Search for a Pokémon"}
+        />
+        <div className="pageButtons">
+          {backVisible && (
+            <button
+              variant="dark"
+              onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
+              className="nextBackButtons"
+            >
+              Back
+            </button>
+          )}
+          {nextVisible && (
+            <button
+              variant="dark"
+              onClick={
+                UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
+              }
+              className="nextBackButtons"
+            >
+              Next
+            </button>
+          )}
+        </div>
+
+        <select onChange={onOptionChangeHandler} className="generationFilter">
+          <option>Select Generation</option>
+          {generationSelectOptions.map((option, index) => {
+            return <option key={index}>{option}</option>;
+          })}
+        </select>
       </div>
 
       <div className="pokemonListAndDataContainer">
@@ -352,6 +391,7 @@ function PokemonPage(props) {
           fetchData={fetchPokemonData}
           isMobile={isMobile}
           abilityDataVisible={false}
+          generation={generation}
         />
 
         <div
@@ -369,7 +409,6 @@ function PokemonPage(props) {
           <button
             variant="dark"
             onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
-            style={{ margin: "20px" }}
             className="nextBackButtons"
           >
             Back
@@ -381,7 +420,6 @@ function PokemonPage(props) {
             onClick={
               UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
             }
-            style={{ margin: "20px" }}
             className="nextBackButtons"
           >
             Next

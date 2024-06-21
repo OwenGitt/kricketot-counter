@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import typeColours from "./jsonData/typeColours.json";
 import "./styleSheets/pokemonCardStyles.css";
 
@@ -14,7 +14,10 @@ function PokemonCard(props) {
   const [pokemonID, setPokemonID] = useState("");
   const [types, setTypes] = useState([]);
   const [basicSprite, setBasicSprite] = useState("");
-  const [movingSprite, setMovingSprite] = useState("");
+  const [generation1Sprite, setGeneration1Sprite] = useState("");
+  const [generation2Sprite, setGeneration2Sprite] = useState("");
+  const [generation3Sprite, setGeneration3Sprite] = useState("");
+  const [generation4Sprite, setGeneration4Sprite] = useState("");
   const [typesCount, setTypesCount] = useState(0);
   const [mouseOver, setMouseOver] = useState([false]);
   const [loading, setLoading] = useState(undefined);
@@ -36,10 +39,25 @@ function PokemonCard(props) {
               json.id +
               ".png"
           );
-          setMovingSprite(
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/" +
-              json.id +
-              ".gif"
+          setGeneration1Sprite(
+            json.sprites.versions["generation-i"][
+              Object.keys(json.sprites.versions["generation-i"])[0]
+            ].front_default
+          );
+          setGeneration2Sprite(
+            json.sprites.versions["generation-ii"][
+              Object.keys(json.sprites.versions["generation-ii"])[0]
+            ].front_default
+          );
+          setGeneration3Sprite(
+            json.sprites.versions["generation-iii"][
+              Object.keys(json.sprites.versions["generation-iii"])[0]
+            ].front_default
+          );
+          setGeneration4Sprite(
+            json.sprites.versions["generation-iv"][
+              Object.keys(json.sprites.versions["generation-iv"])[0]
+            ].front_default
           );
           setCompleted(true);
           setLoading(false);
@@ -81,7 +99,17 @@ function PokemonCard(props) {
             }}
           >
             <img
-              src={basicSprite}
+              src={
+                props.generation === "generation-v"
+                  ? basicSprite
+                  : props.generation === "generation-i"
+                  ? generation1Sprite
+                  : props.generation === "generation-ii"
+                  ? generation2Sprite
+                  : props.generation === "generation-iii"
+                  ? generation3Sprite
+                  : generation4Sprite
+              }
               alt={
                 props.value.name.charAt(0).toUpperCase() +
                 props.value.name.slice(1)
