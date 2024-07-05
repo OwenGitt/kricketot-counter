@@ -334,7 +334,7 @@ function PokemonPage(props) {
   };
 
   const onOptionChangeHandler = (event) => {
-    if (event.target.value === "Select Generation") {
+    if (event.target.value === "Select Sprite Generation") {
       setGeneration(generationSelectValues["Generation 5"]);
     } else {
       setGeneration(generationSelectValues[event.target.value]);
