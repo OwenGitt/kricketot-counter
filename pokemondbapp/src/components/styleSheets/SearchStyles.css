@@ -1,16 +1,36 @@
-.searchBar {
+.searchContainer {
+  left: 3%;
   position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.searchBar {
   height: 30px;
   min-height: 30px;
   max-height: 30px;
   background-color: #666565;
-  left: 3%;
   border: none;
-  padding: 5px 10px;
+  padding: 0 40px 0 5px;
   outline: none;
   border-bottom: 1px solid #dc6b4b;
   color: #fdeebc;
-  z-index: 4;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.searchClear {
+  color: #3f3f3f !important;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 ::placeholder {

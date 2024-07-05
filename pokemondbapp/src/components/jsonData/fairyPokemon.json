@@ -1,0 +1,159 @@
+{
+  "clefairy": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "clefable": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "jigglypuff": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "wigglytuff": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "mr-mime": [
+    {
+      "type": {
+        "name": "psychic"
+      }
+    }
+  ],
+  "togepi": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "togetic": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    },
+    {
+      "type": {
+        "name": "flying"
+      }
+    }
+  ],
+  "snubbull": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "granbull": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "azurill": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "azumarill": [
+    {
+      "type": {
+        "name": "water"
+      }
+    }
+  ],
+  "ralts": [
+    {
+      "type": {
+        "name": "psychic"
+      }
+    }
+  ],
+  "kirlia": [
+    {
+      "type": {
+        "name": "psychic"
+      }
+    }
+  ],
+  "gardevoir": [
+    {
+      "type": {
+        "name": "psychic"
+      }
+    }
+  ],
+  "mawile": [
+    {
+      "type": {
+        "name": "steel"
+      }
+    }
+  ],
+  "mime-jr": [
+    {
+      "type": {
+        "name": "psychic"
+      }
+    }
+  ],
+  "togekiss": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    },
+    {
+      "type": {
+        "name": "flying"
+      }
+    }
+  ],
+  "cleffa": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "igglybuff": [
+    {
+      "type": {
+        "name": "normal"
+      }
+    }
+  ],
+  "cottonee": [
+    {
+      "type": {
+        "name": "grass"
+      }
+    }
+  ],
+  "whimsicott": [
+    {
+      "type": {
+        "name": "grass"
+      }
+    }
+  ]
+}

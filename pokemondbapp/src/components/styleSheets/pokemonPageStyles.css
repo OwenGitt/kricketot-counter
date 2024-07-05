@@ -35,6 +35,8 @@
   border-bottom: 1px solid #dc6b4b;
   color: #fdeebc;
   height: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
   position: relative;
   right: 7.5%;
   z-index: 4;
@@ -48,7 +50,7 @@
 
 .cardContainer {
   height: 100%;
-  width: 70%;
+  width: 65%;
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -73,6 +75,8 @@
 .pageButtons {
   position: relative;
   z-index: 4;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .pokemonCardSection {

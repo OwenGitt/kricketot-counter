@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import typeColours from "./jsonData/typeColours.json";
+import fairyPokemon from "./jsonData/fairyPokemon.json";
 import "./styleSheets/pokemonCardStyles.css";
 
 /**
@@ -68,6 +69,28 @@ function PokemonCard(props) {
     }
   };
 
+  const displayPokemonTypes = () => {
+    if (fairyPokemon[props.value.name]) {
+      return fairyPokemon[props.value.name].map((type) => (
+        <div
+          className="pokemonType"
+          style={{ backgroundColor: typeColours[type.type.name] }}
+        >
+          {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+        </div>
+      ));
+    } else {
+      return types.map((type) => (
+        <div
+          className="pokemonType"
+          style={{ backgroundColor: typeColours[type.type.name] }}
+        >
+          {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+        </div>
+      ));
+    }
+  };
+
   return (
     <div>
       {initialisePokemonCardData()}
@@ -117,70 +140,24 @@ function PokemonCard(props) {
               loading="lazy"
             ></img>
             <div className="pokemonCardName">
-              {props.value.name.charAt(0).toUpperCase() +
-                props.value.name.slice(1)}
+              {(
+                props.value.name.charAt(0).toUpperCase() +
+                props.value.name.slice(1)
+              )
+                .replace("Mr-m", "Mr. M")
+                .replace("-jr", " jr.")
+                .replace("-f", "♀")
+                .replace("-m", "♂")}
             </div>
 
             <div className="pokemonCardTypes">
-              {types != [] ? (
-                types.map((type) => (
-                  <div
-                    className="pokemonType"
-                    style={{ backgroundColor: typeColours[type.type.name] }}
-                  >
-                    {type.type.name.charAt(0).toUpperCase() +
-                      type.type.name.slice(1)}
-                  </div>
-                ))
-              ) : (
-                <div>LOADING</div>
-              )}
+              {types != [] ? displayPokemonTypes() : <div>LOADING</div>}
             </div>
           </div>
         </>
       )}
     </div>
   );
-} //
-//
-/* 
-const [evolutionDetails] = useState(["gender",
-                                      "held_item",
-                                      "item",
-                                      "known_move",
-                                      "known_move_type",
-                                      "location",
-                                      "min_affection",
-                                      "min_beauty",
-                                      "min_happiness",
-                                      "min_level",
-                                      "needs_overworld_rain",
-                                      "party_species",
-                                      "party_type",
-                                      "relative_physical_stats",
-                                      "time_of_day",
-                                      "trade_species"]);
-  const [evolutionMethod, setEvolutionMethod] = useState([])
-
-const checkEvolutionDetails = () => {
-  for (let i = 0; i < evolutionDetails.length; i++) {
-    const item = evolutionDetails[i];
-    console.log(evolutions.evolves_to[0].evolution_details[0][item]);
-    if ( evolutions.evolves_to[0].evolution_details[0][item] === null || evolutions.evolves_to[0].evolution_details[0][item] === undefined || evolutions.evolves_to[0].evolution_details[0][item] === false ) {
-       setEvolutionMethod("")
-    }
-   else {
-     setEvolutionMethod(evolutions.evolves_to[0].evolution_details[0][item]) 
-   }
-  } 
 }
-
-
-
-
-
-
-
-*/
 
 export default PokemonCard;

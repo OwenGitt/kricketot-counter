@@ -10,16 +10,16 @@ function CheckEvolution(props) {
     known_move: "Learn",
     known_move_type: "Learn type",
     location: "Loc.",
-    min_affection: "Affec. ",
-    min_beauty: "Beauty ",
-    min_happiness: "Lv.Up, Hap. ",
+    min_affection: "Affec.",
+    min_beauty: "Beauty",
+    min_happiness: "Lv.Up, Hap.",
     min_level: "Lv.",
     needs_overworld_rain: "Raining",
-    party_species: "Party Spec.",
-    party_type: "Party Type ",
-    relative_physical_stats: "Stat ",
-    time_of_day: "Time ",
-    trade_species: "Trade Spec. ",
+    party_species: "Lvl up with",
+    party_type: "Party Type",
+    relative_physical_stats: "Stat",
+    time_of_day: "Time",
+    trade_species: "Trade Spec.",
   };
 
   const methodsToCheck = [
@@ -58,6 +58,16 @@ function CheckEvolution(props) {
                       .charAt(0)
                       .toUpperCase() +
                     props.evolutionDetails[method].name.slice(1)
+                )
+              : method === "party_species"
+              ? setToReturn(
+                  dict[method] +
+                    " " +
+                    props.evolutionDetails[method].name
+                      .charAt(0)
+                      .toUpperCase() +
+                    props.evolutionDetails[method].name.slice(1) +
+                    " in party"
                 )
               : setToReturn(dict[method] + props.evolutionDetails[method])
             : null

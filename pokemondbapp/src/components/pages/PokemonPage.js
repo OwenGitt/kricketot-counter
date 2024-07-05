@@ -4,6 +4,7 @@ import Search from "../Search";
 import "../styleSheets/pokemonPageStyles.css";
 import Sidebar from "../sidebar/Sidebar";
 import data from "../jsonData/types.json";
+import fairyPokemon from "../jsonData/fairyPokemon.json";
 
 /**
  *
@@ -68,6 +69,8 @@ function PokemonPage(props) {
 
   const handleSidebarClose = () => setSidebarVisible(false);
 
+  const handleSearchClear = () => setSearchTerm("");
+
   const handleClick = () => setClicked(!clicked);
 
   useEffect(() => {
@@ -99,7 +102,13 @@ function PokemonPage(props) {
     fetch(pokemonURL)
       .then((response) => response.json())
       .then((json) => {
-        setTypes(json.types);
+        if (fairyPokemon[json.name]) {
+          setTypes(fairyPokemon[json.name]);
+          console.log(fairyPokemon[json.name]);
+        } else {
+          console.log(json.types);
+          setTypes(json.types);
+        }
         setPokemonID(json.id);
         setSprite(
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/" +
@@ -265,7 +274,8 @@ function PokemonPage(props) {
       .map((a_type, key) =>
         a_type.name === "shadow" ||
         a_type.name === "unknown" ||
-        a_type.name === "colour"
+        a_type.name === "colour" ||
+        a_type.name === "fairy"
           ? null
           : types[1] === undefined
           ? data[types[0].type.name][a_type.name] === 0
@@ -324,7 +334,11 @@ function PokemonPage(props) {
   };
 
   const onOptionChangeHandler = (event) => {
-    setGeneration(generationSelectValues[event.target.value]);
+    if (event.target.value === "Select Generation") {
+      setGeneration(generationSelectValues["Generation 5"]);
+    } else {
+      setGeneration(generationSelectValues[event.target.value]);
+    }
   };
 
   return (
@@ -334,6 +348,7 @@ function PokemonPage(props) {
           searchTerm={searchTerm}
           handler={searchHandler}
           default={"Search for a Pokémon"}
+          handleSearchClear={handleSearchClear}
         />
         <div className="pageButtons">
           {backVisible && (
@@ -359,7 +374,7 @@ function PokemonPage(props) {
         </div>
 
         <select onChange={onOptionChangeHandler} className="generationFilter">
-          <option>Select Generation</option>
+          <option>Select Sprite Generation</option>
           {generationSelectOptions.map((option, index) => {
             return <option key={index}>{option}</option>;
           })}
@@ -397,7 +412,7 @@ function PokemonPage(props) {
         <div
           className="cardContainer"
           style={{
-            width: sidebarVisible && isMobile ? 0 : "70%",
+            width: sidebarVisible && isMobile ? 0 : "65%",
             display: sidebarVisible && isMobile ? "none" : "flex",
           }}
         >

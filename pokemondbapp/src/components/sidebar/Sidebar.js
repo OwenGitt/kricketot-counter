@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import typeColours from "../jsonData/typeColours.json";
 import statNames from "../jsonData/statNames.json";
 import "../styleSheets/SidebarStyles.css";
-
 import Evolutions from "./Evolutions";
+import fairyPokemon from "../jsonData/fairyPokemon.json";
+
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
   const [abilityDataVisible, setAbilityDataVisible] = useState(false);
@@ -83,11 +84,33 @@ function Sidebar(props) {
       });
   }, [props.generation, props.pokemonID]);
 
+  const displayPokemonTypes = () => {
+    if (fairyPokemon[props.pokemonName]) {
+      return fairyPokemon[props.pokemonName].map((type) => (
+        <div
+          className="sidebar_pokemonType"
+          style={{ backgroundColor: typeColours[type.type.name] }}
+        >
+          {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+        </div>
+      ));
+    } else {
+      return props.types.map((type) => (
+        <div
+          className="sidebar_pokemonType"
+          style={{ backgroundColor: typeColours[type.type.name] }}
+        >
+          {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+        </div>
+      ));
+    }
+  };
+
   return (
     <div
       className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
       style={{
-        width: props.visible ? (props.isMobile ? "100%" : "20%") : 0,
+        width: props.visible ? (props.isMobile ? "100%" : "25%") : 0,
         padding: props.visible ? "1%" : 0,
         minWidth: props.visible ? "350px" : 0,
       }}
@@ -103,8 +126,14 @@ function Sidebar(props) {
                 : props.pokemonID < 100
                 ? "0" + props.pokemonID + " "
                 : props.pokemonID + " "}
-              {props.pokemonName.charAt(0).toUpperCase() +
-                props.pokemonName.slice(1)}
+              {(
+                props.pokemonName.charAt(0).toUpperCase() +
+                props.pokemonName.slice(1)
+              )
+                .replace("Mr-m", "Mr. M")
+                .replace("-jr", " jr.")
+                .replace("-f", "♀")
+                .replace("-m", "♂")}
             </h2>
           </div>
           <span className="closeButton" onClick={props.handleSidebarClose}>
@@ -131,18 +160,7 @@ function Sidebar(props) {
             ></img>
           </div>
         </div>
-        <div className="sidebar_pokemonCardTypes">
-          {props.types.map((type) => (
-            <div
-              className="sidebar_pokemonType"
-              style={{ backgroundColor: typeColours[type.type.name] }}
-            >
-              {type.type.name.charAt(0).toUpperCase() +
-                type.type.name.slice(1) +
-                " "}
-            </div>
-          ))}
-        </div>
+        <div className="sidebar_pokemonCardTypes">{displayPokemonTypes()}</div>
 
         <div className="sidebarBody">
           <h4 className="sidebarDescriptionTitle">Description</h4>
@@ -174,22 +192,22 @@ function Sidebar(props) {
           </div>
 
           <h4 className="sidebarEvosTitle">Evolutions</h4>
-          <div className="pokemon_Evolution_Container">
-            {props.evolutions.length !== 0 ? (
-              props.evolutions.evolves_to.length >= 1 ? (
-                <Evolutions
-                  evolutions={props.evolutions}
-                  fetchData={props.fetchData}
-                ></Evolutions>
-              ) : (
+          {props.evolutions.length !== 0 ? (
+            props.evolutions.evolves_to.length >= 1 ? (
+              <Evolutions
+                evolutions={props.evolutions}
+                fetchData={props.fetchData}
+              ></Evolutions>
+            ) : (
+              <div className="pokemon_Evolution_Container">
                 <div className="pokemon_NO_Evolution_Box">
                   This pokemon has no evolutions in generations 1-5
                 </div>
-              )
-            ) : (
-              <div>LOADING</div>
-            )}
-          </div>
+              </div>
+            )
+          ) : (
+            <div>LOADING</div>
+          )}
 
           <div>
             <h4 className="sidebarAbilitiesTitle">Abilities</h4>
