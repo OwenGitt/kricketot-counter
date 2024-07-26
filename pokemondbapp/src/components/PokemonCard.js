@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import typeColours from "./jsonData/typeColours.json";
-import fairyPokemon from "./jsonData/fairyPokemon.json";
+import typeColours from "./json_data/typeColours.json";
+import fairyPokemon from "./json_data/fairyPokemon.json";
 import "./styleSheets/pokemonCardStyles.css";
 
 /**
@@ -91,8 +91,26 @@ function PokemonCard(props) {
     }
   };
 
+  const formatPokemonNames = (name) => {
+    // Format Pokemon names to have capitals at the start and remove dashes
+    return (
+      name.charAt(0).toUpperCase() +
+      name
+        .slice(1)
+        .replace("r-m", "r. M")
+        .replace("-jr", " jr.")
+        .replace("-f", "♀")
+        .replace("-m", "♂")
+        .replace("-ordinary", "")
+        .replace("-incarnate", "")
+        .replace("-aria", "")
+        .replace("-land", "")
+        .replace("-altered", "")
+    );
+  };
+
   return (
-    <div>
+    <>
       {initialisePokemonCardData()}
       {!completed ? (
         <>{loading !== false && <div className="pokemonCard"></div>}</>
@@ -140,14 +158,7 @@ function PokemonCard(props) {
               loading="lazy"
             ></img>
             <div className="pokemonCardName">
-              {(
-                props.value.name.charAt(0).toUpperCase() +
-                props.value.name.slice(1)
-              )
-                .replace("Mr-m", "Mr. M")
-                .replace("-jr", " jr.")
-                .replace("-f", "♀")
-                .replace("-m", "♂")}
+              {formatPokemonNames(props.value.name)}
             </div>
 
             <div className="pokemonCardTypes">
@@ -156,7 +167,7 @@ function PokemonCard(props) {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 }
 

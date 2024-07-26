@@ -7,7 +7,6 @@
   overflow-x: hidden;
   position: relative;
   transition: width 0.6s;
-  width: 0;
 }
 
 .hideSidebarContainer {
@@ -20,7 +19,6 @@
   overflow-x: hidden;
   position: relative;
   transition: width 0.3s;
-  width: 0;
 }
 
 .sidebarContents {
@@ -187,31 +185,19 @@
   justify-content: center;
 }
 
-.sidebarAbilitiesTitle,
-.sidebarDescriptionTitle,
-.sidebarEvosTitle,
-.sidebarHWTitle,
-.sidebarITitle,
-.sidebarNETitle,
-.sidebarNVETitle,
-.sidebarSETitle,
-.sidebarStatsTitle,
-.sidebarTypeMTitle {
+.sidebarHeader {
   color: #fdeebc;
   font-size: 26px;
-  transition: 0.5s;
+}
+
+.sidebarSubHeader {
+  color: #fdeebc;
+  font-size: 24px;
 }
 
 .sidebarDescription {
   color: #fdeebc;
   margin-bottom: 5%;
-  transition: 0.5s;
-}
-
-.sidebarStatsTitle {
-  border-radius: 30px;
-  padding: 5px;
-  text-align: center;
   transition: 0.5s;
 }
 

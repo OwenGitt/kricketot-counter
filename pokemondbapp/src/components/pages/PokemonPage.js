@@ -3,8 +3,8 @@ import DataCard from "../DataCard";
 import Search from "../Search";
 import "../styleSheets/pokemonPageStyles.css";
 import Sidebar from "../sidebar/Sidebar";
-import data from "../jsonData/types.json";
-import fairyPokemon from "../jsonData/fairyPokemon.json";
+import data from "../json_data/types.json";
+import fairyPokemon from "../json_data/fairyPokemon.json";
 
 /**
  *
@@ -14,7 +14,7 @@ import fairyPokemon from "../jsonData/fairyPokemon.json";
  */
 function PokemonPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [UpperLimit, setUpper] = useState(102);
+  const [UpperLimit, setUpper] = useState(100);
   const [LowerLimit, setLower] = useState(0);
   const [backVisible, setBackVisible] = useState(false);
   const [nextVisible, setNextVisible] = useState(true);
@@ -106,7 +106,6 @@ function PokemonPage(props) {
           setTypes(fairyPokemon[json.name]);
           console.log(fairyPokemon[json.name]);
         } else {
-          console.log(json.types);
           setTypes(json.types);
         }
         setPokemonID(json.id);
@@ -144,7 +143,7 @@ function PokemonPage(props) {
     setNextVisible(buttonsVisible);
     if (props.pokemon.filter(searchPokemon).length < UpperLimit) {
       setBackVisible(false);
-      setUpper(102);
+      setUpper(100);
       setLower(0);
       setPageNum(0);
     }
@@ -184,8 +183,8 @@ function PokemonPage(props) {
 
   const showMorePokemon = () => {
     setPageNum(pageNum + 1);
-    setUpper(UpperLimit + 102);
-    setLower(LowerLimit + 102);
+    setUpper(UpperLimit + 100);
+    setLower(LowerLimit + 100);
     setBackVisible(true);
     if (UpperLimit === 612) {
       setNextVisible(false);
@@ -193,11 +192,11 @@ function PokemonPage(props) {
   };
 
   const showLessPokemon = () => {
-    setUpper(UpperLimit - 102);
-    setLower(LowerLimit - 102);
+    setUpper(UpperLimit - 100);
+    setLower(LowerLimit - 100);
     setPageNum(pageNum - 1);
     setNextVisible(true);
-    if (LowerLimit === 102) {
+    if (LowerLimit === 100) {
       setBackVisible(false);
     }
   };
@@ -225,7 +224,7 @@ function PokemonPage(props) {
         fetchEvolutions(json.evolution_chain.url);
       })
       .catch((e) => {
-        console.log(e.message);
+        console.log("fetchEvolutionChain() -> ".e.message);
       });
   };
 
@@ -236,7 +235,7 @@ function PokemonPage(props) {
         setEvolutions(json.chain);
       })
       .catch((e) => {
-        console.log(e.message);
+        console.log("fetchEvolutions() -> ".e.message);
       });
   };
 

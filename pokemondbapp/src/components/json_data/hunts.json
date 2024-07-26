@@ -181,7 +181,7 @@
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "LeafGreen Badge Quest - Squirtle",
+      "Name": "LeafGreen Badge Quest (1) - Squirtle",
       "Target": "squirtle",
       "Shinies": [{ "Name": "squirtle", "Encounters": "231", "ID": "7" }],
       "Total_Encounters": "231",
@@ -195,9 +195,39 @@
       "Target": "scyther",
       "Shinies": [{ "Name": "scyther", "Encounters": "973", "ID": "123" }],
       "Total_Encounters": "973",
-      "Location": "FireRed/LeafGreen Game Corner",
-      "Generation": "4",
+      "Location": "FireRed Game Corner",
+      "Generation": "3",
       "Method": "Soft Reset",
+      "Generation-URL": "generation-iii/firered-leafgreen"
+    },
+    {
+      "Name": "LeafGreen Badge Quest (2) - Spearow",
+      "Target": "mankey",
+      "Shinies": [{ "Name": "spearow", "Encounters": "14340", "ID": "21" }],
+      "Total_Encounters": "14340",
+      "Location": "LeafGreen Route 22",
+      "Generation": "3",
+      "Method": "Random Encounters",
+      "Generation-URL": "generation-iii/firered-leafgreen"
+    },
+    {
+      "Name": "LeafGreen Badge Quest (3) - Bellsprout",
+      "Target": "bellsprout",
+      "Shinies": [{ "Name": "bellsprout", "Encounters": "905", "ID": "69" }],
+      "Total_Encounters": "905",
+      "Location": "LeafGreen Route 5",
+      "Generation": "3",
+      "Method": "Random Encounters",
+      "Generation-URL": "generation-iii/firered-leafgreen"
+    },
+    {
+      "Name": "LeafGreen Badge Quest (4) - Pinsir",
+      "Target": "pinsir",
+      "Shinies": [{ "Name": "pinsir", "Encounters": "2130", "ID": "127" }],
+      "Total_Encounters": "2130",
+      "Location": "LeafGreen Game Corner",
+      "Generation": "3",
+      "Method": "Random Encounters",
       "Generation-URL": "generation-iii/firered-leafgreen"
     }
   ]

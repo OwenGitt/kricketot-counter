@@ -98,12 +98,14 @@ function Evolutions(props) {
   };
 
   const renderEvolutionDetails = (evolutionDetails, evolvesTo) => {
-    return (
-      <>
-        {renderEvolutionMethod(evolutionDetails)}
-        {renderEvolutionBox(evolvesTo)}
-      </>
-    );
+    if (checkEvolutionGeneration(evolvesTo.species.url) !== false) {
+      return (
+        <>
+          {renderEvolutionMethod(evolutionDetails)}
+          {renderEvolutionBox(evolvesTo)}
+        </>
+      );
+    }
   };
 
   const checkEvolutionGeneration = (url) => {
@@ -116,9 +118,11 @@ function Evolutions(props) {
     }
   };
 
-  return (
+  return props.evolutions.species.name !== "eevee" &&
+    props.evolutions.species.name !== "tyrogue" ? (
     <div className="pokemon_Evolution_Container">
       {/* Display first pokemon in evolution line */}
+
       <div
         className="pokemon_Evolution_Box"
         onClick={() =>
@@ -165,6 +169,29 @@ function Evolutions(props) {
             props.evolutions.evolves_to[0].evolves_to[1]
           )
         : null}
+    </div>
+  ) : (
+    <div className="pokemon_Evolution_Container">
+      {/* Display first pokemon in evolution line */}
+      <div
+        className="pokemon_Evolution_Box"
+        onClick={() =>
+          props.fetchData(
+            "https://pokeapi.co/api/v2/pokemon/" + props.evolutions.species.name
+          )
+        }
+      >
+        {props.evolutions.species.name.charAt(0).toUpperCase() +
+          props.evolutions.species.name.slice(1)}
+      </div>
+      <div>
+        {props.evolutions.evolves_to.map((value, index) =>
+          renderEvolutionDetails(
+            props.evolutions.evolves_to[index].evolution_details[0],
+            props.evolutions.evolves_to[index]
+          )
+        )}
+      </div>
     </div>
   );
 }

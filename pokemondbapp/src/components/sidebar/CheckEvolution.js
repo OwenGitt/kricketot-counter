@@ -3,23 +3,33 @@ import { useEffect, useState } from "react";
 function CheckEvolution(props) {
   const [toReturn, setToReturn] = useState("");
 
+  const replaceText = (text) => {
+    // Sort out text for tyrogue evolutions
+    return text
+      .replace("Stat 1", "Lvl 20 & Atk > Def")
+      .replace("Stat -1", "Lvl 20 & Atk < Def")
+      .replace("Stat 0", "Lvl 20 & Atk = Def")
+      .replace("Loc. Eterna-forest", "Lvl up near Moss Rock")
+      .replace("Loc. Sinnoh-route-217", "Lvl up near Ice Rock");
+  };
+
   const dict = {
-    gender: "Gender",
-    held_item: "Trade",
+    gender: "Gender ",
+    held_item: "Trade ",
     item: null,
-    known_move: "Learn",
-    known_move_type: "Learn type",
-    location: "Loc.",
-    min_affection: "Affec.",
-    min_beauty: "Beauty",
-    min_happiness: "Lv.Up, Hap.",
-    min_level: "Lv.",
-    needs_overworld_rain: "Raining",
-    party_species: "Lvl up with",
-    party_type: "Party Type",
-    relative_physical_stats: "Stat",
-    time_of_day: "Time",
-    trade_species: "Trade Spec.",
+    known_move: "Learn ",
+    known_move_type: "Learn type ",
+    location: "Loc. ",
+    min_affection: "Affec. ",
+    min_beauty: "Beauty ",
+    min_happiness: "Lv.Up, Hap. ",
+    min_level: "Lv. ",
+    needs_overworld_rain: "Raining ",
+    party_species: "Lvl up with ",
+    party_type: "Party Type ",
+    relative_physical_stats: "Stat ",
+    time_of_day: "Time ",
+    trade_species: "Trade Spec. ",
   };
 
   const methodsToCheck = [
@@ -73,6 +83,8 @@ function CheckEvolution(props) {
             : null
         );
   }, [props.evolutionDetails]);
-  return <div className="pokemon_Evolution_Method_Box">{toReturn}</div>;
+  return (
+    <div className="pokemon_Evolution_Method_Box">{replaceText(toReturn)}</div>
+  );
 }
 export default CheckEvolution;

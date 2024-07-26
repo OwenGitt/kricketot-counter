@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import typeColours from "../jsonData/typeColours.json";
-import statNames from "../jsonData/statNames.json";
+import typeColours from "../json_data/typeColours.json";
+import statNames from "../json_data/statNames.json";
 import "../styleSheets/SidebarStyles.css";
 import Evolutions from "./Evolutions";
-import fairyPokemon from "../jsonData/fairyPokemon.json";
+import fairyPokemon from "../json_data/fairyPokemon.json";
 
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
@@ -11,6 +11,7 @@ function Sidebar(props) {
   const [locationData, setLocationData] = useState([]);
   const [normalSprite, setNormalSprite] = useState("");
   const [shinySprite, setShinySprite] = useState("");
+  const [femaleSprite, setFemaleSprite] = useState("");
 
   const fetchAbilityData = (name) => {
     fetch("https://pokeapi.co/api/v2/ability/" + name)
@@ -77,6 +78,11 @@ function Sidebar(props) {
               Object.keys(json.sprites.versions[props.generation])[0]
             ].animated.front_shiny
           );
+          setFemaleSprite(
+            json.sprites.versions[props.generation][
+              Object.keys(json.sprites.versions[props.generation])[0]
+            ].animated.front_female
+          );
         }
       })
       .catch((e) => {
@@ -106,17 +112,33 @@ function Sidebar(props) {
     }
   };
 
+  const formatPokemonNames = (name) => {
+    // Format Pokemon names to have capitals at the start and remove dashes
+    return (
+      name.charAt(0).toUpperCase() +
+      name
+        .slice(1)
+        .replace("r-m", "r. M")
+        .replace("-jr", " jr.")
+        .replace("-f", "♀")
+        .replace("-m", "♂")
+        .replace("-ordinary", "")
+        .replace("-incarnate", "")
+        .replace("-aria", "")
+        .replace("-land", "")
+        .replace("-altered", "")
+    );
+  };
+
   return (
     <div
       className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
       style={{
         width: props.visible ? (props.isMobile ? "100%" : "25%") : 0,
         padding: props.visible ? "1%" : 0,
-        minWidth: props.visible ? "350px" : 0,
       }}
     >
       <div className="sidebarContents">
-        <span></span>
         <div className="sidebarHeader">
           <div className="sidebarTitle">
             <h2 className="sidebarTitle-h2">
@@ -126,14 +148,7 @@ function Sidebar(props) {
                 : props.pokemonID < 100
                 ? "0" + props.pokemonID + " "
                 : props.pokemonID + " "}
-              {(
-                props.pokemonName.charAt(0).toUpperCase() +
-                props.pokemonName.slice(1)
-              )
-                .replace("Mr-m", "Mr. M")
-                .replace("-jr", " jr.")
-                .replace("-f", "♀")
-                .replace("-m", "♂")}
+              {formatPokemonNames(props.pokemonName)}
             </h2>
           </div>
           <span className="closeButton" onClick={props.handleSidebarClose}>
@@ -141,6 +156,13 @@ function Sidebar(props) {
           </span>
 
           <div>
+            <img
+              src={normalSprite}
+              alt={
+                props.pokemonName.charAt(0).toUpperCase() +
+                props.pokemonName.slice(1)
+              }
+            ></img>
             {shinySprite !== undefined ? (
               <img
                 src={shinySprite}
@@ -151,24 +173,17 @@ function Sidebar(props) {
                 }
               ></img>
             ) : null}
-            <img
-              src={normalSprite}
-              alt={
-                props.pokemonName.charAt(0).toUpperCase() +
-                props.pokemonName.slice(1)
-              }
-            ></img>
           </div>
         </div>
         <div className="sidebar_pokemonCardTypes">{displayPokemonTypes()}</div>
 
         <div className="sidebarBody">
-          <h4 className="sidebarDescriptionTitle">Description</h4>
+          <h4 className="sidebarHeader">Description</h4>
           <div className="sidebarDescription">
             {props.flavourText !== "" ? props.flavourText : <div>LOADING</div>}
           </div>
 
-          <h4 className="sidebarStatsTitle">Stats</h4>
+          <h4 className="sidebarHeader">Stats</h4>
           <div className="statContainer">
             {props.stats.map((stat, key) => (
               <div key={key} className="statBox">
@@ -191,7 +206,7 @@ function Sidebar(props) {
             </div>
           </div>
 
-          <h4 className="sidebarEvosTitle">Evolutions</h4>
+          <h4 className="sidebarHeader">Evolutions</h4>
           {props.evolutions.length !== 0 ? (
             props.evolutions.evolves_to.length >= 1 ? (
               <Evolutions
@@ -200,8 +215,17 @@ function Sidebar(props) {
               ></Evolutions>
             ) : (
               <div className="pokemon_Evolution_Container">
-                <div className="pokemon_NO_Evolution_Box">
-                  This pokemon has no evolutions in generations 1-5
+                <div
+                  className="pokemon_Evolution_Box"
+                  onClick={() =>
+                    props.fetchData(
+                      "https://pokeapi.co/api/v2/pokemon/" +
+                        props.evolutions.species.name
+                    )
+                  }
+                >
+                  {props.evolutions.species.name.charAt(0).toUpperCase() +
+                    props.evolutions.species.name.slice(1)}
                 </div>
               </div>
             )
@@ -210,7 +234,7 @@ function Sidebar(props) {
           )}
 
           <div>
-            <h4 className="sidebarAbilitiesTitle">Abilities</h4>
+            <h4 className="sidebarHeader">Abilities</h4>
             <div className="abilityContainer">
               {props.abilities.map((ability, key) => (
                 <div
@@ -233,7 +257,7 @@ function Sidebar(props) {
             ) : null}
           </div>
 
-          <h4 className="sidebarHWTitle">Height & Weight</h4>
+          <h4 className="sidebarHeader">Height & Weight</h4>
           <div className="pokemon_height_weight_container">
             <div className="pokemon_height_weight_box" key="height">
               {props.pokemonHeight / 10 + "m"}
@@ -243,10 +267,35 @@ function Sidebar(props) {
             </div>
           </div>
 
-          <h4 className="sidebarTypeMTitle">Type Matchups</h4>
+          {normalSprite && femaleSprite ? (
+            <div>
+              <h4 className="sidebarHeader">Gender Differences</h4>
+              <div className="genderDifferences">
+                <div>
+                  <img
+                    src={normalSprite}
+                    alt={
+                      props.pokemonName.charAt(0).toUpperCase() +
+                      props.pokemonName.slice(1)
+                    }
+                  ></img>
+                  <img
+                    src={femaleSprite}
+                    alt={
+                      "Female " +
+                      props.pokemonName.charAt(0).toUpperCase() +
+                      props.pokemonName.slice(1)
+                    }
+                  ></img>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          <h4 className="sidebarHeader">Type Matchups</h4>
 
           <div className="typeMatchupsContainer">
-            <h5 className="sidebarSETitle">Super Effective</h5>
+            <h5 className="sidebarSubHeader">Super Effective</h5>
             <div className="typeMatchupsContainer-column" id="superEffective">
               {props.ultraEffective.map((a_type, key) => (
                 <div
@@ -269,7 +318,7 @@ function Sidebar(props) {
               ))}
             </div>
 
-            <h5 className="sidebarNETitle">Normal Effective</h5>
+            <h5 className="sidebarSubHeader">Normal Effective</h5>
             <div className="typeMatchupsContainer-column" id="normalEffective">
               {props.normalEffective.map((a_type, key) => (
                 <div
@@ -281,7 +330,7 @@ function Sidebar(props) {
                 </div>
               ))}
             </div>
-            <h5 className="sidebarNVETitle">Not Very Effective</h5>
+            <h5 className="sidebarSubHeader">Not Very Effective</h5>
             {props.notEffective.length === 0 &&
             props.doubleUneffective.length === 0 ? (
               <div className="emptyTypeMatchupList"> None </div>
@@ -313,7 +362,7 @@ function Sidebar(props) {
               </div>
             )}
 
-            <h5 className="sidebarITitle">Immunities</h5>
+            <h5 className="sidebarSubHeader">Immunities</h5>
             <div className="typeMatchupsContainer-column" id="immune">
               {props.inEffective.length === 0 ? (
                 <div className="emptyTypeMatchupList"> None </div>

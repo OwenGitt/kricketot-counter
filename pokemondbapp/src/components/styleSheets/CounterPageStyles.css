@@ -11,19 +11,33 @@
   overflow-y: auto;
 }
 
+.counterContainer {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    padding: 0 0 20px;
+    font-size: 100px;
+    font-weight: 500;
+  }
+}
+
 .counter {
   width: 500px;
   height: 500px;
-  background-color: aqua;
+  background-color: #dc6b4b;
   font-size: 300px;
   font-weight: bold;
   border-radius: 50%;
-  color: aliceblue;
-  visibility: hidden;
+  color: #000;
+}
+
+.counter::after {
+  content: "+1";
 }
 
 .counter:hover {
   cursor: pointer;
-  background-color: rgb(2, 192, 192);
   color: rgb(194, 200, 206);
 }

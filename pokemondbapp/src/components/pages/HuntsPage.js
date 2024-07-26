@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styleSheets/HuntsPageStyles.css";
-import hunts from "../jsonData/hunts.json";
+import hunts from "../json_data/hunts.json";
 import HuntCard from "../HuntCard";
 
 function HuntsPage() {
@@ -15,11 +15,7 @@ function HuntsPage() {
 
   const allHunts = hunts["hunts"].map((value, index) => (
     <section key={index} className="huntCardSection">
-      <div className="huntsRow">
-        <div className="huntsColumn">
-          <HuntCard value={value} passHuntData={passHuntData} />
-        </div>
-      </div>
+      <HuntCard value={value} passHuntData={passHuntData} />
     </section>
   ));
 

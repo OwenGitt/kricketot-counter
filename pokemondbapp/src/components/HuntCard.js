@@ -1,12 +1,6 @@
 /**
  *
- * 
- *  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/" +
-            props.value["Generation-URL"] +
-            "/shiny/" +
-            json.id +
-            ".png"
- * 
+ *
  * @author Owen Gittins
  */
 
