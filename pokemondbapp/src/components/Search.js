@@ -22,9 +22,11 @@ function Search(props) {
         placeholder={props.default}
         className="searchBar"
       />
-      <span className="searchClear" onClick={props.handleSearchClear}>
-        &#10005;
-      </span>
+      {props.searchTerm && (
+        <span className="searchClear" onClick={props.handleSearchClear}>
+          &#10005;
+        </span>
+      )}
     </div>
   );
 }

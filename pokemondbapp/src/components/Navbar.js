@@ -45,7 +45,7 @@ function Navbar(props) {
   return (
     <ul className={`customul ${hidden && "hidden"}`}>
       <li className="titleli">
-        <NavLink to="/">Kricketot Counter</NavLink>
+        <NavLink to="/">2Ddex</NavLink>
       </li>
       <li>
         <NavLink to="/">Pokedex</NavLink>

@@ -1,0 +1,64 @@
+import React, { useEffect, useState } from "react";
+import typeColours from "../json_data/typeColours.json";
+import statNames from "../json_data/statNames.json";
+import "../styleSheets/SidebarStyles.css";
+import Evolutions from "./Evolutions";
+import fairyPokemon from "../json_data/fairyPokemon.json";
+
+function HuntSidebar(props) {
+  const [shinySprite, setShinySprite] = useState("");
+
+  const formatPokemonNames = (name) => {
+    // Format Pokemon names to have capitals at the start and remove dashes
+    return (
+      name.charAt(0).toUpperCase() +
+      name
+        .slice(1)
+        .replace("r-m", "r. M")
+        .replace("-jr", " jr.")
+        .replace("-f", "♀")
+        .replace("-m", "♂")
+        .replace("-ordinary", "")
+        .replace("-incarnate", "")
+        .replace("-aria", "")
+        .replace("-land", "")
+        .replace("-altered", "")
+    );
+  };
+
+  return (
+    <div
+      className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
+      style={{
+        width: props.visible ? (props.isMobile ? "100%" : "25%") : 0,
+        padding: props.visible ? "1%" : 0,
+      }}
+    >
+      <div className="sidebarContents">
+        <span></span>
+        <div className="sidebarHeader">
+          <div className="sidebarTitle">
+            <h2 className="sidebarTitle-h2">HUNT NAME</h2>
+            <span>Generation & Location</span>
+          </div>
+          <span className="closeButton" onClick={props.handleSidebarClose}>
+            &#10005;
+          </span>
+        </div>
+        <div className="sidebar_pokemonCardTypes">{displayPokemonTypes()}</div>
+
+        <div className="sidebarBody">
+          <h4 className="sidebarHeader">Target</h4>
+
+          <h4 className="sidebarHeader">Total Encounters</h4>
+
+          <h4 className="sidebarHeader">Shinies Encountered</h4>
+
+          <h4 className="sidebarHeader">Possible Encounters</h4>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default HuntSidebar;

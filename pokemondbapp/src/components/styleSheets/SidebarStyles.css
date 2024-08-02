@@ -165,9 +165,9 @@
   vertical-align: middle;
 }
 
-.pokemon_Evolution_Method_Box {
+.pokemon_Evolution_Method_Box,
+.pokemon_Inner_Evolution_Method_Box {
   align-items: center;
-  border-radius: 25px;
   color: rgb(241, 241, 241);
   display: flex;
   flex-direction: column;
@@ -175,14 +175,17 @@
   font-size: 12px;
   font-weight: 600;
   height: auto;
-  margin: 1px;
   max-width: 70px;
   min-width: 40px;
   opacity: 0.8;
-  padding: 6px;
   text-align: center;
   transition: 0.5s;
   justify-content: center;
+}
+
+.pokemon_Evolution_Method_Box {
+  margin: 1px;
+  padding: 6px 6px 0 6px;
 }
 
 .sidebarHeader {

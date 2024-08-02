@@ -4,22 +4,11 @@ import CheckEvolution from "./CheckEvolution";
 function Evolutions(props) {
   const renderEvolutionMethod = (evolutionDetails) => {
     if (evolutionDetails !== null && evolutionDetails !== undefined) {
-      if (evolutionDetails.item !== null) {
-        return <EvolutionItem method={"Use"} url={evolutionDetails.item.url} />;
-      } else if (evolutionDetails.held_item !== null) {
-        return (
-          <EvolutionItem
-            method={"Trade"}
-            url={evolutionDetails.held_item.url}
-          />
-        );
-      } else {
-        return <CheckEvolution evolutionDetails={evolutionDetails} />;
-      }
+      return <CheckEvolution evolutionDetails={evolutionDetails} />;
     } else if (evolutionDetails !== null) {
       return (
         <div className="pokemon_Evolution_Method_Box">
-          {"<- Breed with Ditto"}
+          {"← Breed with Ditto"}
         </div>
       );
     }
@@ -117,6 +106,8 @@ function Evolutions(props) {
       return true;
     }
   };
+
+  console.log(props.evolutions);
 
   return props.evolutions.species.name !== "eevee" &&
     props.evolutions.species.name !== "tyrogue" ? (

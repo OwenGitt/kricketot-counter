@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function EvolutionItem(props) {
   const [itemSprite, setItemSprite] = useState("");
+
   fetch(props.url)
     .then((response) => response.json())
     .then((json) => {
@@ -12,7 +13,7 @@ function EvolutionItem(props) {
     });
 
   return (
-    <div className="pokemon_Evolution_Method_Box">
+    <div className="pokemon_Inner_Evolution_Method_Box">
       <img src={itemSprite}></img>
       {props.method}
     </div>
