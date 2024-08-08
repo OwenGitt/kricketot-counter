@@ -12,6 +12,7 @@ function Sidebar(props) {
   const [normalSprite, setNormalSprite] = useState("");
   const [shinySprite, setShinySprite] = useState("");
   const [femaleSprite, setFemaleSprite] = useState("");
+  const [femaleShinySprite, setFemaleShinySprite] = useState("");
 
   const fetchAbilityData = (name) => {
     fetch("https://pokeapi.co/api/v2/ability/" + name)
@@ -83,6 +84,11 @@ function Sidebar(props) {
               Object.keys(json.sprites.versions[props.generation])[0]
             ].animated.front_female
           );
+          setFemaleShinySprite(
+            json.sprites.versions[props.generation][
+              Object.keys(json.sprites.versions[props.generation])[0]
+            ].animated.front_shiny_female
+          );
         }
       })
       .catch((e) => {
@@ -127,6 +133,9 @@ function Sidebar(props) {
         .replace("-aria", "")
         .replace("-land", "")
         .replace("-altered", "")
+        .replace("standard", "")
+        .replace("red-striped", "")
+        .replace("-", " ")
     );
   };
 
@@ -283,6 +292,24 @@ function Sidebar(props) {
                     src={femaleSprite}
                     alt={
                       "Female " +
+                      props.pokemonName.charAt(0).toUpperCase() +
+                      props.pokemonName.slice(1)
+                    }
+                  ></img>
+                </div>
+                <div>
+                  <img
+                    src={shinySprite}
+                    alt={
+                      "Male Shiny " +
+                      props.pokemonName.charAt(0).toUpperCase() +
+                      props.pokemonName.slice(1)
+                    }
+                  ></img>
+                  <img
+                    src={femaleShinySprite}
+                    alt={
+                      "Female Shiny " +
                       props.pokemonName.charAt(0).toUpperCase() +
                       props.pokemonName.slice(1)
                     }

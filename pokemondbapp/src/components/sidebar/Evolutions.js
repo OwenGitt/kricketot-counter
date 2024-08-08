@@ -107,8 +107,6 @@ function Evolutions(props) {
     }
   };
 
-  console.log(props.evolutions);
-
   return props.evolutions.species.name !== "eevee" &&
     props.evolutions.species.name !== "tyrogue" ? (
     <div className="pokemon_Evolution_Container">

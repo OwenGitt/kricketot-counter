@@ -92,7 +92,8 @@ function PokemonCard(props) {
   };
 
   const formatPokemonNames = (name) => {
-    // Format Pokemon names to have capitals at the start and remove dashes
+    // Format Pokemon names to have capitals at the start and remove dashes.
+    // Also sort out certain pokemon names to display correctly.
     return (
       name.charAt(0).toUpperCase() +
       name
@@ -106,6 +107,9 @@ function PokemonCard(props) {
         .replace("-aria", "")
         .replace("-land", "")
         .replace("-altered", "")
+        .replace("standard", "")
+        .replace("red-striped", "")
+        .replace("-", " ")
     );
   };
 

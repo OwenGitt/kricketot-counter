@@ -22,16 +22,16 @@ function CheckEvolution(props) {
     item: "",
     known_move: "Learn ",
     known_move_type: "Learn type ",
-    location: "Lvl up at ",
+    location: "Level up at ",
     min_affection: "Affec. ",
     min_beauty: "Beauty ",
-    min_happiness: "Lvl up with happiness ",
+    min_happiness: "Level up with high happiness ",
     min_level: "Lv. ",
     needs_overworld_rain: "Raining ",
-    party_species: "Lvl up with ",
+    party_species: "Level up with ",
     party_type: "Party type ",
     relative_physical_stats: "Stat ",
-    time_of_day: "Time ",
+    time_of_day: "time",
     trade_species: "Trade spec. ",
   };
 
@@ -54,8 +54,6 @@ function CheckEvolution(props) {
     "trade_species",
   ];
 
-  console.log(props.evolutionDetails);
-
   useEffect(() => {
     const evolutionDetails = [];
 
@@ -65,19 +63,32 @@ function CheckEvolution(props) {
         props.evolutionDetails[method] !== false &&
         props.evolutionDetails[method] !== ""
       ) {
-        if (method === "trade") {
-          evolutionDetails.push(
-            <EvolutionItem
-              key={method}
-              method={"Trade"}
-              url={props.evolutionDetails.held_item.url}
-            />
-          );
+        if (method === "held_item") {
+          if (props.evolutionDetails.trigger.name === "level-up") {
+            evolutionDetails.push(
+              <EvolutionItem
+                key={method}
+                method={
+                  "Level up holding " +
+                  props.evolutionDetails.held_item.name.replace("-", " ")
+                }
+                url={props.evolutionDetails.held_item.url}
+              />
+            );
+          } else {
+            evolutionDetails.push(
+              <EvolutionItem
+                key={method}
+                method={"Trade"}
+                url={props.evolutionDetails.held_item.url}
+              />
+            );
+          }
         } else if (method === "item") {
           evolutionDetails.push(
             <EvolutionItem
               key={method}
-              method={""}
+              method={"Use"}
               url={props.evolutionDetails.item.url}
             />
           );
@@ -92,7 +103,7 @@ function CheckEvolution(props) {
               dict[method] +
                 " " +
                 props.evolutionDetails[method].name.charAt(0).toUpperCase() +
-                props.evolutionDetails[method].name.slice(1)
+                props.evolutionDetails[method].name.slice(1).replace("-", " ")
             )
           );
         } else if (method === "party_species") {
@@ -105,6 +116,16 @@ function CheckEvolution(props) {
                 " in party"
             )
           );
+        } else if (method === "time_of_day") {
+          evolutionDetails.push(
+            replaceText("at " + props.evolutionDetails[method])
+          );
+        } else if (method === "min_happiness") {
+          evolutionDetails.push(
+            replaceText(
+              dict[method] + " (" + props.evolutionDetails[method] + ")"
+            )
+          );
         } else {
           evolutionDetails.push(
             replaceText(dict[method] + props.evolutionDetails[method])
@@ -113,8 +134,33 @@ function CheckEvolution(props) {
       }
     });
 
+    if (
+      props.evolutionDetails.trigger.name === "trade" &&
+      evolutionDetails.length === 0
+    ) {
+      evolutionDetails.push(replaceText("Trade"));
+    }
+
+    if (
+      props.evolutionDetails.trigger.name === "shed" &&
+      evolutionDetails.length === 0
+    ) {
+      evolutionDetails.push(replaceText("Poké Ball in bag and space in party"));
+    }
+
     if (evolutionDetails.length === 2) {
-      evolutionDetails[0] = evolutionDetails[0] + " + ";
+      if (typeof evolutionDetails[1] === "string") {
+        if (
+          evolutionDetails[1].includes("day") ||
+          evolutionDetails[1].includes("night")
+        ) {
+          evolutionDetails[1] = " " + evolutionDetails[1];
+        } else {
+          evolutionDetails[1] = " + " + evolutionDetails[1];
+        }
+      } else {
+        evolutionDetails[0] = evolutionDetails[0] + " + ";
+      }
     }
 
     setToReturn(evolutionDetails);

@@ -175,9 +175,8 @@
   font-size: 12px;
   font-weight: 600;
   height: auto;
-  max-width: 70px;
+  max-width: 90px;
   min-width: 40px;
-  opacity: 0.8;
   text-align: center;
   transition: 0.5s;
   justify-content: center;
@@ -186,6 +185,8 @@
 .pokemon_Evolution_Method_Box {
   margin: 1px;
   padding: 6px 6px 0 6px;
+  opacity: 0.8;
+  min-height: 40px;
 }
 
 .sidebarHeader {

@@ -104,7 +104,6 @@ function PokemonPage(props) {
       .then((json) => {
         if (fairyPokemon[json.name]) {
           setTypes(fairyPokemon[json.name]);
-          console.log(fairyPokemon[json.name]);
         } else {
           setTypes(json.types);
         }
@@ -186,7 +185,7 @@ function PokemonPage(props) {
     setUpper(UpperLimit + 100);
     setLower(LowerLimit + 100);
     setBackVisible(true);
-    if (UpperLimit === 612) {
+    if (UpperLimit === 600) {
       setNextVisible(false);
     }
   };
