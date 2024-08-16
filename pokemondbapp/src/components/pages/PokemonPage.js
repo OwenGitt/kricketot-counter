@@ -39,7 +39,6 @@ function PokemonPage(props) {
   const [ultraEffective, setUltraEffective] = useState([]);
   const [inEffective, setIneffective] = useState([]);
   const [doubleUneffective, setDoubleUneffective] = useState([]);
-  const [clicked, setClicked] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [generation, setGeneration] = useState("generation-v");
   const [generationTotals] = useState({
@@ -70,8 +69,6 @@ function PokemonPage(props) {
   const handleSidebarClose = () => setSidebarVisible(false);
 
   const handleSearchClear = () => setSearchTerm("");
-
-  const handleClick = () => setClicked(!clicked);
 
   useEffect(() => {
     setTimeout(() => {
@@ -126,7 +123,6 @@ function PokemonPage(props) {
         fetchFlavourText(json.id);
         fetchEvolutionChain(json.id);
         getPokemonData(json.stats);
-        handleClick();
       })
       .catch((e) => {
         console.log(e.message);
@@ -214,7 +210,7 @@ function PokemonPage(props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [UpperLimit, LowerLimit, clicked]);
+  }, [UpperLimit, LowerLimit]);
 
   const fetchEvolutionChain = (id) => {
     fetch("https://pokeapi.co/api/v2/pokemon-species/" + id)
@@ -379,44 +375,44 @@ function PokemonPage(props) {
         </select>
       </div>
 
-      <div className="pokemonListAndDataContainer">
-        <Sidebar
-          pokemonID={pokemonID}
-          pokemonName={pokemonName}
-          pokemonWeight={pokemonWeight}
-          pokemonHeight={pokemonHeight}
-          abilities={abilities}
-          types={types}
-          stats={stats}
-          sprite={sprite}
-          shinySprite={shinySprite}
-          total={total}
-          evolutions={evolutions}
-          flavourText={flavourText}
-          notEffective={notEffective}
-          normalEffective={normalEffective}
-          superEffective={superEffective}
-          ultraEffective={ultraEffective}
-          inEffective={inEffective}
-          doubleUneffective={doubleUneffective}
-          visible={sidebarVisible}
-          handleSidebarClose={handleSidebarClose}
-          fetchData={fetchPokemonData}
-          isMobile={isMobile}
-          abilityDataVisible={false}
-          generation={generation}
-        />
+      <Sidebar
+        pokemonID={pokemonID}
+        pokemonName={pokemonName}
+        pokemonWeight={pokemonWeight}
+        pokemonHeight={pokemonHeight}
+        abilities={abilities}
+        types={types}
+        stats={stats}
+        sprite={sprite}
+        shinySprite={shinySprite}
+        total={total}
+        evolutions={evolutions}
+        flavourText={flavourText}
+        notEffective={notEffective}
+        normalEffective={normalEffective}
+        superEffective={superEffective}
+        ultraEffective={ultraEffective}
+        inEffective={inEffective}
+        doubleUneffective={doubleUneffective}
+        visible={sidebarVisible}
+        handleSidebarClose={handleSidebarClose}
+        fetchData={fetchPokemonData}
+        isMobile={isMobile}
+        abilityDataVisible={false}
+        generation={generation}
+      />
 
-        <div
-          className="cardContainer"
-          style={{
-            width: sidebarVisible && isMobile ? 0 : "65%",
-            display: sidebarVisible && isMobile ? "none" : "flex",
-          }}
-        >
-          {allPokemon}
-        </div>
+      <div
+        className="cardContainer"
+        style={{
+          width: sidebarVisible && isMobile ? 0 : "65%",
+          display: sidebarVisible && isMobile ? "none" : "flex",
+          transform: sidebarVisible ? "translateX(20%)" : "translateX(0)",
+        }}
+      >
+        {allPokemon}
       </div>
+
       <div className="pageButtonsContainer">
         {backVisible && (
           <button

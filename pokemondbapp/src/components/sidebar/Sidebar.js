@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import typeColours from "../json_data/typeColours.json";
 import statNames from "../json_data/statNames.json";
 import "../styleSheets/SidebarStyles.css";
@@ -139,12 +139,36 @@ function Sidebar(props) {
     );
   };
 
+  const stickyDivRef = useRef(null);
+  const [isFixed, setIsFixed] = useState(false);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 130) {
+        setIsFixed(true); // Switch to absolute positioning
+      } else {
+        setIsFixed(false); // Keep it fixed
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div
       className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
+      ref={stickyDivRef}
       style={{
         width: props.visible ? (props.isMobile ? "100%" : "25%") : 0,
         padding: props.visible ? "1%" : 0,
+        position: isFixed ? "fixed" : "absolute",
+        top: isFixed ? 100 : "230px",
       }}
     >
       <div className="sidebarContents">
@@ -330,7 +354,10 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  {"4x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                  <div className="typeName">
+                    {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                  </div>
+                  <div className="typeMultiplier"> 4x </div>
                 </div>
               ))}
 
@@ -340,7 +367,10 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  {"2x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                  <div className="typeName">
+                    {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                  </div>
+                  <div className="typeMultiplier"> 2x </div>
                 </div>
               ))}
             </div>
@@ -353,7 +383,10 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  {"1x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                  <div className="typeName">
+                    {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                  </div>
+                  <div className="typeMultiplier"> 1x </div>
                 </div>
               ))}
             </div>
@@ -372,7 +405,10 @@ function Sidebar(props) {
                     className="typeMatchup"
                     style={{ backgroundColor: typeColours[a_type] }}
                   >
-                    {"0.5x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                    <div className="typeName">
+                      {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                    </div>
+                    <div className="typeMultiplier"> ½x </div>
                   </div>
                 ))}
                 {props.doubleUneffective.map((a_type, key) => (
@@ -381,9 +417,10 @@ function Sidebar(props) {
                     className="typeMatchup"
                     style={{ backgroundColor: typeColours[a_type] }}
                   >
-                    {"0.25x " +
-                      a_type.charAt(0).toUpperCase() +
-                      a_type.slice(1)}
+                    <div className="typeName">
+                      {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                    </div>
+                    <div className="typeMultiplier"> ¼x </div>
                   </div>
                 ))}
               </div>
@@ -400,7 +437,10 @@ function Sidebar(props) {
                     className="typeMatchup"
                     style={{ backgroundColor: typeColours[a_type] }}
                   >
-                    {"0x " + a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                    <div className="typeName">
+                      {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
+                    </div>
+                    <div className="typeMultiplier"> 0x </div>
                   </div>
                 ))
               )}

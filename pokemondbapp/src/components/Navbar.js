@@ -17,35 +17,37 @@ function Navbar(props) {
   const [hidden, setHidden] = useState(false);
   const [scroll, setScroll] = useState(0);
 
-  const controlNavbar = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY < scroll) {
-        //If scroll down hide the navbar
-        setHidden(false);
-      } else {
-        //If scroll up show the navbar
-        setHidden(true);
-      }
+  // const controlNavbar = () => {
+  //   if (typeof window !== "undefined") {
+  //     if (window.scrollY < scroll) {
+  //       // If scroll down hide the navbar
+  //       setHidden(false);
+  //     } else {
+  //       // If scroll up show the navbar
+  //       setHidden(true);
+  //     }
 
-      //Remember current page location to use in the next move
-      setScroll(window.scrollY);
-    }
-  };
+  //     // Remember current page location to use in the next move
+  //     setScroll(window.scrollY);
+  //   }
+  // };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     window.addEventListener("scroll", controlNavbar);
 
-      //Cleanup function
-      return () => {
-        window.removeEventListener("scroll", controlNavbar);
-      };
-    }
-  }, [scroll]);
+  //     // Cleanup function
+  //     return () => {
+  //       window.removeEventListener("scroll", controlNavbar);
+  //     };
+  //   }
+  // }, [scroll]);
+
   return (
-    <ul className={`customul ${hidden && "hidden"}`}>
+    // <ul className={`customul ${hidden && "hidden"}`}>
+    <ul className={`customul`}>
       <li className="titleli">
-        <NavLink to="/">2Ddex</NavLink>
+        <NavLink to="/">ShinyDex</NavLink>
       </li>
       <li>
         <NavLink to="/">Pokedex</NavLink>
