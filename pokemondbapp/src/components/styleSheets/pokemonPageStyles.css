@@ -76,12 +76,16 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  margin: 0 auto 0 auto;
   overflow-x: hidden;
   overflow-y: hidden;
   gap: 10px;
   padding: 10px;
   justify-content: center;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  margin: 0 auto 0 auto;
 }
 
 .pokemonCardSection {
