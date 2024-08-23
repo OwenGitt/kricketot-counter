@@ -8,11 +8,13 @@ import fairyPokemon from "../json_data/fairyPokemon.json";
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
   const [abilityDataVisible, setAbilityDataVisible] = useState(false);
-  const [locationData, setLocationData] = useState([]);
+  const [jsonLocationData, setJsonLocationData] = useState([]);
+  const [locationDataArray, setLocationDataArray] = useState([]);
   const [normalSprite, setNormalSprite] = useState("");
   const [shinySprite, setShinySprite] = useState("");
   const [femaleSprite, setFemaleSprite] = useState("");
   const [femaleShinySprite, setFemaleShinySprite] = useState("");
+  const [genVGames] = useState(["black", "white", "black-2", "white-2"]);
 
   const fetchAbilityData = (name) => {
     fetch("https://pokeapi.co/api/v2/ability/" + name)
@@ -29,25 +31,31 @@ function Sidebar(props) {
       });
   };
 
+  useEffect(() => {
+    jsonLocationData.map((location, key) =>
+      location.version_details.map((locationVersion) =>
+        genVGames.includes(locationVersion.version.name)
+          ? setLocationDataArray((locationDataArray) => [
+              ...locationDataArray,
+              locationVersion.version.name + " " + location.location_area.name,
+            ])
+          : null
+      )
+    );
+  }, [jsonLocationData]);
+
   function fetchLocationData() {
     fetch(
       "https://pokeapi.co/api/v2/pokemon/" + props.pokemonID + "/encounters"
     )
       .then((response) => response.json())
       .then((json) => {
-        setLocationData(json);
+        setJsonLocationData(json);
       })
       .catch((e) => {
         console.log(e.message);
       });
   }
-
-  useEffect(() => {
-    if (props.visible) {
-      fetchLocationData();
-    }
-    setAbilityDataVisible(props.abilityDataVisible);
-  }, [props.pokemonID]);
 
   useEffect(() => {
     let url =
@@ -90,6 +98,7 @@ function Sidebar(props) {
             ].animated.front_shiny_female
           );
         }
+        fetchLocationData();
       })
       .catch((e) => {
         console.log(e.message);
@@ -446,12 +455,16 @@ function Sidebar(props) {
               )}
             </div>
 
-            {/*<h5 className="sidebarTitle">Locations</h5>
+            <h5 className="sidebarTitle">Locations</h5>
             <div>
-              {locationData.map((location, key) => (
-                <div>{location.location_area.name}</div>
-              ))}
-            </div>*/}
+              {locationDataArray ? (
+                locationDataArray
+                  .sort()
+                  .map((location) => <div>{location}</div>)
+              ) : (
+                <div>LOADING...</div>
+              )}
+            </div>
           </div>
         </div>
       </div>
