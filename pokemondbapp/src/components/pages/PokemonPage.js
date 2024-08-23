@@ -344,28 +344,6 @@ function PokemonPage(props) {
           default={"Search for a Pokémon"}
           handleSearchClear={handleSearchClear}
         />
-        <div className="pageButtons">
-          {backVisible && (
-            <button
-              variant="dark"
-              onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
-              className="nextBackButtons"
-            >
-              Back
-            </button>
-          )}
-          {nextVisible && (
-            <button
-              variant="dark"
-              onClick={
-                UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
-              }
-              className="nextBackButtons"
-            >
-              Next
-            </button>
-          )}
-        </div>
 
         <select onChange={onOptionChangeHandler} className="generationFilter">
           <option>Select Sprite Generation</option>
@@ -402,38 +380,75 @@ function PokemonPage(props) {
         generation={generation}
       />
 
-      <div
-        className="cardContainer"
-        style={{
-          width: sidebarVisible && isMobile ? 0 : "65%",
-          display: sidebarVisible && isMobile ? "none" : "flex",
-          transform: sidebarVisible ? "translateX(20%)" : "translateX(0)",
-        }}
-      >
-        {allPokemon}
-      </div>
+      <div>
+        <div
+          className="pageButtons"
+          style={{
+            width: sidebarVisible && isMobile ? 0 : "65%",
+            transform: sidebarVisible ? "translateX(20%)" : "translateX(0)",
+          }}
+        >
+          {backVisible && (
+            <button
+              variant="dark"
+              onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
+              className="nextBackButtons"
+            >
+              Back
+            </button>
+          )}
+          {nextVisible && (
+            <button
+              variant="dark"
+              onClick={
+                UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
+              }
+              className="nextBackButtons"
+            >
+              Next
+            </button>
+          )}
+        </div>
 
-      <div className="pageButtonsContainer">
-        {backVisible && (
-          <button
-            variant="dark"
-            onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
-            className="nextBackButtons"
-          >
-            Back
-          </button>
-        )}
-        {nextVisible && (
-          <button
-            variant="dark"
-            onClick={
-              UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
-            }
-            className="nextBackButtons"
-          >
-            Next
-          </button>
-        )}
+        <div
+          className="cardContainer"
+          style={{
+            width: sidebarVisible && isMobile ? 0 : "65%",
+            display: sidebarVisible && isMobile ? "none" : "flex",
+            transform: sidebarVisible ? "translateX(20%)" : "translateX(0)",
+          }}
+        >
+          {allPokemon}
+        </div>
+
+        <div
+          className="pageButtons"
+          style={{
+            width: sidebarVisible && isMobile ? 0 : "65%",
+            transform: sidebarVisible ? "translateX(20%)" : "translateX(0)",
+          }}
+        >
+          {backVisible && (
+            <button
+              variant="dark"
+              onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
+              className="nextBackButtons"
+            >
+              Back
+            </button>
+          )}
+          {nextVisible && (
+            <button
+              variant="dark"
+              onClick={
+                UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
+              }
+              className="nextBackButtons"
+            >
+              Next
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

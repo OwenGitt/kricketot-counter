@@ -7,6 +7,7 @@ import fairyPokemon from "../json_data/fairyPokemon.json";
 
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
+  const [abilityName, setAbilityName] = useState("");
   const [abilityDataVisible, setAbilityDataVisible] = useState(false);
   const [locationData, setLocationData] = useState([]);
   const [normalSprite, setNormalSprite] = useState("");
@@ -21,6 +22,7 @@ function Sidebar(props) {
         let enEntry = json.effect_entries.find(
           (key) => key.language.name === "en"
         );
+        setAbilityName(name);
         setAbilityData(enEntry.effect);
         setAbilityDataVisible(true);
       })
@@ -268,7 +270,10 @@ function Sidebar(props) {
 
           <div>
             <h4 className="sidebarHeader">Abilities</h4>
-            <div className="abilityContainer">
+            <div
+              className="abilityContainer"
+              style={{ margin: abilityDataVisible ? "0" : "0 0 5%" }}
+            >
               {props.abilities.map((ability, key) => (
                 <div
                   key={key}
@@ -281,12 +286,17 @@ function Sidebar(props) {
               ))}
             </div>
             {abilityDataVisible ? (
-              <p
-                className="abilityData"
-                onClick={() => setAbilityDataVisible(false)}
-              >
-                {abilityData}
-              </p>
+              <div>
+                <h4 className="sidebarSubHeader">
+                  {abilityName.charAt(0).toUpperCase() + abilityName.slice(1)}
+                </h4>
+                <p
+                  className="abilityData"
+                  onClick={() => setAbilityDataVisible(false)}
+                >
+                  {abilityData}
+                </p>
+              </div>
             ) : null}
           </div>
 
