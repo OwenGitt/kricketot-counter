@@ -12,8 +12,8 @@ function CheckEvolution(props) {
       .replace("Stat 0", "Lvl 20 & Atk = Def")
       .replace("Loc. Eterna-forest", "Lvl up near Moss Rock")
       .replace("Loc. Sinnoh-route-217", "Lvl up near Ice Rock")
-      .replace("Gender 1", "Female")
-      .replace("Gender 2", "Male");
+      .replace("Gender 1", "female")
+      .replace("Gender 2", "male");
   };
 
   const dict = {
@@ -155,6 +155,14 @@ function CheckEvolution(props) {
           evolutionDetails[1].includes("night")
         ) {
           evolutionDetails[1] = " " + evolutionDetails[1];
+        } else if (
+          evolutionDetails[0].includes("female") ||
+          evolutionDetails[0].includes("male")
+        ) {
+          let temp = evolutionDetails[0];
+          evolutionDetails[0] = evolutionDetails[1];
+          evolutionDetails[1] = temp;
+          evolutionDetails[1] = " (" + evolutionDetails[1] + ")";
         } else {
           evolutionDetails[1] = " + " + evolutionDetails[1];
         }
