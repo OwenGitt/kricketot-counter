@@ -313,7 +313,6 @@
 .typeMatchupsContainer {
   display: flex;
   flex-direction: column;
-  transition: 0.5s;
   width: 100%;
 }
 
@@ -323,7 +322,6 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2.5%;
-  transition: 0.5s;
   width: 100%;
 }
 

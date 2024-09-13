@@ -4,15 +4,17 @@ import statNames from "../json_data/statNames.json";
 import "../styleSheets/SidebarStyles.css";
 import Evolutions from "./Evolutions";
 import fairyPokemon from "../json_data/fairyPokemon.json";
+import LocationData from "./LocationData";
 
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
   const [abilityDataVisible, setAbilityDataVisible] = useState(false);
-  const [locationData, setLocationData] = useState([]);
+  const [jsonLocationData, setJsonLocationData] = useState([]);
   const [normalSprite, setNormalSprite] = useState("");
   const [shinySprite, setShinySprite] = useState("");
   const [femaleSprite, setFemaleSprite] = useState("");
   const [femaleShinySprite, setFemaleShinySprite] = useState("");
+  const [genVGames] = useState(["black", "white", "black-2", "white-2"]);
 
   const fetchAbilityData = (name) => {
     fetch("https://pokeapi.co/api/v2/ability/" + name)
@@ -31,23 +33,18 @@ function Sidebar(props) {
 
   function fetchLocationData() {
     fetch(
-      "https://pokeapi.co/api/v2/pokemon/" + props.pokemonID + "/encounters"
+      "https://pokeapi.co/api/v2/pokemon/" +
+        (props.pokemonID ? props.pokemonID : "1") +
+        "/encounters"
     )
       .then((response) => response.json())
       .then((json) => {
-        setLocationData(json);
+        setJsonLocationData(json);
       })
       .catch((e) => {
         console.log(e.message);
       });
   }
-
-  useEffect(() => {
-    if (props.visible) {
-      fetchLocationData();
-    }
-    setAbilityDataVisible(props.abilityDataVisible);
-  }, [props.pokemonID]);
 
   useEffect(() => {
     let url =
@@ -90,6 +87,7 @@ function Sidebar(props) {
             ].animated.front_shiny_female
           );
         }
+        fetchLocationData();
       })
       .catch((e) => {
         console.log(e.message);
@@ -446,12 +444,10 @@ function Sidebar(props) {
               )}
             </div>
 
-            {/*<h5 className="sidebarTitle">Locations</h5>
+            <h5 className="sidebarHeader">Locations</h5>
             <div>
-              {locationData.map((location, key) => (
-                <div>{location.location_area.name}</div>
-              ))}
-            </div>*/}
+              <LocationData jsonLocData={jsonLocationData} />
+            </div>
           </div>
         </div>
       </div>

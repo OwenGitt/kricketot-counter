@@ -74,6 +74,13 @@
       }
     }
   ],
+  "marill": [
+    {
+      "type": {
+        "name": "water"
+      }
+    }
+  ],
   "azumarill": [
     {
       "type": {
