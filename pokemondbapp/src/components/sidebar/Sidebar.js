@@ -4,12 +4,12 @@ import statNames from "../json_data/statNames.json";
 import "../styleSheets/SidebarStyles.css";
 import Evolutions from "./Evolutions";
 import fairyPokemon from "../json_data/fairyPokemon.json";
+import LocationData from "./LocationData";
 
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
   const [abilityDataVisible, setAbilityDataVisible] = useState(false);
   const [jsonLocationData, setJsonLocationData] = useState([]);
-  const [locationDataArray, setLocationDataArray] = useState([]);
   const [normalSprite, setNormalSprite] = useState("");
   const [shinySprite, setShinySprite] = useState("");
   const [femaleSprite, setFemaleSprite] = useState("");
@@ -31,22 +31,11 @@ function Sidebar(props) {
       });
   };
 
-  useEffect(() => {
-    jsonLocationData.map((location, key) =>
-      location.version_details.map((locationVersion) =>
-        genVGames.includes(locationVersion.version.name)
-          ? setLocationDataArray((locationDataArray) => [
-              ...locationDataArray,
-              locationVersion.version.name + " " + location.location_area.name,
-            ])
-          : null
-      )
-    );
-  }, [jsonLocationData]);
-
   function fetchLocationData() {
     fetch(
-      "https://pokeapi.co/api/v2/pokemon/" + props.pokemonID + "/encounters"
+      "https://pokeapi.co/api/v2/pokemon/" +
+        (props.pokemonID ? props.pokemonID : "1") +
+        "/encounters"
     )
       .then((response) => response.json())
       .then((json) => {
@@ -455,15 +444,9 @@ function Sidebar(props) {
               )}
             </div>
 
-            <h5 className="sidebarTitle">Locations</h5>
+            <h5 className="sidebarHeader">Locations</h5>
             <div>
-              {locationDataArray ? (
-                locationDataArray
-                  .sort()
-                  .map((location) => <div>{location}</div>)
-              ) : (
-                <div>LOADING...</div>
-              )}
+              <LocationData jsonLocData={jsonLocationData} />
             </div>
           </div>
         </div>
