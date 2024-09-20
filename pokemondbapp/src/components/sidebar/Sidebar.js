@@ -166,7 +166,6 @@ function Sidebar(props) {
       ref={stickyDivRef}
       style={{
         width: props.visible ? (props.isMobile ? "100%" : "25%") : 0,
-        padding: props.visible ? "1%" : 0,
         position: isFixed ? "fixed" : "absolute",
         top: isFixed ? 100 : "230px",
       }}
@@ -454,7 +453,7 @@ function Sidebar(props) {
               )}
             </div>
 
-            <h5 className="sidebarHeader">Locations</h5>
+            <h5 className="sidebarHeader">Game Locations</h5>
             <div>
               <LocationData jsonLocData={jsonLocationData} />
             </div>

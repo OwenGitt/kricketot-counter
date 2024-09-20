@@ -1,0 +1,142 @@
+.location-game-data {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.red,
+.blue,
+.yellow,
+.gold,
+.silver,
+.crystal,
+.ruby,
+.sapphire,
+.emerald,
+.firered,
+.leafgreen,
+.diamond,
+.pearl,
+.platinum,
+.heartgold,
+.soulsilver,
+.black,
+.white,
+.black-2,
+.white-2 {
+  border-radius: 16px;
+  color: #fdeebc;
+  font-size: 16px;
+  width: 25%;
+  align-content: center;
+  padding: 4px 2px;
+}
+
+.location-routes {
+  border-radius: 16px;
+  border: 2px solid rgb(128, 128, 129);
+  font-size: 14px;
+  color: rgb(241, 241, 241);
+  width: 75%;
+  text-align: left;
+  padding: 2px 8px;
+}
+
+.red {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+.blue {
+  background-color: #0073cf;
+  color: #ffffff;
+}
+
+.yellow {
+  background-color: #ffcc00;
+  color: #000000;
+}
+
+.gold {
+  background-color: #d4af37;
+  color: #ffffff;
+}
+
+.silver {
+  background-color: #c0c0c0;
+  color: #000000;
+}
+
+.crystal {
+  background-color: #4fd1ff;
+  color: #000000;
+}
+
+.ruby {
+  background-color: #9b111e;
+  color: #ffffff;
+}
+
+.sapphire {
+  background-color: #0f52ba;
+  color: #ffffff;
+}
+
+.emerald {
+  background-color: #50c878;
+  color: #ffffff;
+}
+
+.firered {
+  background-color: #ff4500;
+  color: #ffffff;
+}
+
+.leafgreen {
+  background-color: #32cd32;
+  color: #ffffff;
+}
+
+.diamond {
+  background-color: #b9f2ff;
+  color: #000000;
+}
+
+.pearl {
+  background-color: #fdeef4;
+  color: #000000;
+}
+
+.platinum {
+  background-color: #e5e4e2;
+  color: #000000;
+}
+
+.heartgold {
+  background-color: #ffd700;
+  color: #000000;
+}
+
+.soulsilver {
+  background-color: #c0c0c0;
+  color: #000000;
+}
+
+.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.white {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.black-2 {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.white-2 {
+  background-color: #f8f8ff;
+  color: #000000;
+}

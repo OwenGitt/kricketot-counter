@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../styleSheets/locationData.css";
 
 function LocationData(props) {
   const [completed, setCompleted] = useState(false);
@@ -50,7 +51,6 @@ function LocationData(props) {
   });
 
   const updateLocationData = (key, newData) => {
-    console.log(newData);
     setLocationData((prevData) => ({
       ...prevData,
       [key]: [...prevData[key], newData],
@@ -100,6 +100,9 @@ function LocationData(props) {
       .replace("tomb", "Tomb")
       .replace("forest", "Forest")
       .replace("path", "Path")
+      .replace("sewers", "Sewers")
+      .replace("canyon", "Canyon")
+      .replace("alph", "Alph")
       // Capitalize Mt location
       .replace("moon", "Moon")
       .replace("coronet", "Coronet")
@@ -129,6 +132,7 @@ function LocationData(props) {
       .replace("zone swamp", " - Swamp")
       .replace("zone savannah", " - Savannah")
       .replace("zone mountain", " - Mountain")
+      .replace("zone desert", "- Desert")
       // Sub areas
       .replace("outside", "- Outside")
       .replace("summit", "- Summit")
@@ -171,7 +175,8 @@ function LocationData(props) {
       // Misc
       .replace(" before galactic intervention", "")
       .replace(" after galactic intervention", "")
-      .replace("unknown all rattata", "");
+      .replace("unknown all rattata", "")
+      .replace("Ss anne", "SS Anne");
     return displayName.charAt(0).toUpperCase() + displayName.slice(1);
   };
 
@@ -182,7 +187,6 @@ function LocationData(props) {
       location.version_details.map((locationVersion) =>
         allGenGames.map((genArray) => {
           if (genArray.includes(locationVersion.version.name)) {
-            console.log(locationVersion.version.name);
             updateLocationData(
               locationVersion.version.name,
               location.location_area.name
@@ -194,19 +198,21 @@ function LocationData(props) {
     setCompleted(true);
   }, [props.jsonLocData]);
 
-  console.log(locationData.black2);
-
   return (
     <div>
       {completed ? (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
           {Object.keys(locationData).map((game) =>
             locationData[game].length > 0 ? (
-              <div>
-                <h5 className="sidebarSubHeader">
-                  {game.charAt(0).toUpperCase() + game.slice(1)}
+              <div className="location-game-data">
+                <h5 className={game}>
+                  {game.charAt(0).toUpperCase() +
+                    game
+                      .replace("green", "Green")
+                      .replace("red", "Red")
+                      .slice(1)}
                 </h5>
-                <div style={{ fontSize: "14px", color: "rgb(241, 241, 241)" }}>
+                <div className="location-routes">
                   {locationData[game].map((location, index) =>
                     index !== locationData[game].length - 1
                       ? removeGameName(location) + ", "
@@ -214,9 +220,17 @@ function LocationData(props) {
                   )}
                 </div>
               </div>
-            ) : null
+            ) : // <div style={{ display: "flex", flexDirection: "row" }}>
+            //   <h5 className="sidebarSubHeader">
+            //     {game.charAt(0).toUpperCase() + game.slice(1)}
+            //   </h5>
+            //   <div style={{ fontSize: "14px", color: "rgb(241, 241, 241)" }}>
+            //     Evolve or trade to obtain
+            //   </div>
+            // </div>
+            null
           )}
-        </>
+        </div>
       ) : (
         <div>LOADING LOCATION DATA...</div>
       )}

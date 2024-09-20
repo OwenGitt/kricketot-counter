@@ -6,25 +6,31 @@
   min-height: 800px;
   overflow-x: hidden;
   position: absolute;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
+  -webkit-transition: width 0.4s ease-in-out;
+  -moz-transition: width 0.4s ease-in-out;
+  -o-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
   scrollbar-width: thin; /* For Firefox */
   scrollbar-color: #dc6b4b #666565; /* For Firefox */
   overflow-y: scroll;
+  padding: 8px;
 }
 
 .hideSidebarContainer {
   background-color: #666565;
   border-radius: 8px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
-  height: 100%;
-  margin: 10px 0 0 40px;
+  height: 1050px;
+  min-height: 800px;
   min-height: 800px;
   overflow-x: hidden;
-  position: relative;
-  transition: width 0.3s;
+  overflow-y: scroll;
+  position: absolute;
+  padding: 0;
+  -webkit-transition: width 0.2s ease-in-out;
+  -moz-transition: width 0.2s ease-in-out;
+  -o-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
   scrollbar-width: thin; /* For Firefox */
   scrollbar-color: #dc6b4b #666565; /* For Firefox */
 }
@@ -33,6 +39,8 @@
   margin-left: auto;
   margin-right: auto;
   transition: 0.5s;
+  width: fit-content;
+  overflow-x: hidden;
 }
 
 .sidebarTitle-h2 {
@@ -334,19 +342,22 @@
 }
 
 @media (max-width: 450px) {
-  .sidebarContainer {
+  .sidebarContainer,
+  .hideSidebarContainer {
     margin: 10px 0 0 0;
   }
 }
 
 @media (min-width: 451px) and (max-width: 768px) {
-  .sidebarContainer {
+  .sidebarContainer,
+  .hideSidebarContainer {
     margin: 0 0 40px 0;
   }
 }
 
 @media (min-width: 769px) {
-  .sidebarContainer {
+  .sidebarContainer,
+  .hideSidebarContainer {
     margin: 20px 0 0 40px;
   }
 }
