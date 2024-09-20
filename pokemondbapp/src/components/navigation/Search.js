@@ -1,4 +1,4 @@
-import "./styleSheets/SearchStyles.css";
+import "../../styleSheets/SearchStyles.css";
 
 /**
  * Search

@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-import typeColours from "../json_data/typeColours.json";
-import statNames from "../json_data/statNames.json";
-import "../styleSheets/SidebarStyles.css";
+import typeColours from "../../json_data/typeColours.json";
+import statNames from "../../json_data/statNames.json";
+import "../../styleSheets/SidebarStyles.css";
 import Evolutions from "./Evolutions";
-import fairyPokemon from "../json_data/fairyPokemon.json";
+import fairyPokemon from "../../json_data/fairyPokemon.json";
 import LocationData from "./LocationData";
 
 function Sidebar(props) {

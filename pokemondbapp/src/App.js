@@ -1,11 +1,11 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import PokemonPage from "./components/pages/PokemonPage";
+import PokemonPage from "./pages/PokemonPage";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import HuntsPage from "./components/pages/HuntsPage.js";
-import Navbar from "./components/Navbar";
-import CounterPage from "./components/pages/CounterPage";
+import HuntsPage from "./pages/HuntsPage.js";
+import Navbar from "./components/navigation/Navbar";
+import CounterPage from "./pages/CounterPage";
 
 /**
  * App

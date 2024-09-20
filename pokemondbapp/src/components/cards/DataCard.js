@@ -7,7 +7,7 @@
  * @author Owen Gittins
  */
 import PokemonCard from "./PokemonCard";
-import "./styleSheets/pokemonPageStyles.css";
+import "../../styleSheets/pokemonPageStyles.css";
 
 function DataCard(props) {
   return (

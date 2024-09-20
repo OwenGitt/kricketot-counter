@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import typeColours from "./json_data/typeColours.json";
-import fairyPokemon from "./json_data/fairyPokemon.json";
-import "./styleSheets/pokemonCardStyles.css";
+import typeColours from "../json_data/typeColours.json";
+import fairyPokemon from "../json_data/fairyPokemon.json";
+import "../../styleSheets/pokemonCardStyles.css";
 
 /**
  * Pokemon Cards

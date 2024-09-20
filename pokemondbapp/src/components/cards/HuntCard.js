@@ -5,7 +5,7 @@
  */
 
 import { useEffect, useState } from "react";
-import "./styleSheets/HuntCardStyles.css";
+import "../../styleSheets/HuntCardStyles.css";
 
 function HuntCard(props) {
   const [sprite, setSprite] = useState("");

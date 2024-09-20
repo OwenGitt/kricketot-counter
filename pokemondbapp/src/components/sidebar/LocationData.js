@@ -210,6 +210,7 @@ function LocationData(props) {
                     game
                       .replace("green", "Green")
                       .replace("red", "Red")
+                      .replace("-", " ")
                       .slice(1)}
                 </h5>
                 <div className="location-routes">

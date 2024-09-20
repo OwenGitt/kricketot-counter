@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styleSheets/HuntsPageStyles.css";
 import hunts from "../json_data/hunts.json";
-import HuntCard from "../HuntCard";
+import HuntCard from "../components/cards/HuntCard";
 
 function HuntsPage() {
   const [moreInfoVisible, setMoreInfoVisible] = useState(false);
