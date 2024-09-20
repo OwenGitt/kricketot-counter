@@ -5,12 +5,8 @@
   min-height: 180px;
   max-height: 180px;
   border-radius: 5px;
-
-  img {
-    width: 96px;
-    height: 96px;
-  }
 }
+
 .pokemonCard:hover {
   cursor: pointer;
 }
