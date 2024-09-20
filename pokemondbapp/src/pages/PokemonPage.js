@@ -3,7 +3,7 @@ import DataCard from "../components/cards/DataCard";
 import Search from "../components/navigation/Search";
 import "../styleSheets/pokemonPageStyles.css";
 import Sidebar from "../components/sidebar/Sidebar";
-import data from "../components/json_data/types.json";
+import data from "../json_data/types.json";
 import fairyPokemon from "../json_data/fairyPokemon.json";
 
 /**
