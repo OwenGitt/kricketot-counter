@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../../styleSheets/NavbarStyles.css";
+// import { searchStateStore } from "../../state/searchStateStore";
 
 /**
  * Navbar
@@ -14,8 +15,13 @@ import "../../styleSheets/NavbarStyles.css";
  */
 
 function Navbar(props) {
-  const [hidden, setHidden] = useState(false);
-  const [scroll, setScroll] = useState(0);
+  // const [hidden, setHidden] = useState(false);
+  // const [scroll, setScroll] = useState(0);
+
+  // const [searchTerm] = searchStateStore((state) => [
+  //   state.searchTerm,
+  //   state.setSearchTerm,
+  // ]);
 
   // const controlNavbar = () => {
   //   if (typeof window !== "undefined") {
@@ -45,17 +51,17 @@ function Navbar(props) {
 
   return (
     // <ul className={`customul ${hidden && "hidden"}`}>
-    <ul className={`customul`}>
+    <ul className="customul">
       <li className="titleli">
         <NavLink to="/">ShinyDex</NavLink>
       </li>
-      <li>
+      <li className="normalli">
         <NavLink to="/">Pokedex</NavLink>
       </li>
-      <li>
+      {/* <li className="normalli">
         <NavLink to="/counter">Counter</NavLink>
-      </li>
-      <li>
+      </li> */}
+      <li className="normalli">
         <NavLink to="/hunts">Hunts</NavLink>
       </li>
     </ul>

@@ -1,20 +1,22 @@
+@import "./variables.css";
+
 .customul {
   top: 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #dc6b4b;
+  background-color: #2b2f33;
   position: fixed;
   width: 100%;
-  height: 80px;
+  height: 60px;
   z-index: 10;
   margin-bottom: 2%;
   box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
   transition: top 0.5s;
 }
 
-.hidden {
+/* .hidden {
   top: -150px;
   list-style-type: none;
   margin: 0;
@@ -26,7 +28,7 @@
   height: 7%;
   box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
   transition: top 0.5s;
-}
+} */
 
 li {
   float: left;
@@ -37,21 +39,37 @@ li {
 
 li a {
   display: block;
-  color: #fdeebc;
+  color: #e0e4e8;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   line-height: 30px;
+  position: relative;
 }
 
 li a:hover {
-  /*background-color: #94af9f;*/
-  color: #fae08c;
-  line-height: 30px;
+  color: #b0b6bd;
+}
+
+.customul .normalli a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--pale-silver);
+  transform-origin: center;
+  transition: transform 0.3s ease-out;
+}
+
+.customul .normalli a:hover::before {
+  transform: scaleX(1);
 }
 
 .leftli {
-  float: right;
+  float: left;
   line-height: 30px;
 }
 
@@ -69,6 +87,7 @@ li a:hover {
   font-weight: bold;
   color: rgb(235, 144, 41);
 }
-.titleli:hover {
-  color: rgb(0, 0, 0);
+
+.titleli a:hover {
+  color: #e0e4e8;
 }

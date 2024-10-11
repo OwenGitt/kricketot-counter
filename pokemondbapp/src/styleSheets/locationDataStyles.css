@@ -1,3 +1,5 @@
+@import "./variables.css";
+
 .location-game-data {
   display: flex;
   flex-direction: row;
@@ -36,7 +38,7 @@
   border-radius: 16px;
   border: 2px solid rgb(128, 128, 129);
   font-size: 14px;
-  color: rgb(241, 241, 241);
+  color: var(--gainsboro);
   width: 75%;
   text-align: left;
   padding: 2px 8px;

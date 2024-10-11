@@ -1,0 +1,36 @@
+:root {
+  /* PRIMITIVE TOKENS */
+  --charcoal-black: #1c1c1c;
+  --slate-grey: #2f2f2f;
+  --gunmetal-grey: #2a2a2a;
+  --matte-midnight-blue: #2c3a47;
+  --dark-slate-grey: #3b3b3b;
+  --emphasised-grey: #4d5761;
+  --pale-silver: #c2c7cc;
+  --snow-white: #fafafa;
+  --blue-steel: #6b7a8f;
+  --ivory: #e8e4d9;
+  --gainsboro: #dcdcdc;
+  --stormy-grey: #6b7a8f;
+  --powder-blue: #a1b4c4;
+  --light-slate-blue: #8a99a8;
+  --light-grey: #bbbaba;
+  --very-light-grey: #f1f1f1;
+
+  /* SEMANTIC TOKENS */
+
+  /* PAGE TOKENS */
+  --page-background: var(--matte-midnight-blue);
+
+  /* ELEVATION TOKENS */
+  --elevation-one: var(--emphasised-grey);
+  --elevation-one--text-colour: var(--pale-silver);
+  --elevation-two: var(--very-light-grey);
+  --elevation-two--hover: var(--light-grey);
+
+  /* PRIMARY BUTTON TOKENS */
+  --primary-button--background-color: var(--stormy-grey);
+  --primary-button--color: var(--snow-white);
+  --primary-button--hover--background-color: var(--light-slate-blue);
+  --primary-button--hover--color: var(--snow-white);
+}

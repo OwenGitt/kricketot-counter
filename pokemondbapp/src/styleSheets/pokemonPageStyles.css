@@ -1,3 +1,5 @@
+@import "./variables.css";
+
 .pageContainer {
   position: relative;
   height: 100%;
@@ -13,11 +15,12 @@
     url("../background.jpg");
   background-size: contain;
   background-repeat: no-repeat;*/
-  background-color: rgba(102, 101, 101, 1);
+  background-color: var(--page-background);
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: hidden;
+  scrollbar-color: var(--page-background);
 }
 
 .pokemonPageTop {
@@ -30,10 +33,10 @@
 }
 
 .generationFilter {
-  background-color: rgba(102, 101, 101, 1);
+  background-color: var(--matte-midnight-blue);
   border: none;
-  border-bottom: 1px solid #dc6b4b;
-  color: #fdeebc;
+  border-bottom: 1px solid #89acd4;
+  color: var(--pale-silver);
   height: 30px;
   margin-top: auto;
   margin-bottom: auto;
@@ -46,10 +49,10 @@
   position: relative;
   z-index: 4;
   margin: 0 auto;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .nextBackButtons {
@@ -57,18 +60,19 @@
   height: auto;
   border-radius: 5px;
   border: none;
-  background-color: #dc6b4b;
+  background-color: var(--primary-button--background-color);
   opacity: 0.9;
-  color: #fdebaf;
+  color: var(--primary-button--color);
   margin: 20px;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .nextBackButtons:hover {
-  background-color: #e75a32;
+  background-color: var(--primary-button--hover--background-color);
+  color: var(--primary-button--hover--color);
 }
 
 .pokemonListAndDataContainer {
@@ -88,10 +92,10 @@
   gap: 10px;
   padding: 10px;
   justify-content: center;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   margin: 0 auto 0 auto;
 }
 

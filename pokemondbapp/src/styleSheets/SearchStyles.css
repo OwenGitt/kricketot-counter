@@ -1,3 +1,5 @@
+@import "./variables.css";
+
 .searchContainer {
   left: 3%;
   position: relative;
@@ -13,12 +15,12 @@
   height: 30px;
   min-height: 30px;
   max-height: 30px;
-  background-color: #666565;
+  background-color: var(--matte-midnight-blue);
   border: none;
   padding: 0 40px 0 5px;
   outline: none;
-  border-bottom: 1px solid #dc6b4b;
-  color: #fdeebc;
+  border-bottom: 1px solid #89acd4;
+  color: var(--pale-silver);
   width: 90%;
   box-sizing: border-box;
 }
@@ -34,6 +36,6 @@
 }
 
 ::placeholder {
-  color: #fdeebc;
+  color: var(--pale-silver);
   opacity: 0.6;
 }

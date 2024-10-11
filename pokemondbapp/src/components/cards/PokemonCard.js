@@ -131,16 +131,22 @@ function PokemonCard(props) {
                 mouseOver === true && types !== null
                   ? types.length === 2
                     ? `linear-gradient(` +
-                      typeColours[types[0].type.name] +
+                      (types[0].type.name === "fairy"
+                        ? `#808081`
+                        : typeColours[types[0].type.name]) +
                       `,` +
-                      typeColours[types[1].type.name] +
+                      (types[1].type.name === "fairy"
+                        ? `#808081`
+                        : typeColours[types[1].type.name]) +
                       `)`
                     : `linear-gradient(` +
-                      typeColours[types[0].type.name] +
+                      (types[0].type.name === "fairy"
+                        ? typeColours["normal"]
+                        : typeColours[types[0].type.name]) +
                       `,
-                   #808081
-                  )`
-                  : `linear-gradient(100deg,  #808081 0%,  #808081 0%)`,
+               #808081
+              )`
+                  : null,
             }}
           >
             <img

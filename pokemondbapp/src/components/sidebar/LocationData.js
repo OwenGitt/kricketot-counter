@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../styleSheets/locationData.css";
+import "../../styleSheets/locationDataStyles.css";
 
 function LocationData(props) {
   const [completed, setCompleted] = useState(false);

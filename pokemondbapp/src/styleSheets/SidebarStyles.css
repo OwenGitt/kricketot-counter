@@ -1,23 +1,23 @@
+@import "./variables.css";
+
 .sidebarContainer {
-  background-color: #666565;
+  background-color: var(--elevation-one);
   border-radius: 8px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   height: 1050px;
   min-height: 800px;
-  overflow-x: hidden;
   position: absolute;
   -webkit-transition: width 0.4s ease-in-out;
   -moz-transition: width 0.4s ease-in-out;
   -o-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #dc6b4b #666565; /* For Firefox */
-  overflow-y: scroll;
-  padding: 8px;
+  overflow: hidden;
+  /* max-width: 714.5px;
+  min-width: 367.5px; */
 }
 
 .hideSidebarContainer {
-  background-color: #666565;
+  background-color: var(--elevation-one);
   border-radius: 8px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   height: 1050px;
@@ -26,25 +26,28 @@
   overflow-x: hidden;
   overflow-y: scroll;
   position: absolute;
-  padding: 0;
-  -webkit-transition: width 0.2s ease-in-out;
-  -moz-transition: width 0.2s ease-in-out;
-  -o-transition: width 0.2s ease-in-out;
-  transition: width 0.2s ease-in-out;
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #dc6b4b #666565; /* For Firefox */
+  -webkit-transition: width 0.4s ease-in-out;
+  -moz-transition: width 0.4s ease-in-out;
+  -o-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  overflow: hidden;
 }
 
 .sidebarContents {
   margin-left: auto;
   margin-right: auto;
   transition: 0.5s;
+  height: 100%;
   width: fit-content;
   overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #dc6b4b var(--elevation-one);
+  overflow-y: auto;
+  padding: 8px;
 }
 
 .sidebarTitle-h2 {
-  color: #fdeebc;
+  color: var(--ivory);
   display: inline-block;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 32px;
@@ -55,8 +58,8 @@
   color: #3f3f3f !important;
   font-size: 26px;
   font-weight: 600;
-  margin-right: 5%;
-  margin-top: 5%;
+  margin-right: 7.5%;
+  margin-top: 2%;
   position: absolute;
   right: 0;
   top: 0;
@@ -67,7 +70,7 @@
 }
 
 .emptyTypeMatchupList {
-  background-color: rgb(241, 241, 241);
+  background-color: var(--elevation-two);
   border-radius: 30px;
   font-size: 13px;
   font-weight: 600;
@@ -100,19 +103,19 @@
   max-height: 60px;
   margin: 5px;
   padding: 6px;
-  background-color: rgb(241, 241, 241);
+  background-color: var(--elevation-two);
   transition: 0.5s;
   cursor: pointer;
 }
 
 .abilityBox:hover,
 .pokemon_Evolution_Box:hover {
-  background-color: rgb(187, 186, 186);
+  background-color: var(--elevation-two--hover);
   color: #fff;
 }
 
 .abilityData {
-  background-color: rgb(241, 241, 241);
+  background-color: var(--elevation-two);
   border-radius: 25px;
   cursor: pointer;
   font-size: 13px;
@@ -148,13 +151,13 @@
   max-height: 60px;
   margin: 5px;
   padding: 6px;
-  background-color: rgb(241, 241, 241);
+  background-color: var(--elevation-two);
   transition: 0.5s;
 }
 
 .pokemon_Evolution_Box,
 .pokemon_NO_Evolution_Box {
-  background-color: rgb(241, 241, 241);
+  background-color: var(--elevation-two);
   border-radius: 25px;
   font-size: 13px;
   font-weight: 600;
@@ -192,7 +195,7 @@
 .pokemon_Evolution_Method_Box,
 .pokemon_Inner_Evolution_Method_Box {
   align-items: center;
-  color: rgb(241, 241, 241);
+  color: var(--elevation-two);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -214,17 +217,17 @@
 }
 
 .sidebarHeader {
-  color: #fdeebc;
+  color: var(--ivory);
   font-size: 26px;
 }
 
 .sidebarSubHeader {
-  color: #fdeebc;
+  color: var(--ivory);
   font-size: 20px;
 }
 
 .sidebarDescription {
-  color: #fdeebc;
+  color: var(--gainsboro);
   margin-bottom: 8px;
   transition: 0.5s;
 }
@@ -258,7 +261,7 @@
 }
 
 .statBox {
-  background-color: rgb(241, 241, 241);
+  background-color: var(--elevation-two);
   border-radius: 25px;
   font-size: 12px;
   font-weight: 600;

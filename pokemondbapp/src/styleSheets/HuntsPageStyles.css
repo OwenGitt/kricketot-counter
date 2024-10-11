@@ -1,10 +1,12 @@
+@import "./variables.css";
+
 .huntsPageContainer {
   position: relative;
   height: 100%;
   min-height: 100vh;
   padding-bottom: 100px;
   padding-top: 50px;
-  background-color: #666565;
+  background-color: var(--matte-midnight-blue);
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
