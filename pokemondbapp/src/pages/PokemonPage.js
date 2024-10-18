@@ -6,12 +6,6 @@ import Sidebar from "../components/sidebar/Sidebar";
 import data from "../json_data/types.json";
 import fairyPokemon from "../json_data/fairyPokemon.json";
 
-/**
- *
- *
- *
- * @author Owen Gittins
- */
 function PokemonPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [UpperLimit, setUpper] = useState(100);
@@ -108,7 +102,7 @@ function PokemonPage(props) {
         setSprite(
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/" +
             json.id +
-            ".gif"
+            ".gif",
         );
         setPokemonName(json.name);
         setPokemonHeight(json.height);
@@ -118,7 +112,7 @@ function PokemonPage(props) {
         setSpriteShiny(
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/" +
             json.id +
-            ".gif"
+            ".gif",
         );
         fetchFlavourText(json.id);
         fetchEvolutionChain(json.id);
@@ -239,7 +233,7 @@ function PokemonPage(props) {
       .then((response) => response.json())
       .then((json) => {
         let enEntry = json.flavor_text_entries.find(
-          (key) => key.language.name === "en"
+          (key) => key.language.name === "en",
         );
 
         const text = enEntry.flavor_text;
@@ -272,58 +266,64 @@ function PokemonPage(props) {
         a_type.name === "fairy"
           ? null
           : types[1] === undefined
-          ? data[types[0].type.name][a_type.name] === 0
-            ? setIneffective((inEffective) => [...inEffective, a_type.name])
-            : data[types[0].type.name][a_type.name] === 0.5
-            ? setNotEffective((notEffective) => [...notEffective, a_type.name])
-            : data[types[0].type.name][a_type.name] === 1
-            ? setNormalEffective((normalEffective) => [
-                ...normalEffective,
-                a_type.name,
-              ])
-            : data[types[0].type.name][a_type.name] === 2
-            ? setSuperEffective((superEffective) => [
-                ...superEffective,
-                a_type.name,
-              ])
-            : null
-          : data[types[0].type.name][a_type.name] *
-              data[types[1].type.name][a_type.name] ===
-            0
-          ? setIneffective((inEffective) => [...inEffective, a_type.name])
-          : data[types[0].type.name][a_type.name] *
-              data[types[1].type.name][a_type.name] ===
-            0.25
-          ? setDoubleUneffective((doubleUneffective) => [
-              ...doubleUneffective,
-              a_type.name,
-            ])
-          : data[types[0].type.name][a_type.name] *
-              data[types[1].type.name][a_type.name] ===
-            0.5
-          ? setNotEffective((notEffective) => [...notEffective, a_type.name])
-          : data[types[0].type.name][a_type.name] *
-              data[types[1].type.name][a_type.name] ===
-            1
-          ? setNormalEffective((normalEffective) => [
-              ...normalEffective,
-              a_type.name,
-            ])
-          : data[types[0].type.name][a_type.name] *
-              data[types[1].type.name][a_type.name] ===
-            2
-          ? setSuperEffective((superEffective) => [
-              ...superEffective,
-              a_type.name,
-            ])
-          : data[types[0].type.name][a_type.name] *
-              data[types[1].type.name][a_type.name] ===
-            4
-          ? setUltraEffective((ultraEffective) => [
-              ...ultraEffective,
-              a_type.name,
-            ])
-          : null
+            ? data[types[0].type.name][a_type.name] === 0
+              ? setIneffective((inEffective) => [...inEffective, a_type.name])
+              : data[types[0].type.name][a_type.name] === 0.5
+                ? setNotEffective((notEffective) => [
+                    ...notEffective,
+                    a_type.name,
+                  ])
+                : data[types[0].type.name][a_type.name] === 1
+                  ? setNormalEffective((normalEffective) => [
+                      ...normalEffective,
+                      a_type.name,
+                    ])
+                  : data[types[0].type.name][a_type.name] === 2
+                    ? setSuperEffective((superEffective) => [
+                        ...superEffective,
+                        a_type.name,
+                      ])
+                    : null
+            : data[types[0].type.name][a_type.name] *
+                  data[types[1].type.name][a_type.name] ===
+                0
+              ? setIneffective((inEffective) => [...inEffective, a_type.name])
+              : data[types[0].type.name][a_type.name] *
+                    data[types[1].type.name][a_type.name] ===
+                  0.25
+                ? setDoubleUneffective((doubleUneffective) => [
+                    ...doubleUneffective,
+                    a_type.name,
+                  ])
+                : data[types[0].type.name][a_type.name] *
+                      data[types[1].type.name][a_type.name] ===
+                    0.5
+                  ? setNotEffective((notEffective) => [
+                      ...notEffective,
+                      a_type.name,
+                    ])
+                  : data[types[0].type.name][a_type.name] *
+                        data[types[1].type.name][a_type.name] ===
+                      1
+                    ? setNormalEffective((normalEffective) => [
+                        ...normalEffective,
+                        a_type.name,
+                      ])
+                    : data[types[0].type.name][a_type.name] *
+                          data[types[1].type.name][a_type.name] ===
+                        2
+                      ? setSuperEffective((superEffective) => [
+                          ...superEffective,
+                          a_type.name,
+                        ])
+                      : data[types[0].type.name][a_type.name] *
+                            data[types[1].type.name][a_type.name] ===
+                          4
+                        ? setUltraEffective((ultraEffective) => [
+                            ...ultraEffective,
+                            a_type.name,
+                          ])
+                        : null,
       );
   };
 
@@ -336,7 +336,7 @@ function PokemonPage(props) {
   };
 
   return (
-    <div className="pageContainer">
+    <main className="pageContainer">
       <div className="pokemonPageTop">
         <Search
           searchTerm={searchTerm}
@@ -353,104 +353,104 @@ function PokemonPage(props) {
         </select>
       </div>
 
-      <Sidebar
-        pokemonID={pokemonID}
-        pokemonName={pokemonName}
-        pokemonWeight={pokemonWeight}
-        pokemonHeight={pokemonHeight}
-        abilities={abilities}
-        types={types}
-        stats={stats}
-        sprite={sprite}
-        shinySprite={shinySprite}
-        total={total}
-        evolutions={evolutions}
-        flavourText={flavourText}
-        notEffective={notEffective}
-        normalEffective={normalEffective}
-        superEffective={superEffective}
-        ultraEffective={ultraEffective}
-        inEffective={inEffective}
-        doubleUneffective={doubleUneffective}
-        visible={sidebarVisible}
-        handleSidebarClose={handleSidebarClose}
-        fetchData={fetchPokemonData}
-        isMobile={isMobile}
-        abilityDataVisible={false}
-        generation={generation}
-      />
+      <section className="mainSectionWrapper">
+        <Sidebar
+          pokemonID={pokemonID}
+          pokemonName={pokemonName}
+          pokemonWeight={pokemonWeight}
+          pokemonHeight={pokemonHeight}
+          abilities={abilities}
+          types={types}
+          stats={stats}
+          sprite={sprite}
+          shinySprite={shinySprite}
+          total={total}
+          evolutions={evolutions}
+          flavourText={flavourText}
+          notEffective={notEffective}
+          normalEffective={normalEffective}
+          superEffective={superEffective}
+          ultraEffective={ultraEffective}
+          inEffective={inEffective}
+          doubleUneffective={doubleUneffective}
+          visible={sidebarVisible}
+          handleSidebarClose={handleSidebarClose}
+          fetchData={fetchPokemonData}
+          isMobile={isMobile}
+          abilityDataVisible={false}
+          generation={generation}
+        />
 
-      <div>
-        <div
-          className="pageButtons"
-          style={{
-            width: sidebarVisible && isMobile ? 0 : "65%",
-            transform: sidebarVisible ? "translateX(20%)" : "translateX(0)",
-          }}
-        >
-          {backVisible && (
-            <button
-              variant="dark"
-              onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
-              className="nextBackButtons"
-            >
-              Back
-            </button>
-          )}
-          {nextVisible && (
-            <button
-              variant="dark"
-              onClick={
-                UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
-              }
-              className="nextBackButtons"
-            >
-              Next
-            </button>
-          )}
-        </div>
+        <div className="cardbuttonContainer">
+          <div
+            className="pageButtons"
+            style={{
+              width: sidebarVisible && isMobile ? 0 : "100%",
+              margin: sidebarVisible ? "0" : "0 auto",
+            }}
+          >
+            {backVisible && (
+              <button
+                onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
+                className="nextBackButtons"
+              >
+                Back
+              </button>
+            )}
+            {nextVisible && (
+              <button
+                onClick={
+                  UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
+                }
+                className="nextBackButtons"
+              >
+                Next
+              </button>
+            )}
+          </div>
 
-        <div
-          className="cardContainer"
-          style={{
-            width: sidebarVisible && isMobile ? 0 : "65%",
-            display: sidebarVisible && isMobile ? "none" : "flex",
-            transform: sidebarVisible ? "translateX(20%)" : "translateX(0)",
-          }}
-        >
-          {allPokemon}
-        </div>
+          <div
+            className="cardContainer"
+            style={{
+              width: sidebarVisible && isMobile ? 0 : "100%",
+              display: sidebarVisible && isMobile ? "none" : "flex",
+              margin: sidebarVisible ? "0" : "0 auto",
+            }}
+          >
+            {allPokemon}
+          </div>
 
-        <div
-          className="pageButtons"
-          style={{
-            width: sidebarVisible && isMobile ? 0 : "65%",
-            transform: sidebarVisible ? "translateX(20%)" : "translateX(0)",
-          }}
-        >
-          {backVisible && (
-            <button
-              variant="dark"
-              onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
-              className="nextBackButtons"
-            >
-              Back
-            </button>
-          )}
-          {nextVisible && (
-            <button
-              variant="dark"
-              onClick={
-                UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
-              }
-              className="nextBackButtons"
-            >
-              Next
-            </button>
-          )}
+          <div
+            className="pageButtons"
+            style={{
+              width: sidebarVisible && isMobile ? 0 : "100%",
+              margin: sidebarVisible ? "0" : "0 auto",
+            }}
+          >
+            {backVisible && (
+              <button
+                variant="dark"
+                onClick={LowerLimit === 0 ? lowLimit : showLessPokemon}
+                className="nextBackButtons"
+              >
+                Back
+              </button>
+            )}
+            {nextVisible && (
+              <button
+                variant="dark"
+                onClick={
+                  UpperLimit > props.pokemon.length ? maxLimit : showMorePokemon
+                }
+                className="nextBackButtons"
+              >
+                Next
+              </button>
+            )}
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
