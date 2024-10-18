@@ -22,7 +22,7 @@ function Sidebar(props) {
       .then((response) => response.json())
       .then((json) => {
         let enEntry = json.effect_entries.find(
-          (key) => key.language.name === "en"
+          (key) => key.language.name === "en",
         );
         setAbilityName(name);
         setAbilityData(enEntry.effect);
@@ -37,7 +37,7 @@ function Sidebar(props) {
     fetch(
       "https://pokeapi.co/api/v2/pokemon/" +
         (props.pokemonID ? props.pokemonID : "1") +
-        "/encounters"
+        "/encounters",
     )
       .then((response) => response.json())
       .then((json) => {
@@ -60,33 +60,33 @@ function Sidebar(props) {
           setNormalSprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].front_default
+            ].front_default,
           );
           setShinySprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].front_shiny
+            ].front_shiny,
           );
         } else {
           setNormalSprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].animated.front_default
+            ].animated.front_default,
           );
           setShinySprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].animated.front_shiny
+            ].animated.front_shiny,
           );
           setFemaleSprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].animated.front_female
+            ].animated.front_female,
           );
           setFemaleShinySprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].animated.front_shiny_female
+            ].animated.front_shiny_female,
           );
         }
         fetchLocationData();
@@ -94,7 +94,7 @@ function Sidebar(props) {
       .catch((e) => {
         console.log(e.message);
       });
-  }, [props.generation, props.pokemonID]);
+  }, [fetchLocationData, props.generation, props.pokemonID]);
 
   const displayPokemonTypes = () => {
     if (fairyPokemon[props.pokemonName]) {
@@ -119,7 +119,7 @@ function Sidebar(props) {
   };
 
   const formatPokemonNames = (name) => {
-    // Format Pokemon names to have capitals at the start and remove dashes
+    // Format Pokémon names to have capitals at the start and remove dashes
     return (
       name.charAt(0).toUpperCase() +
       name
@@ -139,35 +139,13 @@ function Sidebar(props) {
     );
   };
 
-  const stickyDivRef = useRef(null);
-  const [isFixed, setIsFixed] = useState(false);
   const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 130) {
-        setIsFixed(true); // Switch to absolute positioning
-      } else {
-        setIsFixed(false); // Keep it fixed
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <div
       className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
-      ref={stickyDivRef}
       style={{
-        width: props.visible ? (props.isMobile ? "100%" : "25%") : 0,
-        position: isFixed ? "fixed" : "absolute",
-        top: isFixed ? 100 : "230px",
+        width: props.visible ? (props.isMobile ? "100%" : "40%") : 0,
       }}
     >
       <div className="sidebarContents">
@@ -178,8 +156,8 @@ function Sidebar(props) {
               {props.pokemonID < 10
                 ? "00" + props.pokemonID + " "
                 : props.pokemonID < 100
-                ? "0" + props.pokemonID + " "
-                : props.pokemonID + " "}
+                  ? "0" + props.pokemonID + " "
+                  : props.pokemonID + " "}
               {formatPokemonNames(props.pokemonName)}
             </h2>
           </div>
@@ -252,7 +230,7 @@ function Sidebar(props) {
                   onClick={() =>
                     props.fetchData(
                       "https://pokeapi.co/api/v2/pokemon/" +
-                        props.evolutions.species.name
+                        props.evolutions.species.name,
                     )
                   }
                 >
