@@ -145,7 +145,7 @@ function Sidebar(props) {
     <div
       className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
       style={{
-        width: props.visible ? (props.isMobile ? "100%" : "40%") : 0,
+        width: props.visible ? (props.isMobile ? "100%" : "700px") : 0,
       }}
     >
       <div className="sidebarContents">
