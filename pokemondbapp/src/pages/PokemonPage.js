@@ -56,11 +56,8 @@ function PokemonPage(props) {
     "Generation 4": "generation-iv",
     "Generation 5": "generation-v",
   });
-
   const isMobile = width <= 768;
-
   const handleSidebarClose = () => setSidebarVisible(false);
-
   const handleSearchClear = () => setSearchTerm("");
 
   useEffect(() => {
@@ -381,11 +378,15 @@ function PokemonPage(props) {
           generation={generation}
         />
 
-        <div className="cardbuttonContainer">
+        <div
+          className="cardbuttonContainer"
+          style={{
+            display: isMobile && sidebarVisible ? "none" : "flex",
+          }}
+        >
           <div
             className="pageButtons"
             style={{
-              width: sidebarVisible && isMobile ? 0 : "100%",
               margin: sidebarVisible ? "0" : "0 auto",
             }}
           >
@@ -412,8 +413,6 @@ function PokemonPage(props) {
           <div
             className="cardContainer"
             style={{
-              width: sidebarVisible && isMobile ? 0 : "100%",
-              display: sidebarVisible && isMobile ? "none" : "flex",
               margin: sidebarVisible ? "0" : "0 auto",
             }}
           >
@@ -423,7 +422,6 @@ function PokemonPage(props) {
           <div
             className="pageButtons"
             style={{
-              width: sidebarVisible && isMobile ? 0 : "100%",
               margin: sidebarVisible ? "0" : "0 auto",
             }}
           >

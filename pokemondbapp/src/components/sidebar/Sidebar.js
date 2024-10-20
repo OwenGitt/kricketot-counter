@@ -241,54 +241,58 @@ function Sidebar(props) {
             <div>LOADING</div>
           )}
 
-          <div>
-            <h4 className="sidebarHeader">Abilities</h4>
-            <div
-              className="abilityContainer"
-              style={{ margin: abilityDataVisible ? "0" : "0 0 5%" }}
-            >
-              {props.abilities.map((ability, key) => (
-                <section>
-                  {ability.is_hidden ? (
-                    <div>Hidden Ability</div>
-                  ) : (
-                    <div>Ability {ability.slot}</div>
-                  )}
-                  <div
-                    key={key}
-                    className="abilityBox"
-                    onClick={() => fetchAbilityData(ability.ability.name)}
-                  >
-                    {ability.ability.name.charAt(0).toUpperCase() +
-                      ability.ability.name.slice(1)}
-                  </div>
-                </section>
-              ))}
-            </div>
-            {abilityDataVisible ? (
-              <div>
-                <h4 className="sidebarSubHeader">
-                  {abilityName.charAt(0).toUpperCase() + abilityName.slice(1)}
-                </h4>
-                <p
-                  className="abilityData"
-                  onClick={() => setAbilityDataVisible(false)}
-                >
-                  {abilityData}
-                </p>
+          <section className="abilityHeightWeight">
+            <div>
+              <h4 className="sidebarHeader">Abilities</h4>
+              <div
+                className="abilityContainer"
+                style={{ margin: abilityDataVisible ? "0" : "0 0 5%" }}
+              >
+                {props.abilities.map((ability, key) => (
+                  <section>
+                    {ability.is_hidden ? (
+                      <div>Hidden Ability</div>
+                    ) : (
+                      <div>Ability {ability.slot}</div>
+                    )}
+                    <div
+                      key={key}
+                      className="abilityBox"
+                      onClick={() => fetchAbilityData(ability.ability.name)}
+                    >
+                      {ability.ability.name.charAt(0).toUpperCase() +
+                        ability.ability.name.slice(1)}
+                    </div>
+                  </section>
+                ))}
               </div>
-            ) : null}
-          </div>
+              {abilityDataVisible ? (
+                <div>
+                  <h4 className="sidebarSubHeader">
+                    {abilityName.charAt(0).toUpperCase() + abilityName.slice(1)}
+                  </h4>
+                  <p
+                    className="abilityData"
+                    onClick={() => setAbilityDataVisible(false)}
+                  >
+                    {abilityData}
+                  </p>
+                </div>
+              ) : null}
+            </div>
 
-          <h4 className="sidebarHeader">Height & Weight</h4>
-          <div className="pokemon_height_weight_container">
-            <div className="pokemon_height_weight_box" key="height">
-              {props.pokemonHeight / 10 + "m"}
-            </div>
-            <div className="pokemon_height_weight_box" key="weight">
-              {props.pokemonWeight / 10 + "kg"}
-            </div>
-          </div>
+            <section>
+              <h4 className="sidebarHeader">Height & Weight</h4>
+              <div className="pokemon_height_weight_container">
+                <div className="pokemon_height_weight_box" key="height">
+                  {props.pokemonHeight / 10 + "m"}
+                </div>
+                <div className="pokemon_height_weight_box" key="weight">
+                  {props.pokemonWeight / 10 + "kg"}
+                </div>
+              </div>
+            </section>
+          </section>
 
           {normalSprite && femaleSprite ? (
             <div>
