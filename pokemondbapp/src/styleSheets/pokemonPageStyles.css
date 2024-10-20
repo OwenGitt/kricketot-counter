@@ -1,31 +1,22 @@
 @import "./variables.css";
 
 .pageContainer {
-  position: relative;
-  height: 100%;
-  min-height: 100vh;
-  padding: 60px 0 60px;
-  /* background-image: linear-gradient(
-      to bottom,
-      rgba(102, 101, 101, 0) 0px,
-      rgba(102, 101, 101, 0.5) 500px,
-      rgba(102, 101, 101, 1) 800px
-    ),
-    url("../background.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;*/
   background-color: var(--page-background);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  padding: 60px 0 60px;
+  position: relative;
   scrollbar-color: var(--page-background);
 
   .pokemonPageTop {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     height: 100px;
-    width: 100%;
+    justify-content: space-between;
     margin: 25px 0 0 0;
+    width: 100%;
 
     .generationFilter {
       background-color: var(--matte-midnight-blue);
@@ -42,6 +33,7 @@
     display: flex;
     flex-direction: row;
     margin: 0 20px;
+    transition: all ease-in-out 0.4s;
 
     .cardbuttonContainer {
       display: flex;
@@ -49,26 +41,27 @@
       width: 100%;
 
       .pageButtons {
-        position: relative;
-        z-index: 4;
         margin: 0 auto;
-        -webkit-transition: all 0.4s ease-in-out;
+        position: relative;
+        width: 100%;
+        z-index: 4;
         -moz-transition: all 0.4s ease-in-out;
         -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
 
         .nextBackButtons {
-          width: 100px;
-          height: auto;
-          border-radius: 5px;
-          border: none;
           background-color: var(--primary-button--background-color);
-          opacity: 0.9;
+          border: none;
+          border-radius: 5px;
           color: var(--primary-button--color);
+          height: auto;
           margin: 20px;
-          -webkit-transition: all 0.3s ease-in-out;
+          opacity: 0.9;
+          width: 100px;
           -moz-transition: all 0.3s ease-in-out;
           -o-transition: all 0.3s ease-in-out;
+          -webkit-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
         }
 
@@ -82,23 +75,25 @@
         display: flex;
         flex-direction: row;
         position: relative;
+        width: 100%;
       }
 
       .cardContainer {
-        height: 100%;
         display: flex;
         flex-wrap: wrap;
-        position: relative;
+        gap: 10px;
+        height: 100%;
+        justify-content: center;
+        margin: 0 auto 0 auto;
         overflow-x: hidden;
         overflow-y: hidden;
-        gap: 10px;
         padding: 10px;
-        justify-content: center;
-        -webkit-transition: all 0.4s ease-in-out;
+        position: relative;
+        width: 100%;
         -moz-transition: all 0.4s ease-in-out;
         -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
-        margin: 0 auto 0 auto;
       }
 
       .pokemonCardSection {

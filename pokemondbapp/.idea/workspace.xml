@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="15d6a330-7d22-425d-ad7a-ba0e45c6ee7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PokemonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PokemonPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styleSheets/SidebarStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/SidebarStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styleSheets/pokemonPageStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/pokemonPageStyles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
