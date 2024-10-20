@@ -26,7 +26,6 @@ function PokemonPage(props) {
   const [total, setStatTotal] = useState(0);
   const [evolutions, setEvolutions] = useState([]);
   const [flavourText, setFlavourText] = useState("");
-  const [typesCount, setTypesCount] = useState(0);
   const [notEffective, setNotEffective] = useState([]);
   const [normalEffective, setNormalEffective] = useState([]);
   const [superEffective, setSuperEffective] = useState([]);
@@ -107,6 +106,7 @@ function PokemonPage(props) {
         setPokemonName(json.name);
         setPokemonHeight(json.height);
         setPokemonWeight(json.weight);
+        console.log(json.abilities);
         setAbilites(json.abilities);
         setStats(json.stats);
         setSpriteShiny(

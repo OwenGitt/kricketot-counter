@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import typeColours from "../../json_data/typeColours.json";
 import statNames from "../../json_data/statNames.json";
 import "../../styleSheets/SidebarStyles.css";
@@ -139,8 +139,6 @@ function Sidebar(props) {
     );
   };
 
-  const [offset, setOffset] = useState(0);
-
   return (
     <div
       className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
@@ -250,14 +248,21 @@ function Sidebar(props) {
               style={{ margin: abilityDataVisible ? "0" : "0 0 5%" }}
             >
               {props.abilities.map((ability, key) => (
-                <div
-                  key={key}
-                  className="abilityBox"
-                  onClick={() => fetchAbilityData(ability.ability.name)}
-                >
-                  {ability.ability.name.charAt(0).toUpperCase() +
-                    ability.ability.name.slice(1)}
-                </div>
+                <section>
+                  {ability.is_hidden ? (
+                    <div>Hidden Ability</div>
+                  ) : (
+                    <div>Ability {ability.slot}</div>
+                  )}
+                  <div
+                    key={key}
+                    className="abilityBox"
+                    onClick={() => fetchAbilityData(ability.ability.name)}
+                  >
+                    {ability.ability.name.charAt(0).toUpperCase() +
+                      ability.ability.name.slice(1)}
+                  </div>
+                </section>
               ))}
             </div>
             {abilityDataVisible ? (
