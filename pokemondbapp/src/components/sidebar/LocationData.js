@@ -189,47 +189,50 @@ function LocationData(props) {
           if (genArray.includes(locationVersion.version.name)) {
             updateLocationData(
               locationVersion.version.name,
-              location.location_area.name
+              location.location_area.name,
             );
           }
-        })
-      )
+        }),
+      ),
     );
     setCompleted(true);
-  }, [props.jsonLocData]);
+  }, [allGenGames, props.jsonLocData]);
 
   return (
     <div>
       {completed ? (
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          {Object.keys(locationData).map((game) =>
-            locationData[game].length > 0 ? (
-              <div className="location-game-data">
-                <h5 className={game}>
-                  {game.charAt(0).toUpperCase() +
-                    game
-                      .replace("green", "Green")
-                      .replace("red", "Red")
-                      .replace("-", " ")
-                      .slice(1)}
-                </h5>
-                <div className="location-routes">
-                  {locationData[game].map((location, index) =>
-                    index !== locationData[game].length - 1
-                      ? removeGameName(location) + ", "
-                      : removeGameName(location)
-                  )}
+          {Object.keys(locationData).map(
+            (game) =>
+              locationData[game].length > 0 ? (
+                <div className="location-game-data">
+                  <h5 className={game}>
+                    {game.charAt(0).toUpperCase() +
+                      game
+                        .replace("green", "Green")
+                        .replace("red", "Red")
+                        .replace("-", " ")
+                        .slice(1)}
+                  </h5>
+                  <div className="location-routes">
+                    {locationData[game].map((location, index) =>
+                      index !== locationData[game].length - 1
+                        ? removeGameName(location) + ", "
+                        : removeGameName(location),
+                    )}
+                  </div>
                 </div>
-              </div>
-            ) : // <div style={{ display: "flex", flexDirection: "row" }}>
-            //   <h5 className="sidebarSubHeader">
-            //     {game.charAt(0).toUpperCase() + game.slice(1)}
-            //   </h5>
-            //   <div style={{ fontSize: "14px", color: "rgb(241, 241, 241)" }}>
-            //     Evolve or trade to obtain
-            //   </div>
-            // </div>
-            null
+              ) : (
+                <div className="location-game-data">
+                  <h5 className={game}>
+                    {game.charAt(0).toUpperCase() + game.slice(1)}
+                  </h5>
+                  <div className="location-routes">
+                    Evolve or trade to obtain
+                  </div>
+                </div>
+              ),
+            // null,
           )}
         </div>
       ) : (
@@ -238,4 +241,5 @@ function LocationData(props) {
     </div>
   );
 }
+
 export default LocationData;

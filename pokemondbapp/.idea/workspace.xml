@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15d6a330-7d22-425d-ad7a-ba0e45c6ee7b" name="Changes" comment="" />
+    <list default="true" id="15d6a330-7d22-425d-ad7a-ba0e45c6ee7b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/PokemonCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PokemonCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/LocationData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/LocationData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PokemonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PokemonPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styleSheets/SidebarStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/SidebarStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styleSheets/locationDataStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/locationDataStyles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;OwenGitt&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/OwenGitt/kricketot-counter.git&quot;,
+    &quot;accountId&quot;: &quot;2eea6bf3-6a05-493e-9ad4-54e072a1ce60&quot;
+  }
+}</component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\tools\php82\php.exe" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -25,21 +45,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/UNI/Kricketot Counter/kricketotcounter/pokemondbapp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "D:\\UNI\\Kricketot Counter\\kricketotcounter\\pokemondbapp\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sidebar-style-updates&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/UNI/Kricketot Counter/kricketotcounter/pokemondbapp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\UNI\\Kricketot Counter\\kricketotcounter\\pokemondbapp\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\PhpStorm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -59,7 +80,11 @@
       <workItem from="1729257050981" duration="207000" />
       <workItem from="1729257270632" duration="6429000" />
       <workItem from="1729280046304" duration="118000" />
-      <workItem from="1729280172743" duration="553000" />
+      <workItem from="1729280172743" duration="2775000" />
+      <workItem from="1729325739671" duration="90000" />
+      <workItem from="1729325831829" duration="1141000" />
+      <workItem from="1729357060073" duration="5573000" />
+      <workItem from="1729411831043" duration="3490000" />
     </task>
     <servers />
   </component>

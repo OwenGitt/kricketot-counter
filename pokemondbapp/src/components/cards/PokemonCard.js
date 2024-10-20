@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import typeColours from "../../json_data/typeColours.json";
 import fairyPokemon from "../../json_data/fairyPokemon.json";
 import "../../styleSheets/pokemonCardStyles.css";
 
-/**
- * Pokemon Cards
- *
- * Displays a card for each pokemon...
- *
- * @author Owen Gittins
- */
-
 function PokemonCard(props) {
-  const [pokemonID, setPokemonID] = useState("");
   const [types, setTypes] = useState([]);
   const [basicSprite, setBasicSprite] = useState("");
   const [generation1Sprite, setGeneration1Sprite] = useState("");
@@ -20,7 +11,7 @@ function PokemonCard(props) {
   const [generation3Sprite, setGeneration3Sprite] = useState("");
   const [generation4Sprite, setGeneration4Sprite] = useState("");
   const [typesCount, setTypesCount] = useState(0);
-  const [mouseOver, setMouseOver] = useState([false]);
+  const [mouseOver, setMouseOver] = useState(false);
   const [loading, setLoading] = useState(undefined);
   const [completed, setCompleted] = useState(undefined);
 
@@ -34,31 +25,30 @@ function PokemonCard(props) {
         .then((response) => response.json())
         .then((json) => {
           setTypes(json.types);
-          setPokemonID(json.id);
           setBasicSprite(
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
               json.id +
-              ".png"
+              ".png",
           );
           setGeneration1Sprite(
             json.sprites.versions["generation-i"][
               Object.keys(json.sprites.versions["generation-i"])[0]
-            ].front_default
+            ].front_default,
           );
           setGeneration2Sprite(
             json.sprites.versions["generation-ii"][
               Object.keys(json.sprites.versions["generation-ii"])[0]
-            ].front_default
+            ].front_default,
           );
           setGeneration3Sprite(
             json.sprites.versions["generation-iii"][
               Object.keys(json.sprites.versions["generation-iii"])[0]
-            ].front_default
+            ].front_default,
           );
           setGeneration4Sprite(
             json.sprites.versions["generation-iv"][
               Object.keys(json.sprites.versions["generation-iv"])[0]
-            ].front_default
+            ].front_default,
           );
           setCompleted(true);
           setLoading(false);
@@ -92,8 +82,8 @@ function PokemonCard(props) {
   };
 
   const formatPokemonNames = (name) => {
-    // Format Pokemon names to have capitals at the start and remove dashes.
-    // Also sort out certain pokemon names to display correctly.
+    // Format Pokémon names to have capitals at the start and remove dashes.
+    // Also sort out certain Pokémon names to display correctly.
     return (
       name.charAt(0).toUpperCase() +
       name
@@ -154,12 +144,12 @@ function PokemonCard(props) {
                 props.generation === "generation-v"
                   ? basicSprite
                   : props.generation === "generation-i"
-                  ? generation1Sprite
-                  : props.generation === "generation-ii"
-                  ? generation2Sprite
-                  : props.generation === "generation-iii"
-                  ? generation3Sprite
-                  : generation4Sprite
+                    ? generation1Sprite
+                    : props.generation === "generation-ii"
+                      ? generation2Sprite
+                      : props.generation === "generation-iii"
+                        ? generation3Sprite
+                        : generation4Sprite
               }
               alt={
                 props.value.name.charAt(0).toUpperCase() +
@@ -172,7 +162,7 @@ function PokemonCard(props) {
             </div>
 
             <div className="pokemonCardTypes">
-              {types != [] ? displayPokemonTypes() : <div>LOADING</div>}
+              {types !== [] ? displayPokemonTypes() : <div>LOADING</div>}
             </div>
           </div>
         </>
