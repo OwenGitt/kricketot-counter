@@ -331,7 +331,7 @@ function PokemonPage(props) {
         calculateTypes();
       }, 100);
     }, 200);
-  }, [calculateTypes, pokemonID]);
+  }, [pokemonID]);
 
   const onOptionChangeHandler = (event) => {
     if (event.target.value === "Select Sprite Generation") {
