@@ -33,6 +33,7 @@ function PokemonPage(props) {
   const [inEffective, setIneffective] = useState([]);
   const [doubleUneffective, setDoubleUneffective] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
+  const [sidebarClosing, setSidebarClosing] = useState(false);
   const [generation, setGeneration] = useState("generation-v");
   const [generationTotals] = useState({
     "generation-i": 151,
@@ -57,22 +58,11 @@ function PokemonPage(props) {
     "Generation 5": "generation-v",
   });
   const isMobile = width <= 768;
-  const handleSidebarClose = () => setSidebarVisible(false);
+  const handleSidebarClose = () => {
+    setSidebarVisible(false);
+    setSidebarClosing(false);
+  };
   const handleSearchClear = () => setSearchTerm("");
-
-  useEffect(() => {
-    setTimeout(() => {
-      setNotEffective([]);
-      setNormalEffective([]);
-      setSuperEffective([]);
-      setUltraEffective([]);
-      setIneffective([]);
-      setDoubleUneffective([]);
-      setTimeout(() => {
-        calculateTypes();
-      }, 100);
-    }, 200);
-  }, [pokemonID]);
 
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);
@@ -141,7 +131,13 @@ function PokemonPage(props) {
         ? updateNextBackButtons(true)
         : updateNextBackButtons(false)
       : updateNextBackButtons(true);
-  }, [searchTerm]);
+  }, [
+    UpperLimit,
+    props.pokemon,
+    searchPokemon,
+    searchTerm,
+    updateNextBackButtons,
+  ]);
 
   const searchHandler = (event) => {
     setSearchTerm(event);
@@ -165,7 +161,7 @@ function PokemonPage(props) {
 
   useEffect(() => {
     setGenerationPokemon(props.pokemon.slice(0, generationTotals[generation]));
-  }, [generation, props.pokemon]);
+  }, [generation, generationTotals, props.pokemon]);
 
   const showMorePokemon = () => {
     setPageNum(pageNum + 1);
@@ -188,14 +184,14 @@ function PokemonPage(props) {
   };
 
   const maxLimit = () => {
-    setUpper(UpperLimit + 0);
-    setLower(LowerLimit + 0);
+    setUpper(UpperLimit);
+    setLower(LowerLimit);
     setNextVisible(false);
   };
 
   const lowLimit = () => {
-    setUpper(UpperLimit + 0);
-    setLower(LowerLimit + 0);
+    setUpper(UpperLimit);
+    setLower(LowerLimit);
     setBackVisible(false);
   };
 
@@ -244,11 +240,10 @@ function PokemonPage(props) {
 
   const getPokemonData = (jStats) => {
     let statTotal = 0;
-    {
-      jStats.map((stat) => {
-        statTotal += stat.base_stat;
-      });
-    }
+    jStats.forEach((stat) => {
+      statTotal += stat.base_stat;
+    });
+
     setStatTotal(statTotal);
     setSidebarVisible(true);
   };
@@ -324,6 +319,20 @@ function PokemonPage(props) {
       );
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setNotEffective([]);
+      setNormalEffective([]);
+      setSuperEffective([]);
+      setUltraEffective([]);
+      setIneffective([]);
+      setDoubleUneffective([]);
+      setTimeout(() => {
+        calculateTypes();
+      }, 100);
+    }, 200);
+  }, [calculateTypes, pokemonID]);
+
   const onOptionChangeHandler = (event) => {
     if (event.target.value === "Select Sprite Generation") {
       setGeneration(generationSelectValues["Generation 5"]);
@@ -376,6 +385,8 @@ function PokemonPage(props) {
           isMobile={isMobile}
           abilityDataVisible={false}
           generation={generation}
+          sidebarClosing={sidebarClosing}
+          setSidebarClosing={setSidebarClosing}
         />
 
         <div

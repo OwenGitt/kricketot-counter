@@ -139,11 +139,27 @@ function Sidebar(props) {
     );
   };
 
+  /* Used to stop the sidebar closing animation breaking at small viewport sizes
+    (where sidebar takes up 100% of screen), but doesn't affect larger viewports.
+    This could be updated by making the page allow overflow-x as sidebar doesn't
+    need to be sticky on small viewports, this could then allow the sidebar to go
+    from 100% width to 0 as the card container slides in from the right.
+   */
+  const closeAnimation = () => {
+    props.setSidebarClosing(true);
+    setTimeout(props.handleSidebarClose, 300);
+  };
+
   return (
     <div
       className={props.visible ? "sidebarContainer" : "hideSidebarContainer"}
       style={{
-        width: props.visible ? (props.isMobile ? "100%" : "700px") : 0,
+        width:
+          props.visible && !props.sidebarClosing
+            ? props.isMobile
+              ? "100%"
+              : "700px"
+            : 0,
       }}
     >
       <div className="sidebarContents">
@@ -159,7 +175,12 @@ function Sidebar(props) {
               {formatPokemonNames(props.pokemonName)}
             </h2>
           </div>
-          <span className="closeButton" onClick={props.handleSidebarClose}>
+          <span
+            className="closeButton"
+            onClick={() => {
+              closeAnimation();
+            }}
+          >
             &#10005;
           </span>
 
@@ -182,15 +203,19 @@ function Sidebar(props) {
               ></img>
             ) : null}
           </div>
+          <div className="sidebar_pokemonCardTypes">
+            {displayPokemonTypes()}
+          </div>
         </div>
-        <div className="sidebar_pokemonCardTypes">{displayPokemonTypes()}</div>
 
-        <div className="sidebarBody">
+        <section>
           <h4 className="sidebarHeader">Description</h4>
           <div className="sidebarDescription">
             {props.flavourText !== "" ? props.flavourText : <div>LOADING</div>}
           </div>
+        </section>
 
+        <section>
           <h4 className="sidebarHeader">Stats</h4>
           <div className="statContainer">
             {props.stats.map((stat, key) => (
@@ -213,7 +238,9 @@ function Sidebar(props) {
               <div className="statNumber">{props.total}</div>
             </div>
           </div>
+        </section>
 
+        <section>
           <h4 className="sidebarHeader">Evolutions</h4>
           {props.evolutions.length !== 0 ? (
             props.evolutions.evolves_to.length >= 1 ? (
@@ -240,105 +267,106 @@ function Sidebar(props) {
           ) : (
             <div>LOADING</div>
           )}
+        </section>
 
-          <section className="abilityHeightWeight">
-            <div>
-              <h4 className="sidebarHeader">Abilities</h4>
-              <div
-                className="abilityContainer"
-                style={{ margin: abilityDataVisible ? "0" : "0 0 5%" }}
-              >
-                {props.abilities.map((ability, key) => (
-                  <section>
-                    {ability.is_hidden ? (
-                      <div>Hidden Ability</div>
-                    ) : (
-                      <div>Ability {ability.slot}</div>
-                    )}
-                    <div
-                      key={key}
-                      className="abilityBox"
-                      onClick={() => fetchAbilityData(ability.ability.name)}
-                    >
-                      {ability.ability.name.charAt(0).toUpperCase() +
-                        ability.ability.name.slice(1)}
-                    </div>
-                  </section>
-                ))}
-              </div>
-              {abilityDataVisible ? (
-                <div>
-                  <h4 className="sidebarSubHeader">
-                    {abilityName.charAt(0).toUpperCase() + abilityName.slice(1)}
-                  </h4>
-                  <p
-                    className="abilityData"
-                    onClick={() => setAbilityDataVisible(false)}
+        <section className="abilityHeightWeight">
+          <div>
+            <h4 className="sidebarHeader">Abilities</h4>
+            <div
+              className="abilityContainer"
+              style={{ margin: abilityDataVisible ? "0" : "0 0 5%" }}
+            >
+              {props.abilities.map((ability, key) => (
+                <section>
+                  {ability.is_hidden ? (
+                    <div>Hidden Ability</div>
+                  ) : (
+                    <div>Ability {ability.slot}</div>
+                  )}
+                  <div
+                    key={key}
+                    className="abilityBox"
+                    onClick={() => fetchAbilityData(ability.ability.name)}
                   >
-                    {abilityData}
-                  </p>
-                </div>
-              ) : null}
+                    {ability.ability.name.charAt(0).toUpperCase() +
+                      ability.ability.name.slice(1)}
+                  </div>
+                </section>
+              ))}
             </div>
-
-            <section>
-              <h4 className="sidebarHeader">Height & Weight</h4>
-              <div className="pokemon_height_weight_container">
-                <div className="pokemon_height_weight_box" key="height">
-                  {props.pokemonHeight / 10 + "m"}
-                </div>
-                <div className="pokemon_height_weight_box" key="weight">
-                  {props.pokemonWeight / 10 + "kg"}
-                </div>
+            {abilityDataVisible ? (
+              <div>
+                <h4 className="sidebarSubHeader">
+                  {abilityName.charAt(0).toUpperCase() + abilityName.slice(1)}
+                </h4>
+                <p
+                  className="abilityData"
+                  onClick={() => setAbilityDataVisible(false)}
+                >
+                  {abilityData}
+                </p>
               </div>
-            </section>
+            ) : null}
+          </div>
+
+          <section>
+            <h4 className="sidebarHeader">Height & Weight</h4>
+            <div className="pokemon_height_weight_container">
+              <div className="pokemon_height_weight_box" key="height">
+                {props.pokemonHeight / 10 + "m"}
+              </div>
+              <div className="pokemon_height_weight_box" key="weight">
+                {props.pokemonWeight / 10 + "kg"}
+              </div>
+            </div>
           </section>
+        </section>
 
-          {normalSprite && femaleSprite ? (
-            <div>
-              <h4 className="sidebarHeader">Gender Differences</h4>
-              <div className="genderDifferences">
-                <div>
-                  <img
-                    src={normalSprite}
-                    alt={
-                      props.pokemonName.charAt(0).toUpperCase() +
-                      props.pokemonName.slice(1)
-                    }
-                  ></img>
-                  <img
-                    src={femaleSprite}
-                    alt={
-                      "Female " +
-                      props.pokemonName.charAt(0).toUpperCase() +
-                      props.pokemonName.slice(1)
-                    }
-                  ></img>
-                </div>
-                <div>
-                  <img
-                    src={shinySprite}
-                    alt={
-                      "Male Shiny " +
-                      props.pokemonName.charAt(0).toUpperCase() +
-                      props.pokemonName.slice(1)
-                    }
-                  ></img>
-                  <img
-                    src={femaleShinySprite}
-                    alt={
-                      "Female Shiny " +
-                      props.pokemonName.charAt(0).toUpperCase() +
-                      props.pokemonName.slice(1)
-                    }
-                  ></img>
-                </div>
+        {normalSprite && femaleSprite ? (
+          <section>
+            <h4 className="sidebarHeader">Gender Differences</h4>
+            <div className="genderDifferences">
+              <div>
+                <img
+                  src={normalSprite}
+                  alt={
+                    props.pokemonName.charAt(0).toUpperCase() +
+                    props.pokemonName.slice(1)
+                  }
+                ></img>
+                <img
+                  src={femaleSprite}
+                  alt={
+                    "Female " +
+                    props.pokemonName.charAt(0).toUpperCase() +
+                    props.pokemonName.slice(1)
+                  }
+                ></img>
+              </div>
+              <div>
+                <img
+                  src={shinySprite}
+                  alt={
+                    "Male Shiny " +
+                    props.pokemonName.charAt(0).toUpperCase() +
+                    props.pokemonName.slice(1)
+                  }
+                ></img>
+                <img
+                  src={femaleShinySprite}
+                  alt={
+                    "Female Shiny " +
+                    props.pokemonName.charAt(0).toUpperCase() +
+                    props.pokemonName.slice(1)
+                  }
+                ></img>
               </div>
             </div>
-          ) : null}
+          </section>
+        ) : null}
 
+        <section>
           <h4 className="sidebarHeader">Type Matchups</h4>
-
           <div className="typeMatchupsContainer">
             <h5 className="sidebarSubHeader">Super Effective</h5>
             <div className="typeMatchupsContainer-column" id="superEffective">
@@ -351,7 +379,7 @@ function Sidebar(props) {
                   <div className="typeName">
                     {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                   </div>
-                  <div className="typeMultiplier"> 4x </div>
+                  <div className="typeMultiplier"> 4x</div>
                 </div>
               ))}
 
@@ -364,7 +392,7 @@ function Sidebar(props) {
                   <div className="typeName">
                     {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                   </div>
-                  <div className="typeMultiplier"> 2x </div>
+                  <div className="typeMultiplier"> 2x</div>
                 </div>
               ))}
             </div>
@@ -380,7 +408,7 @@ function Sidebar(props) {
                   <div className="typeName">
                     {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                   </div>
-                  <div className="typeMultiplier"> 1x </div>
+                  <div className="typeMultiplier"> 1x</div>
                 </div>
               ))}
             </div>
@@ -402,7 +430,7 @@ function Sidebar(props) {
                     <div className="typeName">
                       {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                     </div>
-                    <div className="typeMultiplier"> ½x </div>
+                    <div className="typeMultiplier"> ½x</div>
                   </div>
                 ))}
                 {props.doubleUneffective.map((a_type, key) => (
@@ -414,7 +442,7 @@ function Sidebar(props) {
                     <div className="typeName">
                       {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                     </div>
-                    <div className="typeMultiplier"> ¼x </div>
+                    <div className="typeMultiplier"> ¼x</div>
                   </div>
                 ))}
               </div>
@@ -434,18 +462,20 @@ function Sidebar(props) {
                     <div className="typeName">
                       {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
                     </div>
-                    <div className="typeMultiplier"> 0x </div>
+                    <div className="typeMultiplier"> 0x</div>
                   </div>
                 ))
               )}
             </div>
-
-            <h5 className="sidebarHeader">Game Locations</h5>
-            <div>
-              <LocationData jsonLocData={jsonLocationData} />
-            </div>
           </div>
-        </div>
+        </section>
+
+        <section>
+          <h5 className="sidebarHeader">Game Locations</h5>
+          <div>
+            <LocationData jsonLocData={jsonLocationData} />
+          </div>
+        </section>
       </div>
     </div>
   );
