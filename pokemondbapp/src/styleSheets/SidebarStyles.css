@@ -30,6 +30,9 @@
     overflow-y: auto;
     overflow-x: hidden;
     padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
     .sidebarTitle-h2 {
       color: var(--ivory);
@@ -43,8 +46,6 @@
       color: #3f3f3f;
       font-size: 26px;
       font-weight: 600;
-      margin-right: 7.5%;
-      margin-top: 2%;
       position: absolute;
       right: 0;
       top: 0;
@@ -62,10 +63,7 @@
       border-radius: 30px;
       font-size: 13px;
       font-weight: 600;
-      margin-bottom: 1px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 1px;
+      margin: 1px auto;
       opacity: 0.8;
       padding: 13px;
       text-align: center;
@@ -77,6 +75,8 @@
     }
 
     .abilityHeightWeight {
+      justify-content: space-evenly;
+
       .abilityContainer {
         display: flex;
         flex-direction: row;
@@ -165,10 +165,7 @@
       border-radius: 25px;
       font-size: 13px;
       font-weight: 600;
-      max-height: 50px;
       margin: 1px;
-      max-width: 280px;
-      min-width: 40px;
       min-height: 30px;
       max-height: 60px;
       opacity: 0.8;
@@ -188,7 +185,6 @@
 
     .pokemon_Evolution_Container {
       display: flex;
-      flex-direction: row;
       justify-content: center;
       margin-bottom: 8px;
       text-align: center;
@@ -270,12 +266,12 @@
       justify-content: center;
       margin: 0 auto 8px;
       transition: 0.5s;
-      gap: 8px;
+      flex-wrap: wrap;
 
       .statBox {
         background-color: var(--elevation-two);
         border-radius: 25px;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 600;
         height: 60px;
         opacity: 0.8;
@@ -304,13 +300,12 @@
       font-size: 13px;
       font-weight: 600;
       margin: 1px;
-      max-width: 32%;
-      min-width: 32%;
       padding: 10px;
       text-align: center;
       transition: 0.5s;
       display: flex;
       flex-direction: row;
+      gap: 4px;
     }
 
     .typeName {
@@ -348,25 +343,101 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 459px) {
   .sidebarContainer,
   .hideSidebarContainer {
-    margin: 0;
+    margin: 20px 0 0;
+    max-height: 90vh;
 
-    .abilityHeightWeight {
-      display: flex;
-      flex-direction: row;
-      margin: 15px 0 10px;
-      justify-content: space-evenly;
+    .sidebarContents {
+      padding: 25px 8px 8px;
+      max-height: 100vh;
 
-      .abilityContainer {
-        section {
-          flex-direction: column-reverse;
+      .closeButton {
+        margin: 0 2% 0;
+      }
+
+      .statContainer {
+        gap: 4px;
+      }
+
+      .pokemon_Evolution_Container {
+        flex-direction: column;
+
+        .pokemon_Evolution_Box, .pokemon_Evolution_Method_Box {
+          width: 50%;
+          margin: 0 auto;
+        }
+      }
+
+      .abilityHeightWeight {
+        display: flex;
+        flex-direction: column;
+
+        .abilityContainer {
+          section {
+            flex-direction: column;
+          }
+        }
+      }
+
+      .typeMatchup {
+        max-width: 48%;
+        min-width: 48%;
+      }
+
+      .location-game-data {
+        flex-direction: column;
+
+        h5 {
+          width: 33%;
+        }
+
+        .location-routes {
+          width: 100%;
         }
       }
     }
+  }
+}
+
+@media (max-width: 768px) and (min-width: 460px) {
+  .sidebarContainer,
+  .hideSidebarContainer {
+    margin: 20px 0 0 0;
+
+    .closeButton {
+      margin-right: 7.5%;
+      margin-top: 2%;
+    }
 
     .sidebarContents {
+      .statContainer {
+        gap: 8px;
+      }
+
+      .pokemon_Evolution_Container {
+        flex-direction: row;
+
+        .pokemon_Evolution_Box {
+          max-width: 280px;
+          min-width: 40px;
+        }
+      }
+
+      .abilityHeightWeight {
+        display: flex;
+        flex-direction: row;
+        margin: 15px 0 10px;
+        justify-content: space-evenly;
+
+        .abilityContainer {
+          section {
+            flex-direction: column-reverse;
+          }
+        }
+      }
+
       .typeMatchup {
         max-width: 24%;
         min-width: 24%;
@@ -378,17 +449,40 @@
 @media (min-width: 769px) {
   .sidebarContainer,
   .hideSidebarContainer {
-    margin: 76px 20px 0 0;
+    margin: 76px 0 0 ;
+
+    .closeButton {
+      margin-right: 7.5%;
+      margin-top: 2%;
+    }
+
+    .statContainer {
+      gap: 8px;
+    }
+
+    .pokemon_Evolution_Container {
+      flex-direction: row;
+
+      .pokemon_Evolution_Box {
+        max-width: 280px;
+        min-width: 40px;
+      }
+    }
 
     .abilityHeightWeight {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
 
       .abilityContainer {
         section {
-          flex-direction: column;
+          flex-direction: column-reverse;
         }
       }
+    }
+
+    .typeMatchup {
+      max-width: 24%;
+      min-width: 24%;
     }
   }
 }

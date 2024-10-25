@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15d6a330-7d22-425d-ad7a-ba0e45c6ee7b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/PokemonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PokemonPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styleSheets/SidebarStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/SidebarStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styleSheets/pokemonPageStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/pokemonPageStyles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +46,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "responsive-design-improvements",
+    "git-widget-placeholder": "Sidebar-responsive-styles-updates",
     "last_opened_file_path": "D:/UNI/Kricketot Counter/kricketotcounter/pokemondbapp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -83,11 +83,24 @@
       <workItem from="1729325831829" duration="1141000" />
       <workItem from="1729357060073" duration="5573000" />
       <workItem from="1729411831043" duration="3490000" />
+      <workItem from="1729455068951" duration="920000" />
+      <workItem from="1729852499111" duration="7668000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
