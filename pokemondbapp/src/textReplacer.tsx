@@ -11,7 +11,6 @@ export const formatText = (text: string) => {
       .replace("hoenn-", "")
       .replace("sinnoh-", "")
       .replace("unova-", "")
-      .replace("-", " ")
       // Capitalize important locations that appear in sentence
       .replace("pewter", "Pewter")
       .replace("viridian", "Viridian")
@@ -133,5 +132,7 @@ export const formatText = (text: string) => {
       .replace("Loc. Sinnoh-route-217", "Lvl up near Ice Rock")
       .replace("Gender 1", "female")
       .replace("Gender 2", "male")
+      // Replace any left-over dashes
+      .replace("-", " ")
   );
 };

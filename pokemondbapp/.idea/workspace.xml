@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="15d6a330-7d22-425d-ad7a-ba0e45c6ee7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/PokemonCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PokemonCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/CheckEvolution.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/CheckEvolution.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/LocationData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/LocationData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/Evolutions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Evolutions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PokemonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PokemonPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textReplacer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/textReplacer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
