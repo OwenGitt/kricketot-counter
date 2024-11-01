@@ -1,20 +1,9 @@
 import { useEffect, useState } from "react";
 import EvolutionItem from "./EvolutionItem";
+import { formatText } from "../../textReplacer.tsx";
 
 function CheckEvolution(props) {
   const [toReturn, setToReturn] = useState(<></>);
-
-  const replaceText = (text) => {
-    // Sort out text for certain evolutions
-    return text
-      .replace("Stat 1", "Lvl 20 & Atk > Def")
-      .replace("Stat -1", "Lvl 20 & Atk < Def")
-      .replace("Stat 0", "Lvl 20 & Atk = Def")
-      .replace("Loc. Eterna-forest", "Lvl up near Moss Rock")
-      .replace("Loc. Sinnoh-route-217", "Lvl up near Ice Rock")
-      .replace("Gender 1", "female")
-      .replace("Gender 2", "male");
-  };
 
   const dict = {
     gender: "Gender ",
@@ -73,7 +62,7 @@ function CheckEvolution(props) {
                   props.evolutionDetails.held_item.name.replace("-", " ")
                 }
                 url={props.evolutionDetails.held_item.url}
-              />
+              />,
             );
           } else {
             evolutionDetails.push(
@@ -81,7 +70,7 @@ function CheckEvolution(props) {
                 key={method}
                 method={"Trade"}
                 url={props.evolutionDetails.held_item.url}
-              />
+              />,
             );
           }
         } else if (method === "item") {
@@ -90,7 +79,7 @@ function CheckEvolution(props) {
               key={method}
               method={"Use"}
               url={props.evolutionDetails.item.url}
-            />
+            />,
           );
         } else if (
           method === "known_move" ||
@@ -99,36 +88,36 @@ function CheckEvolution(props) {
           method === "party_species"
         ) {
           evolutionDetails.push(
-            replaceText(
+            formatText(
               dict[method] +
                 " " +
                 props.evolutionDetails[method].name.charAt(0).toUpperCase() +
-                props.evolutionDetails[method].name.slice(1).replace("-", " ")
-            )
+                props.evolutionDetails[method].name.slice(1).replace("-", " "),
+            ),
           );
         } else if (method === "party_species") {
           evolutionDetails.push(
-            replaceText(
+            formatText(
               dict[method] +
                 " " +
                 props.evolutionDetails[method].name.charAt(0).toUpperCase() +
                 props.evolutionDetails[method].name.slice(1) +
-                " in party"
-            )
+                " in party",
+            ),
           );
         } else if (method === "time_of_day") {
           evolutionDetails.push(
-            replaceText("at " + props.evolutionDetails[method])
+            formatText("at " + props.evolutionDetails[method]),
           );
         } else if (method === "min_happiness") {
           evolutionDetails.push(
-            replaceText(
-              dict[method] + " (" + props.evolutionDetails[method] + ")"
-            )
+            formatText(
+              dict[method] + " (" + props.evolutionDetails[method] + ")",
+            ),
           );
         } else {
           evolutionDetails.push(
-            replaceText(dict[method] + props.evolutionDetails[method])
+            formatText(dict[method] + props.evolutionDetails[method]),
           );
         }
       }
@@ -138,14 +127,14 @@ function CheckEvolution(props) {
       props.evolutionDetails.trigger.name === "trade" &&
       evolutionDetails.length === 0
     ) {
-      evolutionDetails.push(replaceText("Trade"));
+      evolutionDetails.push(formatText("Trade"));
     }
 
     if (
       props.evolutionDetails.trigger.name === "shed" &&
       evolutionDetails.length === 0
     ) {
-      evolutionDetails.push(replaceText("Poké Ball in bag and space in party"));
+      evolutionDetails.push(formatText("Poké Ball in bag and space in party"));
     }
 
     if (evolutionDetails.length === 2) {

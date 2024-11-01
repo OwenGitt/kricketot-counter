@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="15d6a330-7d22-425d-ad7a-ba0e45c6ee7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PokemonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PokemonPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/PokemonCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PokemonCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/CheckEvolution.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/CheckEvolution.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/LocationData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/LocationData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +20,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -43,7 +55,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merge-all-replace-functions-into-one",
     "last_opened_file_path": "D:/UNI/Kricketot Counter/kricketotcounter/pokemondbapp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
