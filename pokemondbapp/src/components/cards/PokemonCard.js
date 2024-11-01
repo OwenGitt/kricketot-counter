@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import typeColours from "../../json_data/typeColours.json";
 import fairyPokemon from "../../json_data/fairyPokemon.json";
 import "../../styleSheets/pokemonCardStyles.css";
+import { formatText } from "../../textReplacer.tsx";
 
 function PokemonCard(props) {
   const [types, setTypes] = useState([]);
@@ -66,7 +67,7 @@ function PokemonCard(props) {
           className="pokemonType"
           style={{ backgroundColor: typeColours[type.type.name] }}
         >
-          {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+          {formatText(type.type.name)}
         </div>
       ));
     } else {
@@ -75,32 +76,10 @@ function PokemonCard(props) {
           className="pokemonType"
           style={{ backgroundColor: typeColours[type.type.name] }}
         >
-          {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+          {formatText(type.type.name)}
         </div>
       ));
     }
-  };
-
-  const formatPokemonNames = (name) => {
-    // Format Pokémon names to have capitals at the start and remove dashes.
-    // Also sort out certain Pokémon names to display correctly.
-    return (
-      name.charAt(0).toUpperCase() +
-      name
-        .slice(1)
-        .replace("r-m", "r. M")
-        .replace("-jr", " jr.")
-        .replace("-f", "♀")
-        .replace("-m", "♂")
-        .replace("-ordinary", "")
-        .replace("-incarnate", "")
-        .replace("-aria", "")
-        .replace("-land", "")
-        .replace("-altered", "")
-        .replace("standard", "")
-        .replace("red-striped", "")
-        .replace("-", " ")
-    );
   };
 
   return (
@@ -151,18 +130,19 @@ function PokemonCard(props) {
                         ? generation3Sprite
                         : generation4Sprite
               }
-              alt={
-                props.value.name.charAt(0).toUpperCase() +
-                props.value.name.slice(1)
-              }
+              alt={formatText(props.value.name)}
               loading="lazy"
             ></img>
             <div className="pokemonCardName">
-              {formatPokemonNames(props.value.name)}
+              {formatText(props.value.name)}
             </div>
 
             <div className="pokemonCardTypes">
-              {types !== [] ? displayPokemonTypes() : <div>LOADING</div>}
+              {types.length !== 0 ? (
+                displayPokemonTypes()
+              ) : (
+                <div>LOADING...</div>
+              )}
             </div>
           </div>
         </>

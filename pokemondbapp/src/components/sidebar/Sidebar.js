@@ -5,6 +5,7 @@ import "../../styleSheets/SidebarStyles.css";
 import Evolutions from "./Evolutions";
 import fairyPokemon from "../../json_data/fairyPokemon.json";
 import LocationData from "./LocationData";
+import { formatText } from "../../textReplacer.tsx";
 
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
@@ -103,7 +104,7 @@ function Sidebar(props) {
           className="sidebar_pokemonType"
           style={{ backgroundColor: typeColours[type.type.name] }}
         >
-          {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+          {formatText(type.type.name)}
         </div>
       ));
     } else {
@@ -112,31 +113,10 @@ function Sidebar(props) {
           className="sidebar_pokemonType"
           style={{ backgroundColor: typeColours[type.type.name] }}
         >
-          {type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}
+          {formatText(type.type.name)}
         </div>
       ));
     }
-  };
-
-  const formatPokemonNames = (name) => {
-    // Format Pokémon names to have capitals at the start and remove dashes
-    return (
-      name.charAt(0).toUpperCase() +
-      name
-        .slice(1)
-        .replace("r-m", "r. M")
-        .replace("-jr", " jr.")
-        .replace("-f", "♀")
-        .replace("-m", "♂")
-        .replace("-ordinary", "")
-        .replace("-incarnate", "")
-        .replace("-aria", "")
-        .replace("-land", "")
-        .replace("-altered", "")
-        .replace("standard", "")
-        .replace("red-striped", "")
-        .replace("-", " ")
-    );
   };
 
   /* Used to stop the sidebar closing animation breaking at small viewport sizes
@@ -172,7 +152,7 @@ function Sidebar(props) {
                 : props.pokemonID < 100
                   ? "0" + props.pokemonID + " "
                   : props.pokemonID + " "}
-              {formatPokemonNames(props.pokemonName)}
+              {formatText(props.pokemonName)}
             </h2>
           </div>
           <span
@@ -185,21 +165,11 @@ function Sidebar(props) {
           </span>
 
           <div>
-            <img
-              src={normalSprite}
-              alt={
-                props.pokemonName.charAt(0).toUpperCase() +
-                props.pokemonName.slice(1)
-              }
-            ></img>
+            <img src={normalSprite} alt={formatText(props.pokemonName)}></img>
             {shinySprite !== undefined ? (
               <img
                 src={shinySprite}
-                alt={
-                  "Shiny " +
-                  props.pokemonName.charAt(0).toUpperCase() +
-                  props.pokemonName.slice(1)
-                }
+                alt={"Shiny " + formatText(props.pokemonName)}
               ></img>
             ) : null}
           </div>
@@ -259,8 +229,7 @@ function Sidebar(props) {
                     )
                   }
                 >
-                  {props.evolutions.species.name.charAt(0).toUpperCase() +
-                    props.evolutions.species.name.slice(1)}
+                  {formatText(props.evolutions.species.name)}
                 </div>
               </div>
             )
@@ -288,17 +257,14 @@ function Sidebar(props) {
                     className="abilityBox"
                     onClick={() => fetchAbilityData(ability.ability.name)}
                   >
-                    {ability.ability.name.charAt(0).toUpperCase() +
-                      ability.ability.name.slice(1)}
+                    {formatText(ability.ability.name)}
                   </div>
                 </section>
               ))}
             </div>
             {abilityDataVisible ? (
               <div>
-                <h4 className="sidebarSubHeader">
-                  {abilityName.charAt(0).toUpperCase() + abilityName.slice(1)}
-                </h4>
+                <h4 className="sidebarSubHeader">{formatText(abilityName)}</h4>
                 <p
                   className="abilityData"
                   onClick={() => setAbilityDataVisible(false)}
@@ -329,36 +295,21 @@ function Sidebar(props) {
               <div>
                 <img
                   src={normalSprite}
-                  alt={
-                    props.pokemonName.charAt(0).toUpperCase() +
-                    props.pokemonName.slice(1)
-                  }
+                  alt={formatText(props.pokemonName)}
                 ></img>
                 <img
                   src={femaleSprite}
-                  alt={
-                    "Female " +
-                    props.pokemonName.charAt(0).toUpperCase() +
-                    props.pokemonName.slice(1)
-                  }
+                  alt={"Female " + formatText(props.pokemonName)}
                 ></img>
               </div>
               <div>
                 <img
                   src={shinySprite}
-                  alt={
-                    "Male Shiny " +
-                    props.pokemonName.charAt(0).toUpperCase() +
-                    props.pokemonName.slice(1)
-                  }
+                  alt={"Male Shiny " + formatText(props.pokemonName)}
                 ></img>
                 <img
                   src={femaleShinySprite}
-                  alt={
-                    "Female Shiny " +
-                    props.pokemonName.charAt(0).toUpperCase() +
-                    props.pokemonName.slice(1)
-                  }
+                  alt={"Female Shiny " + formatText(props.pokemonName)}
                 ></img>
               </div>
             </div>
@@ -376,9 +327,7 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  <div className="typeName">
-                    {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
-                  </div>
+                  <div className="typeName">{formatText(a_type)}</div>
                   <div className="typeMultiplier"> 4x</div>
                 </div>
               ))}
@@ -389,9 +338,7 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  <div className="typeName">
-                    {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
-                  </div>
+                  <div className="typeName">{formatText(a_type)}</div>
                   <div className="typeMultiplier"> 2x</div>
                 </div>
               ))}
@@ -405,9 +352,7 @@ function Sidebar(props) {
                   className="typeMatchup"
                   style={{ backgroundColor: typeColours[a_type] }}
                 >
-                  <div className="typeName">
-                    {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
-                  </div>
+                  <div className="typeName">{formatText(a_type)}</div>
                   <div className="typeMultiplier"> 1x</div>
                 </div>
               ))}
@@ -427,9 +372,7 @@ function Sidebar(props) {
                     className="typeMatchup"
                     style={{ backgroundColor: typeColours[a_type] }}
                   >
-                    <div className="typeName">
-                      {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
-                    </div>
+                    <div className="typeName">{formatText(a_type)}</div>
                     <div className="typeMultiplier"> ½x</div>
                   </div>
                 ))}
@@ -439,9 +382,7 @@ function Sidebar(props) {
                     className="typeMatchup"
                     style={{ backgroundColor: typeColours[a_type] }}
                   >
-                    <div className="typeName">
-                      {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
-                    </div>
+                    <div className="typeName">{formatText(a_type)}</div>
                     <div className="typeMultiplier"> ¼x</div>
                   </div>
                 ))}
@@ -459,9 +400,7 @@ function Sidebar(props) {
                     className="typeMatchup"
                     style={{ backgroundColor: typeColours[a_type] }}
                   >
-                    <div className="typeName">
-                      {a_type.charAt(0).toUpperCase() + a_type.slice(1)}
-                    </div>
+                    <div className="typeName">{formatText(a_type)}</div>
                     <div className="typeMultiplier"> 0x</div>
                   </div>
                 ))
