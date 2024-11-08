@@ -1,49 +1,49 @@
 import { useEffect, useState } from "react";
 import EvolutionItem from "./EvolutionItem";
-import { formatText } from "../../textReplacer.tsx";
+import { formatEvolutionReqs } from "../../textReplacer.tsx";
 
 function CheckEvolution(props) {
   const [toReturn, setToReturn] = useState(<></>);
 
-  const dict = {
-    gender: "Gender ",
-    held_item: "Trade ",
-    item: "",
-    known_move: "Learn ",
-    known_move_type: "Learn type ",
-    location: "Level up at ",
-    min_affection: "Affec. ",
-    min_beauty: "Beauty ",
-    min_happiness: "Level up with high happiness ",
-    min_level: "Lv. ",
-    needs_overworld_rain: "Raining ",
-    party_species: "Level up with ",
-    party_type: "Party type ",
-    relative_physical_stats: "Stat ",
-    time_of_day: "time",
-    trade_species: "Trade spec. ",
-  };
-
-  const methodsToCheck = [
-    "gender",
-    "held_item",
-    "item",
-    "known_move",
-    "known_move_type",
-    "location",
-    "min_affection",
-    "min_beauty",
-    "min_happiness",
-    "min_level",
-    "needs_overworld_rain",
-    "party_species",
-    "party_type",
-    "relative_physical_stats",
-    "time_of_day",
-    "trade_species",
-  ];
-
   useEffect(() => {
+    const dict = {
+      gender: "Gender ",
+      held_item: "Trade ",
+      item: "",
+      known_move: "Learn ",
+      known_move_type: "Learn type ",
+      location: "Level up at ",
+      min_affection: "Affec. ",
+      min_beauty: "Beauty ",
+      min_happiness: "Level up with high happiness ",
+      min_level: "Lv. ",
+      needs_overworld_rain: "Raining ",
+      party_species: "Level up with ",
+      party_type: "Party type ",
+      relative_physical_stats: "Stat ",
+      time_of_day: "time",
+      trade_species: "Trade spec. ",
+    };
+
+    const methodsToCheck = [
+      "gender",
+      "held_item",
+      "item",
+      "known_move",
+      "known_move_type",
+      "location",
+      "min_affection",
+      "min_beauty",
+      "min_happiness",
+      "min_level",
+      "needs_overworld_rain",
+      "party_species",
+      "party_type",
+      "relative_physical_stats",
+      "time_of_day",
+      "trade_species",
+    ];
+
     const evolutionDetails = [];
 
     methodsToCheck.forEach((method) => {
@@ -58,8 +58,7 @@ function CheckEvolution(props) {
               <EvolutionItem
                 key={method}
                 method={
-                  "Level up holding " +
-                  props.evolutionDetails.held_item.name.replace("-", " ")
+                  "Level up holding " + props.evolutionDetails.held_item.name
                 }
                 url={props.evolutionDetails.held_item.url}
               />,
@@ -88,36 +87,32 @@ function CheckEvolution(props) {
           method === "party_species"
         ) {
           evolutionDetails.push(
-            formatText(
-              dict[method] +
-                " " +
-                props.evolutionDetails[method].name.charAt(0).toUpperCase() +
-                props.evolutionDetails[method].name.slice(1).replace("-", " "),
+            formatEvolutionReqs(
+              dict[method] + props.evolutionDetails[method].name,
             ),
           );
         } else if (method === "party_species") {
           evolutionDetails.push(
-            formatText(
+            formatEvolutionReqs(
               dict[method] +
                 " " +
-                props.evolutionDetails[method].name.charAt(0).toUpperCase() +
-                props.evolutionDetails[method].name.slice(1) +
+                props.evolutionDetails[method].name +
                 " in party",
             ),
           );
         } else if (method === "time_of_day") {
           evolutionDetails.push(
-            formatText("at " + props.evolutionDetails[method]),
+            formatEvolutionReqs("at " + props.evolutionDetails[method]),
           );
         } else if (method === "min_happiness") {
           evolutionDetails.push(
-            formatText(
+            formatEvolutionReqs(
               dict[method] + " (" + props.evolutionDetails[method] + ")",
             ),
           );
         } else {
           evolutionDetails.push(
-            formatText(dict[method] + props.evolutionDetails[method]),
+            formatEvolutionReqs(dict[method] + props.evolutionDetails[method]),
           );
         }
       }
@@ -127,14 +122,16 @@ function CheckEvolution(props) {
       props.evolutionDetails.trigger.name === "trade" &&
       evolutionDetails.length === 0
     ) {
-      evolutionDetails.push(formatText("Trade"));
+      evolutionDetails.push(formatEvolutionReqs("trade"));
     }
 
     if (
       props.evolutionDetails.trigger.name === "shed" &&
       evolutionDetails.length === 0
     ) {
-      evolutionDetails.push(formatText("Poké Ball in bag and space in party"));
+      evolutionDetails.push(
+        formatEvolutionReqs("poké Ball in bag and space in party"),
+      );
     }
 
     if (evolutionDetails.length === 2) {
@@ -162,6 +159,7 @@ function CheckEvolution(props) {
 
     setToReturn(evolutionDetails);
   }, [props.evolutionDetails]);
+
   return <div className="pokemon_Evolution_Method_Box">{toReturn}</div>;
 }
 export default CheckEvolution;

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { formatEvolutionReqs } from "../../textReplacer.tsx";
 
 function EvolutionItem(props) {
   const [itemSprite, setItemSprite] = useState("");
@@ -14,8 +15,8 @@ function EvolutionItem(props) {
 
   return (
     <div className="pokemon_Inner_Evolution_Method_Box">
-      <img src={itemSprite}></img>
-      {props.method}
+      <img alt={props.method} src={itemSprite}></img>
+      {formatEvolutionReqs(props.method)}
     </div>
   );
 }

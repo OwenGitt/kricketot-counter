@@ -11,6 +11,8 @@ export const formatText = (text: string) => {
       .replace("hoenn-", "")
       .replace("sinnoh-", "")
       .replace("unova-", "")
+      // Replace any dashes
+      .replace("-", " ")
       // Capitalize important locations that appear in sentence
       .replace("pewter", "Pewter")
       .replace("viridian", "Viridian")
@@ -66,7 +68,7 @@ export const formatText = (text: string) => {
       .replace("zone swamp", " - Swamp")
       .replace("zone savannah", " - Savannah")
       .replace("zone mountain", " - Mountain")
-      .replace("zone desert", "- Desert")
+      .replace("zone desert", " - Desert")
       // Sub areas
       .replace("outside", "- Outside")
       .replace("summit", "- Summit")
@@ -111,6 +113,14 @@ export const formatText = (text: string) => {
       .replace(" after galactic intervention", "")
       .replace("unknown all rattata", "")
       .replace("Ss anne", "SS Anne")
+  );
+};
+
+export const formatPokemonNames = (name: string) => {
+  return (
+    name.charAt(0).toUpperCase() +
+    name
+      .slice(1)
       // Format known Pokémon name issues
       .replace("r-m", "r. M")
       .replace("-jr", " jr.")
@@ -124,14 +134,32 @@ export const formatText = (text: string) => {
       .replace("standard", "")
       .replace("red-striped", "")
       .replace("-", " ")
+  );
+};
+
+export const formatEvolutionReqs = (text: string) => {
+  return (
+    text
       // Format known evolution text issues
-      .replace("Stat 1", "Lvl 20 & Atk > Def")
-      .replace("Stat -1", "Lvl 20 & Atk < Def")
-      .replace("Stat 0", "Lvl 20 & Atk = Def")
+      .replace("Stat 1", "Atk > Def")
+      .replace("Stat -1", "Atk < Def")
+      .replace("Stat 0", "Atk = Def")
       .replace("Loc. Eterna-forest", "Lvl up near Moss Rock")
-      .replace("Loc. Sinnoh-route-217", "Lvl up near Ice Rock")
-      .replace("Gender 1", "female")
-      .replace("Gender 2", "male")
+      .replace("Level up at eterna-forest", "Lvl up near Moss Rock")
+      .replace("Level up at sinnoh-route-217", "Lvl up near Ice Rock")
+      .replace(
+        "Level up at mt-coronet",
+        "Lvl up in areas with a special magnetic field",
+      )
+      .replace("Gender 1", "Female")
+      .replace("Gender 2", "Male")
+      // Format item names
+      .replace("oval-stone", "Oval Stone")
+      .replace("razor-claw", "Razor Claw")
+      .replace("razor-fang", "Razor Fang")
+      // Format move names
+      .replace("mimic", "Mimic")
+      .replace("ancient-power", "Ancient Power")
       // Replace any left-over dashes
       .replace("-", " ")
   );
