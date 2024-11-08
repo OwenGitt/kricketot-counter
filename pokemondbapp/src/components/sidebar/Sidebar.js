@@ -16,7 +16,7 @@ function Sidebar(props) {
   const [shinySprite, setShinySprite] = useState("");
   const [femaleSprite, setFemaleSprite] = useState("");
   const [femaleShinySprite, setFemaleShinySprite] = useState("");
-  const [genVGames] = useState(["black", "white", "black-2", "white-2"]);
+  // const [genVGames] = useState(["black", "white", "black-2", "white-2"]);
 
   const fetchAbilityData = (name) => {
     fetch("https://pokeapi.co/api/v2/ability/" + name)
@@ -33,21 +33,6 @@ function Sidebar(props) {
         console.log(e.message);
       });
   };
-
-  function fetchLocationData() {
-    fetch(
-      "https://pokeapi.co/api/v2/pokemon/" +
-        (props.pokemonID ? props.pokemonID : "1") +
-        "/encounters",
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        setJsonLocationData(json);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      });
-  }
 
   useEffect(() => {
     let url =
@@ -90,12 +75,25 @@ function Sidebar(props) {
             ].animated.front_shiny_female,
           );
         }
-        fetchLocationData();
+
+        // Fetch location data
+        fetch(
+          "https://pokeapi.co/api/v2/pokemon/" +
+            (props.pokemonID ? props.pokemonID : "1") +
+            "/encounters",
+        )
+          .then((response) => response.json())
+          .then((json) => {
+            setJsonLocationData(json);
+          })
+          .catch((e) => {
+            console.log(e.message);
+          });
       })
       .catch((e) => {
         console.log(e.message);
       });
-  }, [fetchLocationData, props.generation, props.pokemonID]);
+  }, [props.generation, props.pokemonID]);
 
   const displayPokemonTypes = () => {
     if (fairyPokemon[props.pokemonName]) {
