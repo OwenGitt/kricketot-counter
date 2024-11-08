@@ -278,12 +278,15 @@ function Sidebar(props) {
             ) : null}
           </div>
 
-          <section>
-            <h4 className="sidebarHeader">Height & Weight</h4>
-            <div className="pokemon_height_weight_container">
+          <section className="pokemon_height_weight_container">
+            <div>
+              <h4 className="sidebarHeader">Height</h4>
               <div className="pokemon_height_weight_box" key="height">
                 {props.pokemonHeight / 10 + "m"}
               </div>
+            </div>
+            <div>
+              <h4 className="sidebarHeader">Weight</h4>
               <div className="pokemon_height_weight_box" key="weight">
                 {props.pokemonWeight / 10 + "kg"}
               </div>
