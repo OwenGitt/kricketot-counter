@@ -238,77 +238,6 @@ function PokemonPage(props) {
     setSidebarVisible(true);
   };
 
-  const calculateTypes = () => {
-    props.allTypes
-      .slice(0, 18)
-      .map((a_type, key) =>
-        a_type.name === "shadow" ||
-        a_type.name === "unknown" ||
-        a_type.name === "colour" ||
-        a_type.name === "fairy"
-          ? null
-          : types[1] === undefined
-            ? data[types[0].type.name][a_type.name] === 0
-              ? setIneffective((inEffective) => [...inEffective, a_type.name])
-              : data[types[0].type.name][a_type.name] === 0.5
-                ? setNotEffective((notEffective) => [
-                    ...notEffective,
-                    a_type.name,
-                  ])
-                : data[types[0].type.name][a_type.name] === 1
-                  ? setNormalEffective((normalEffective) => [
-                      ...normalEffective,
-                      a_type.name,
-                    ])
-                  : data[types[0].type.name][a_type.name] === 2
-                    ? setSuperEffective((superEffective) => [
-                        ...superEffective,
-                        a_type.name,
-                      ])
-                    : null
-            : data[types[0].type.name][a_type.name] *
-                  data[types[1].type.name][a_type.name] ===
-                0
-              ? setIneffective((inEffective) => [...inEffective, a_type.name])
-              : data[types[0].type.name][a_type.name] *
-                    data[types[1].type.name][a_type.name] ===
-                  0.25
-                ? setDoubleUneffective((doubleUneffective) => [
-                    ...doubleUneffective,
-                    a_type.name,
-                  ])
-                : data[types[0].type.name][a_type.name] *
-                      data[types[1].type.name][a_type.name] ===
-                    0.5
-                  ? setNotEffective((notEffective) => [
-                      ...notEffective,
-                      a_type.name,
-                    ])
-                  : data[types[0].type.name][a_type.name] *
-                        data[types[1].type.name][a_type.name] ===
-                      1
-                    ? setNormalEffective((normalEffective) => [
-                        ...normalEffective,
-                        a_type.name,
-                      ])
-                    : data[types[0].type.name][a_type.name] *
-                          data[types[1].type.name][a_type.name] ===
-                        2
-                      ? setSuperEffective((superEffective) => [
-                          ...superEffective,
-                          a_type.name,
-                        ])
-                      : data[types[0].type.name][a_type.name] *
-                            data[types[1].type.name][a_type.name] ===
-                          4
-                        ? setUltraEffective((ultraEffective) => [
-                            ...ultraEffective,
-                            a_type.name,
-                          ])
-                        : null,
-      );
-  };
-
   useEffect(() => {
     setTimeout(() => {
       setNotEffective([]);
@@ -318,10 +247,86 @@ function PokemonPage(props) {
       setIneffective([]);
       setDoubleUneffective([]);
       setTimeout(() => {
-        calculateTypes();
+        props.allTypes.slice(0, 18).forEach((a_type, key) => {
+          if (
+            a_type.name === "shadow" ||
+            a_type.name === "unknown" ||
+            a_type.name === "colour" ||
+            a_type.name === "fairy"
+          ) {
+            // Do nothing
+          } else if (types.length === 1) {
+            if (data[types[0].type.name][a_type.name] === 0) {
+              setIneffective((inEffective) => [...inEffective, a_type.name]);
+            } else if (data[types[0].type.name][a_type.name] === 0.5) {
+              setNotEffective((notEffective) => [...notEffective, a_type.name]);
+            } else if (data[types[0].type.name][a_type.name] === 1) {
+              setNormalEffective((normalEffective) => [
+                ...normalEffective,
+                a_type.name,
+              ]);
+            } else if (data[types[0].type.name][a_type.name] === 2) {
+              setSuperEffective((superEffective) => [
+                ...superEffective,
+                a_type.name,
+              ]);
+            }
+          } else {
+            if (
+              data[types[0].type.name][a_type.name] *
+                data[types[1].type.name][a_type.name] ===
+              0
+            ) {
+              setIneffective((inEffective) => [...inEffective, a_type.name]);
+            } else if (
+              data[types[0].type.name][a_type.name] *
+                data[types[1].type.name][a_type.name] ===
+              0.25
+            ) {
+              setDoubleUneffective((doubleUneffective) => [
+                ...doubleUneffective,
+                a_type.name,
+              ]);
+            } else if (
+              data[types[0].type.name][a_type.name] *
+                data[types[1].type.name][a_type.name] ===
+              0.5
+            ) {
+              setNotEffective((notEffective) => [...notEffective, a_type.name]);
+            } else if (
+              data[types[0].type.name][a_type.name] *
+                data[types[1].type.name][a_type.name] ===
+              1
+            ) {
+              setNormalEffective((normalEffective) => [
+                ...normalEffective,
+                a_type.name,
+              ]);
+            } else if (
+              data[types[0].type.name][a_type.name] *
+                data[types[1].type.name][a_type.name] ===
+              2
+            ) {
+              setSuperEffective((superEffective) => [
+                ...superEffective,
+                a_type.name,
+              ]);
+            } else if (
+              setUltraEffective((ultraEffective) => [
+                ...ultraEffective,
+                a_type.name,
+              ])
+            ) {
+              setUltraEffective((ultraEffective) => [
+                ...ultraEffective,
+                a_type.name,
+              ]);
+            }
+          }
+        });
       }, 100);
     }, 200);
-  }, [pokemonID]);
+  }, [pokemonID, props.allTypes, types]);
 
   const onOptionChangeHandler = (event) => {
     if (event.target.value === "Select Sprite Generation") {
