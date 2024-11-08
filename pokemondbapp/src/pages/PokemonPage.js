@@ -115,30 +115,6 @@ function PokemonPage(props) {
     return pokemonName.toLowerCase().includes(searchTerm.toLowerCase());
   };
 
-  const updateNextBackButtons = (buttonsVisible) => {
-    setNextVisible(buttonsVisible);
-    if (props.pokemon.filter(searchPokemon).length < UpperLimit) {
-      setBackVisible(false);
-      setUpper(100);
-      setLower(0);
-      setPageNum(0);
-    }
-  };
-
-  useEffect(() => {
-    searchTerm
-      ? props.pokemon.filter(searchPokemon).length > UpperLimit
-        ? updateNextBackButtons(true)
-        : updateNextBackButtons(false)
-      : updateNextBackButtons(true);
-  }, [
-    UpperLimit,
-    props.pokemon,
-    searchPokemon,
-    searchTerm,
-    updateNextBackButtons,
-  ]);
-
   const searchHandler = (event) => {
     setSearchTerm(event);
   };
@@ -163,12 +139,27 @@ function PokemonPage(props) {
     setGenerationPokemon(props.pokemon.slice(0, generationTotals[generation]));
   }, [generation, generationTotals, props.pokemon]);
 
+  useEffect(() => {
+    if (searchTerm) {
+      setNextVisible(
+        generationPokemon.filter(searchPokemon).length >= UpperLimit,
+      );
+    }
+    if (generationPokemon.filter(searchPokemon).length < UpperLimit - 100) {
+      setBackVisible(false);
+      setNextVisible(true);
+      setUpper(100);
+      setLower(0);
+      setPageNum(0);
+    }
+  }, [UpperLimit, generationPokemon, searchPokemon, searchTerm]);
+
   const showMorePokemon = () => {
     setPageNum(pageNum + 1);
     setUpper(UpperLimit + 100);
     setLower(LowerLimit + 100);
     setBackVisible(true);
-    if (UpperLimit === 600) {
+    if (UpperLimit + 100 > generationPokemon.filter(searchPokemon).length) {
       setNextVisible(false);
     }
   };
