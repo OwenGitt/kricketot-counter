@@ -21,6 +21,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "main",
+    "node.js.selected.package.tslint": "(autodetect)",
     "prettierjs.PrettierConfiguration.Package": "D:\\UNI\\Kricketot Counter\\kricketotcounter\\pokemondbapp\\node_modules\\prettier",
     "ts.external.directory.path": "D:\\PhpStorm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
   }
