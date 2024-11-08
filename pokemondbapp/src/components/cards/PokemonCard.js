@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import typeColours from "../../json_data/typeColours.json";
 import fairyPokemon from "../../json_data/fairyPokemon.json";
 import "../../styleSheets/pokemonCardStyles.css";
-import { formatText } from "../../textReplacer.tsx";
+import { formatPokemonNames, formatText } from "../../textReplacer.tsx";
 
 function PokemonCard(props) {
   const [types, setTypes] = useState([]);
@@ -130,11 +130,11 @@ function PokemonCard(props) {
                         ? generation3Sprite
                         : generation4Sprite
               }
-              alt={formatText(props.value.name)}
+              alt={formatPokemonNames(props.value.name)}
               loading="lazy"
             ></img>
             <div className="pokemonCardName">
-              {formatText(props.value.name)}
+              {formatPokemonNames(props.value.name)}
             </div>
 
             <div className="pokemonCardTypes">

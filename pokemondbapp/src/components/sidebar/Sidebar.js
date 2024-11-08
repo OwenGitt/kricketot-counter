@@ -5,7 +5,7 @@ import "../../styleSheets/SidebarStyles.css";
 import Evolutions from "./Evolutions";
 import fairyPokemon from "../../json_data/fairyPokemon.json";
 import LocationData from "./LocationData";
-import { formatText } from "../../textReplacer.tsx";
+import { formatPokemonNames, formatText } from "../../textReplacer.tsx";
 
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
@@ -152,7 +152,7 @@ function Sidebar(props) {
                 : props.pokemonID < 100
                   ? "0" + props.pokemonID + " "
                   : props.pokemonID + " "}
-              {formatText(props.pokemonName)}
+              {formatPokemonNames(props.pokemonName)}
             </h2>
           </div>
           <span
@@ -165,11 +165,14 @@ function Sidebar(props) {
           </span>
 
           <div>
-            <img src={normalSprite} alt={formatText(props.pokemonName)}></img>
+            <img
+              src={normalSprite}
+              alt={formatPokemonNames(props.pokemonName)}
+            ></img>
             {shinySprite !== undefined ? (
               <img
                 src={shinySprite}
-                alt={"Shiny " + formatText(props.pokemonName)}
+                alt={"Shiny " + formatPokemonNames(props.pokemonName)}
               ></img>
             ) : null}
           </div>
@@ -295,21 +298,21 @@ function Sidebar(props) {
               <div>
                 <img
                   src={normalSprite}
-                  alt={formatText(props.pokemonName)}
+                  alt={formatPokemonNames(props.pokemonName)}
                 ></img>
                 <img
                   src={femaleSprite}
-                  alt={"Female " + formatText(props.pokemonName)}
+                  alt={"Female " + formatPokemonNames(props.pokemonName)}
                 ></img>
               </div>
               <div>
                 <img
                   src={shinySprite}
-                  alt={"Male Shiny " + formatText(props.pokemonName)}
+                  alt={"Male Shiny " + formatPokemonNames(props.pokemonName)}
                 ></img>
                 <img
                   src={femaleShinySprite}
-                  alt={"Female Shiny " + formatText(props.pokemonName)}
+                  alt={"Female Shiny " + formatPokemonNames(props.pokemonName)}
                 ></img>
               </div>
             </div>

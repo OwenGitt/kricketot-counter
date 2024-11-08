@@ -1,5 +1,5 @@
 import CheckEvolution from "./CheckEvolution";
-import { formatText } from "../../textReplacer.tsx";
+import { formatPokemonNames } from "../../textReplacer.tsx";
 
 function Evolutions(props) {
   const renderEvolutionMethod = (evolutionDetails) => {
@@ -25,7 +25,7 @@ function Evolutions(props) {
             )
           }
         >
-          {formatText(evolvesTo.species.name)}
+          {formatPokemonNames(evolvesTo.species.name)}
         </div>
       );
     }
@@ -115,7 +115,7 @@ function Evolutions(props) {
           )
         }
       >
-        {formatText(props.evolutions.species.name)}
+        {formatPokemonNames(props.evolutions.species.name)}
       </div>
 
       {/* Check if there is a 2nd Pokémon in the evolution line or if it is a split evo */}
@@ -165,7 +165,7 @@ function Evolutions(props) {
           )
         }
       >
-        {formatText(props.evolutions.species.name)}
+        {formatPokemonNames(props.evolutions.species.name)}
       </div>
       <div>
         {props.evolutions.evolves_to.map((value, index) =>

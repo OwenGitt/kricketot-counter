@@ -93,7 +93,6 @@ function PokemonPage(props) {
         setPokemonName(json.name);
         setPokemonHeight(json.height);
         setPokemonWeight(json.weight);
-        console.log(json.abilities);
         setAbilites(json.abilities);
         setStats(json.stats);
         setSpriteShiny(
