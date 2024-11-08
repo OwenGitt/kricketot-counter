@@ -8,5 +8,8 @@
     "skipLibCheck": true,
     "allowJs": true,
     "jsx": "react-jsx",
+    "lib": [
+      "ES2021.String"
+    ]
   }
 }

@@ -12,7 +12,7 @@ export const formatText = (text: string) => {
       .replace("sinnoh-", "")
       .replace("unova-", "")
       // Replace any dashes
-      .replace("-", " ")
+      .replaceAll("-", " ")
       // Capitalize important locations that appear in sentence
       .replace("pewter", "Pewter")
       .replace("viridian", "Viridian")
