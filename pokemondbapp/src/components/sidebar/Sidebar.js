@@ -138,6 +138,8 @@ function Sidebar(props) {
               ? "100%"
               : "700px"
             : 0,
+        margin:
+          !props.nextVisible && !props.backVisible ? "10px 0 0" : "76px 0 0",
       }}
     >
       <div className="sidebarContents">

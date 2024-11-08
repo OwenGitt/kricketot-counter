@@ -387,6 +387,8 @@ function PokemonPage(props) {
           generation={generation}
           sidebarClosing={sidebarClosing}
           setSidebarClosing={setSidebarClosing}
+          nextVisible={nextVisible}
+          backVisible={backVisible}
         />
 
         <div
