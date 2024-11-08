@@ -7,7 +7,8 @@
     <list default="true" id="47dfe006-d638-411e-94b4-a6a071bf8e1f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PokemonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PokemonPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styleSheets/SidebarStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/SidebarStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styleSheets/pokemonCardStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/pokemonCardStyles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styleSheets/pokemonPageStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleSheets/pokemonPageStyles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +24,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "Update-pokemon-card-styles",
+    "git-widget-placeholder": "Fix-ability-styles",
     "node.js.selected.package.tslint": "(autodetect)",
     "prettierjs.PrettierConfiguration.Package": "D:\\UNI\\Kricketot Counter\\kricketotcounter\\pokemondbapp\\node_modules\\prettier",
     "ts.external.directory.path": "D:\\PhpStorm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
