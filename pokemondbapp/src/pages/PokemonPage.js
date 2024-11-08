@@ -139,19 +139,24 @@ function PokemonPage(props) {
   }, [generation, generationTotals, props.pokemon]);
 
   useEffect(() => {
+    const filterBySearch = (value) => {
+      const pokemonName = value.name;
+      return pokemonName.toLowerCase().includes(searchTerm.toLowerCase());
+    };
+
     if (searchTerm) {
       setNextVisible(
-        generationPokemon.filter(searchPokemon).length >= UpperLimit,
+        generationPokemon.filter(filterBySearch).length >= UpperLimit,
       );
     }
-    if (generationPokemon.filter(searchPokemon).length < UpperLimit - 100) {
+    if (generationPokemon.filter(filterBySearch).length < UpperLimit - 100) {
       setBackVisible(false);
       setNextVisible(true);
       setUpper(100);
       setLower(0);
       setPageNum(0);
     }
-  }, [UpperLimit, generationPokemon, searchPokemon, searchTerm]);
+  }, [UpperLimit, generationPokemon, searchTerm]);
 
   const showMorePokemon = () => {
     setPageNum(pageNum + 1);
