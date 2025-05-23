@@ -229,6 +229,26 @@
       "Generation": "3",
       "Method": "Random Encounters",
       "Generation-URL": "generation-iii/firered-leafgreen"
+    },
+    {
+      "Name": "Safari Week 2024",
+      "Target": "",
+      "Shinies": [{ "Name": "", "Encounters": "", "ID": "" }],
+      "Total_Encounters": "",
+      "Location": "LeafGreen ",
+      "Generation": "3",
+      "Method": "Random Encounters",
+      "Generation-URL": "generation-iii/firered-leafgreen"
+    },
+    {
+      "Name": "Slugma...",
+      "Target": "slugma",
+      "Shinies": [{ "Name": "fearow", "Encounters": "", "ID": "" },{ "Name": "fearow", "Encounters": "0", "ID": "" },{ "Name": "slugma", "Encounters": "0", "ID": "" }],
+      "Total_Encounters": "2130",
+      "Location": "",
+      "Generation": "4",
+      "Method": "Random Encounters",
+      "Generation-URL": ""
     }
   ]
 }
