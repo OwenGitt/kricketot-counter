@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { formatEvolutionReqs } from "../../textReplacer.tsx";
+import { formatEvolutionReqs } from "../../textReplacer.ts";
 
 function EvolutionItem(props) {
   const [itemSprite, setItemSprite] = useState("");

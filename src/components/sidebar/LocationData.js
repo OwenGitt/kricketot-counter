@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../styleSheets/locationDataStyles.css";
-import { formatText } from "../../textReplacer.tsx";
+import { formatText } from "../../textReplacer.ts";
 
 function LocationData(props) {
   const [completed, setCompleted] = useState(false);
@@ -76,11 +76,11 @@ function LocationData(props) {
           if (genArray.includes(locationVersion.version.name)) {
             updateLocationData(
               locationVersion.version.name,
-              location.location_area.name,
+              location.location_area.name
             );
           }
-        }),
-      ),
+        })
+      )
     );
     setCompleted(true);
   }, [allGenGames, props.jsonLocData]);
@@ -105,7 +105,7 @@ function LocationData(props) {
                     {locationData[game].map((location, index) =>
                       index !== locationData[game].length - 1
                         ? formatText(location) + ", "
-                        : formatText(location),
+                        : formatText(location)
                     )}
                   </div>
                 </div>
@@ -118,7 +118,7 @@ function LocationData(props) {
                     Evolve or trade to obtain
                   </div>
                 </div>
-              ),
+              )
             // null,
           )}
         </div>

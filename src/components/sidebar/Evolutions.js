@@ -1,5 +1,5 @@
 import CheckEvolution from "./CheckEvolution";
-import { formatPokemonNames } from "../../textReplacer.tsx";
+import { formatPokemonNames } from "../../textReplacer.ts";
 
 function Evolutions(props) {
   const renderEvolutionMethod = (evolutionDetails) => {
@@ -21,7 +21,7 @@ function Evolutions(props) {
           className="pokemon_Evolution_Box"
           onClick={() =>
             props.fetchData(
-              "https://pokeapi.co/api/v2/pokemon/" + evolvesTo.species.name,
+              "https://pokeapi.co/api/v2/pokemon/" + evolvesTo.species.name
             )
           }
         >
@@ -53,7 +53,7 @@ function Evolutions(props) {
     evolutionDetails1,
     evolutionDetails2,
     evolvesTo1,
-    evolvesTo2,
+    evolvesTo2
   ) => {
     if (
       checkEvolutionGeneration(evolvesTo1.species.url) !== false &&
@@ -110,8 +110,7 @@ function Evolutions(props) {
         className="pokemon_Evolution_Box"
         onClick={() =>
           props.fetchData(
-            "https://pokeapi.co/api/v2/pokemon/" +
-              props.evolutions.species.name,
+            "https://pokeapi.co/api/v2/pokemon/" + props.evolutions.species.name
           )
         }
       >
@@ -124,32 +123,32 @@ function Evolutions(props) {
         false
         ? renderEvolutionDetails(
             props.evolutions.evolves_to[0].evolution_details[0],
-            props.evolutions.evolves_to[0],
+            props.evolutions.evolves_to[0]
           )
         : props.evolutions.evolves_to.length === 2
           ? renderSplitEvolutionDetails(
               props.evolutions.evolves_to[0].evolution_details[0],
               props.evolutions.evolves_to[1].evolution_details[0],
               props.evolutions.evolves_to[0],
-              props.evolutions.evolves_to[1],
+              props.evolutions.evolves_to[1]
             )
           : null}
 
       {/* Check if there is a 3rd Pokémon in the evolution line or if it is a split evo */}
       {props.evolutions.evolves_to[0].evolves_to.length === 1 &&
       checkEvolutionGeneration(
-        props.evolutions.evolves_to[0].evolves_to[0].species.url,
+        props.evolutions.evolves_to[0].evolves_to[0].species.url
       ) !== false
         ? renderEvolutionDetails(
             props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0],
-            props.evolutions.evolves_to[0].evolves_to[0],
+            props.evolutions.evolves_to[0].evolves_to[0]
           )
         : props.evolutions.evolves_to[0].evolves_to.length === 2
           ? renderSplitEvolutionDetails(
               props.evolutions.evolves_to[0].evolves_to[0].evolution_details[0],
               props.evolutions.evolves_to[0].evolves_to[1].evolution_details[0],
               props.evolutions.evolves_to[0].evolves_to[0],
-              props.evolutions.evolves_to[0].evolves_to[1],
+              props.evolutions.evolves_to[0].evolves_to[1]
             )
           : null}
     </div>
@@ -160,8 +159,7 @@ function Evolutions(props) {
         className="pokemon_Evolution_Box"
         onClick={() =>
           props.fetchData(
-            "https://pokeapi.co/api/v2/pokemon/" +
-              props.evolutions.species.name,
+            "https://pokeapi.co/api/v2/pokemon/" + props.evolutions.species.name
           )
         }
       >
@@ -171,8 +169,8 @@ function Evolutions(props) {
         {props.evolutions.evolves_to.map((value, index) =>
           renderEvolutionDetails(
             props.evolutions.evolves_to[index].evolution_details[0],
-            props.evolutions.evolves_to[index],
-          ),
+            props.evolutions.evolves_to[index]
+          )
         )}
       </div>
     </div>

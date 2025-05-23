@@ -5,7 +5,7 @@ import "../../styleSheets/SidebarStyles.css";
 import Evolutions from "./Evolutions";
 import fairyPokemon from "../../json_data/fairyPokemon.json";
 import LocationData from "./LocationData";
-import { formatPokemonNames, formatText } from "../../textReplacer.tsx";
+import { formatPokemonNames, formatText } from "../../textReplacer.ts";
 
 function Sidebar(props) {
   const [abilityData, setAbilityData] = useState("");
@@ -23,7 +23,7 @@ function Sidebar(props) {
       .then((response) => response.json())
       .then((json) => {
         let enEntry = json.effect_entries.find(
-          (key) => key.language.name === "en",
+          (key) => key.language.name === "en"
         );
         setAbilityName(name);
         setAbilityData(enEntry.effect);
@@ -46,33 +46,33 @@ function Sidebar(props) {
           setNormalSprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].front_default,
+            ].front_default
           );
           setShinySprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].front_shiny,
+            ].front_shiny
           );
         } else {
           setNormalSprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].animated.front_default,
+            ].animated.front_default
           );
           setShinySprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].animated.front_shiny,
+            ].animated.front_shiny
           );
           setFemaleSprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].animated.front_female,
+            ].animated.front_female
           );
           setFemaleShinySprite(
             json.sprites.versions[props.generation][
               Object.keys(json.sprites.versions[props.generation])[0]
-            ].animated.front_shiny_female,
+            ].animated.front_shiny_female
           );
         }
 
@@ -80,7 +80,7 @@ function Sidebar(props) {
         fetch(
           "https://pokeapi.co/api/v2/pokemon/" +
             (props.pokemonID ? props.pokemonID : "1") +
-            "/encounters",
+            "/encounters"
         )
           .then((response) => response.json())
           .then((json) => {
@@ -228,7 +228,7 @@ function Sidebar(props) {
                   onClick={() =>
                     props.fetchData(
                       "https://pokeapi.co/api/v2/pokemon/" +
-                        props.evolutions.species.name,
+                        props.evolutions.species.name
                     )
                   }
                 >

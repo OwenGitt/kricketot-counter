@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import typeColours from "../../json_data/typeColours.json";
 import fairyPokemon from "../../json_data/fairyPokemon.json";
 import "../../styleSheets/pokemonCardStyles.css";
-import { formatPokemonNames, formatText } from "../../textReplacer.tsx";
+import { formatPokemonNames, formatText } from "../../textReplacer.ts";
 
 function PokemonCard(props) {
   const [types, setTypes] = useState([]);
@@ -29,27 +29,27 @@ function PokemonCard(props) {
           setBasicSprite(
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
               json.id +
-              ".png",
+              ".png"
           );
           setGeneration1Sprite(
             json.sprites.versions["generation-i"][
               Object.keys(json.sprites.versions["generation-i"])[0]
-            ].front_default,
+            ].front_default
           );
           setGeneration2Sprite(
             json.sprites.versions["generation-ii"][
               Object.keys(json.sprites.versions["generation-ii"])[0]
-            ].front_default,
+            ].front_default
           );
           setGeneration3Sprite(
             json.sprites.versions["generation-iii"][
               Object.keys(json.sprites.versions["generation-iii"])[0]
-            ].front_default,
+            ].front_default
           );
           setGeneration4Sprite(
             json.sprites.versions["generation-iv"][
               Object.keys(json.sprites.versions["generation-iv"])[0]
-            ].front_default,
+            ].front_default
           );
           setCompleted(true);
           setLoading(false);

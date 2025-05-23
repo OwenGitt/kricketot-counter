@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import EvolutionItem from "./EvolutionItem";
-import { formatEvolutionReqs } from "../../textReplacer.tsx";
+import { formatEvolutionReqs } from "../../textReplacer.ts";
 
 function CheckEvolution(props) {
   const [toReturn, setToReturn] = useState(<></>);
@@ -61,7 +61,7 @@ function CheckEvolution(props) {
                   "Level up holding " + props.evolutionDetails.held_item.name
                 }
                 url={props.evolutionDetails.held_item.url}
-              />,
+              />
             );
           } else {
             evolutionDetails.push(
@@ -69,7 +69,7 @@ function CheckEvolution(props) {
                 key={method}
                 method={"Trade"}
                 url={props.evolutionDetails.held_item.url}
-              />,
+              />
             );
           }
         } else if (method === "item") {
@@ -78,7 +78,7 @@ function CheckEvolution(props) {
               key={method}
               method={"Use"}
               url={props.evolutionDetails.item.url}
-            />,
+            />
           );
         } else if (
           method === "known_move" ||
@@ -88,8 +88,8 @@ function CheckEvolution(props) {
         ) {
           evolutionDetails.push(
             formatEvolutionReqs(
-              dict[method] + props.evolutionDetails[method].name,
-            ),
+              dict[method] + props.evolutionDetails[method].name
+            )
           );
         } else if (method === "party_species") {
           evolutionDetails.push(
@@ -97,22 +97,22 @@ function CheckEvolution(props) {
               dict[method] +
                 " " +
                 props.evolutionDetails[method].name +
-                " in party",
-            ),
+                " in party"
+            )
           );
         } else if (method === "time_of_day") {
           evolutionDetails.push(
-            formatEvolutionReqs("at " + props.evolutionDetails[method]),
+            formatEvolutionReqs("at " + props.evolutionDetails[method])
           );
         } else if (method === "min_happiness") {
           evolutionDetails.push(
             formatEvolutionReqs(
-              dict[method] + " (" + props.evolutionDetails[method] + ")",
-            ),
+              dict[method] + " (" + props.evolutionDetails[method] + ")"
+            )
           );
         } else {
           evolutionDetails.push(
-            formatEvolutionReqs(dict[method] + props.evolutionDetails[method]),
+            formatEvolutionReqs(dict[method] + props.evolutionDetails[method])
           );
         }
       }
@@ -130,7 +130,7 @@ function CheckEvolution(props) {
       evolutionDetails.length === 0
     ) {
       evolutionDetails.push(
-        formatEvolutionReqs("poké Ball in bag and space in party"),
+        formatEvolutionReqs("poké Ball in bag and space in party")
       );
     }
 
