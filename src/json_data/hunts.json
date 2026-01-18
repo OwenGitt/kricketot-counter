@@ -181,6 +181,24 @@
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
+      "Name": "Combee...",
+      "Target": "Combee",
+      "Shinies": [
+        { "Name": "Combee", "Encounters": "5150", "ID": "" },
+        { "Name": "Combee", "Encounters": "22756", "ID": "" },
+        { "Name": "Combee", "Encounters": "14708", "ID": "" },
+        { "Name": "Combee", "Encounters": "4060", "ID": "" },
+        { "Name": "Slakoth", "Encounters": "32896", "ID": "" },
+        { "Name": "Slakoth", "Encounters": "33100", "ID": "" },
+        { "Name": "Slakoth", "Encounters": "17507", "ID": "" }
+      ],
+      "Total_Encounters": "",
+      "Location": "Heartgold",
+      "Generation": "4",
+      "Method": "Random Encounters",
+      "Generation-URL": "generation-iv/heartgold-soulsilver"
+    },
+    {
       "Name": "LeafGreen Badge Quest (1) - Squirtle",
       "Target": "squirtle",
       "Shinies": [{ "Name": "squirtle", "Encounters": "231", "ID": "7" }],
@@ -233,7 +251,7 @@
     {
       "Name": "Safari Week 2024",
       "Target": "",
-      "Shinies": [{ "Name": "", "Encounters": "", "ID": "" }],
+      "Shinies": [{ "Name": "Venonat", "Encounters": "", "ID": "" }],
       "Total_Encounters": "",
       "Location": "LeafGreen ",
       "Generation": "3",
@@ -243,12 +261,87 @@
     {
       "Name": "Slugma...",
       "Target": "slugma",
-      "Shinies": [{ "Name": "fearow", "Encounters": "", "ID": "" },{ "Name": "fearow", "Encounters": "0", "ID": "" },{ "Name": "slugma", "Encounters": "0", "ID": "" }],
-      "Total_Encounters": "2130",
+      "Shinies": [
+        { "Name": "fearow", "Encounters": "3785", "ID": "" },
+        { "Name": "fearow", "Encounters": "1393", "ID": "" },
+        { "Name": "slugma", "Encounters": "383", "ID": "" }
+      ],
+      "Total_Encounters": "",
       "Location": "",
       "Generation": "4",
       "Method": "Random Encounters",
       "Generation-URL": ""
+    },
+    {
+      "Name": "LeafGreen Badge Quest (4) - Slowpoke",
+      "Target": "slowpoke",
+      "Shinies": [
+        { "Name": "slowpoke", "Encounters": "4271", "ID": "" },
+        { "Name": "golbat", "Encounters": "7576", "ID": "" },
+        { "Name": "slowbro", "Encounters": "9620", "ID": "" }
+      ],
+      "Total_Encounters": "",
+      "Location": "",
+      "Generation": "3",
+      "Method": "Random Encounters",
+      "Generation-URL": ""
+    },
+    {
+      "Name": "Gligar...",
+      "Target": "gligar",
+      "Shinies": [{ "Name": "gligar", "Encounters": "26754", "ID": "" }],
+      "Total_Encounters": "",
+      "Location": "",
+      "Generation": "4",
+      "Method": "Random Encounters",
+      "Generation-URL": ""
+    },
+    {
+      "Name": "Trubbish...",
+      "Target": "trubbish",
+      "Shinies": [
+        { "Name": "gothita", "Encounters": "23231", "ID": "" },
+        { "Name": "Trubbish", "Encounters": "14059", "ID": "" }
+      ],
+      "Total_Encounters": "",
+      "Location": "",
+      "Generation": "5",
+      "Method": "Random Encounters",
+      "Generation-URL": "",
+      "Date": "24/08/2024-04/07/2025"
+    },
+    {
+      "Name": "Safari Week 2025",
+      "Target": "Larvitar",
+      "Shinies": [{ "Name": "raticate", "Encounters": "14144", "ID": "" }],
+      "Total_Encounters": "",
+      "Location": "HeartGold SoulSilver Safari Zone (Mountain)",
+      "Generation": "4",
+      "Method": "Random Encounters",
+      "Generation-URL": "generation-iv/heartgold-soulsilver",
+      "Date": "20/06/2025 - 29/06/2025"
+    },
+    {
+      "Name": "Skorupi...",
+      "Target": "skorupi",
+      "Shinies": [{ "Name": "", "Encounters": "", "ID": "" }],
+      "Total_Encounters": "",
+      "Location": "Reversal Mountain",
+      "Generation": "5",
+      "Method": "Random Encounters",
+      "Generation-URL": "",
+      "Date": "06/07/2025"
+    },
+    {
+      "Name": "Camerupt...",
+      "Target": "camerupt",
+      "Shinies": [{ "Name": "skarmory", "Encounters": "1897", "ID": "" }],
+      "Total_Encounters": "",
+      "Location": "Reversal Mountain",
+      "Generation": "5",
+      "Method": "Random Encounters",
+      "Generation-URL": "",
+      "Date": "01/08/2025"
     }
   ]
 }
