@@ -322,9 +322,20 @@
       "Date": "20/06/2025 - 29/06/2025"
     },
     {
+      "Name": "Pokewalker",
+      "Target": "Bronzor",
+      "Shinies": [{ "Name": "bronzor", "Encounters": "2809", "ID": "" }],
+      "Total_Encounters": "2809",
+      "Location": "",
+      "Generation": "4",
+      "Method": "Random Encounters",
+      "Generation-URL": "generation-iv/heartgold-soulsilver",
+      "Date": ""
+    }
+    {
       "Name": "Skorupi...",
       "Target": "skorupi",
-      "Shinies": [{ "Name": "", "Encounters": "", "ID": "" }],
+      "Shinies": [{ "Name": "Drifblim", "Encounters": "13377", "ID": "" }],
       "Total_Encounters": "",
       "Location": "Reversal Mountain",
       "Generation": "5",
@@ -335,7 +346,18 @@
     {
       "Name": "Camerupt...",
       "Target": "camerupt",
-      "Shinies": [{ "Name": "skarmory", "Encounters": "1897", "ID": "" }],
+      "Shinies": [{ "Name": "skarmory", "Encounters": "1897", "ID": "" }, { "Name": "skarmory", "Encounters": "2862", "ID": "" }],
+      "Total_Encounters": "",
+      "Location": "Reversal Mountain",
+      "Generation": "5",
+      "Method": "Random Encounters",
+      "Generation-URL": "",
+      "Date": "01/08/2025"
+    },
+    {
+      "Name": "Spheal...",
+      "Target": "spheal",
+      "Shinies": [{ "Name": "remoraid", "Encounters": "2646", "ID": "" , "date": "20/02/2026"}],
       "Total_Encounters": "",
       "Location": "Reversal Mountain",
       "Generation": "5",
