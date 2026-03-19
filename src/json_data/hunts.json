@@ -190,12 +190,14 @@
         { "Name": "Combee", "Encounters": "4060", "ID": "" },
         { "Name": "Slakoth", "Encounters": "32896", "ID": "" },
         { "Name": "Slakoth", "Encounters": "33100", "ID": "" },
-        { "Name": "Slakoth", "Encounters": "17507", "ID": "" }
+        { "Name": "Slakoth", "Encounters": "17507", "ID": "" },
+        { "Name": "Combee", "Encounters": "22182", "ID": "" },
+        { "Name": "Combee", "Encounters": "9306", "ID": "" }
       ],
       "Total_Encounters": "",
       "Location": "Heartgold",
       "Generation": "4",
-      "Method": "Random Encounters",
+      "Method": "Headbutting Trees",
       "Generation-URL": "generation-iv/heartgold-soulsilver"
     },
     {
@@ -331,7 +333,7 @@
       "Method": "Random Encounters",
       "Generation-URL": "generation-iv/heartgold-soulsilver",
       "Date": ""
-    }
+    },
     {
       "Name": "Skorupi...",
       "Target": "skorupi",
