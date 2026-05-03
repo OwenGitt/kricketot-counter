@@ -182,17 +182,20 @@
     },
     {
       "Name": "Combee...",
+      "start_date": "June 2023",
       "Target": "Combee",
       "Shinies": [
-        { "Name": "Combee", "Encounters": "5150", "ID": "" },
-        { "Name": "Combee", "Encounters": "22756", "ID": "" },
-        { "Name": "Combee", "Encounters": "14708", "ID": "" },
-        { "Name": "Combee", "Encounters": "4060", "ID": "" },
-        { "Name": "Slakoth", "Encounters": "32896", "ID": "" },
-        { "Name": "Slakoth", "Encounters": "33100", "ID": "" },
-        { "Name": "Slakoth", "Encounters": "17507", "ID": "" },
-        { "Name": "Combee", "Encounters": "22182", "ID": "" },
-        { "Name": "Combee", "Encounters": "9306", "ID": "" }
+        { "Name": "Combee", "Encounters": "5150", "ID": "", "date": "" },
+        { "Name": "Combee", "Encounters": "22756", "ID": "", "date": "" },
+        { "Name": "Combee", "Encounters": "14708", "ID": "", "date": "" },
+        { "Name": "Combee", "Encounters": "4060", "ID": "", "date": "" },
+        { "Name": "Slakoth", "Encounters": "32896", "ID": "", "date": "" },
+        { "Name": "Slakoth", "Encounters": "33100", "ID": "", "date": "" },
+        { "Name": "Slakoth", "Encounters": "17507", "ID": "", "date": "" },
+        { "Name": "Combee", "Encounters": "22182", "ID": "", "date": "2026/03/01" },
+        { "Name": "Combee", "Encounters": "9306", "ID": "", "date": "2026/03/19" },
+        { "Name": "Slakoth", "Encounters": "17682", "ID": "", "date": "2026/04/20"}
+
       ],
       "Total_Encounters": "",
       "Location": "Heartgold",
@@ -333,6 +336,9 @@
       "Method": "Random Encounters",
       "Generation-URL": "generation-iv/heartgold-soulsilver",
       "Date": ""
+    },
+    {
+      "Name": "Grimer..."
     },
     {
       "Name": "Skorupi...",
