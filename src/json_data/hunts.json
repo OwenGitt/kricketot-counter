@@ -1,377 +1,433 @@
 {
-  "hunts": [
+  "shunts": [
     {
-      "Name": "Starting Out 2020/21",
-      "Target": "totodile",
-      "Shinies": [{ "Name": "totodile", "Encounters": "8000~", "ID": "158" }],
-      "Total_Encounters": "8000~",
-      "Location": "Professor Elm's Lab",
-      "Generation": "4",
-      "Method": "Soft Reset",
-      "Generation_URL": "generation-iv/heartgold-soulsilver"
+      "name": "HG DTQ - Starting Out 2020/21",
+      "target": "totodile",
+      "shinies": [{ "name": "totodile", "encounters": "8000~", "id": "158" }],
+      "total_encounters": "8000~",
+      "location": "Professor Elm's Lab",
+      "generation": "4",
+      "method": "Soft Reset",
+      "generation_url": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Huntin' for Booty!",
-      "Target": "hoothoot",
-      "Shinies": [{ "Name": "hoothoot", "Encounters": "8000~", "ID": "163" }],
-      "Total_Encounters": "8000~",
-      "Location": "Route 29",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation_URL": "generation-iv/heartgold-soulsilver"
+      "name": "HG DTQ - Huntin' for Booty!",
+      "target": "hoothoot",
+      "shinies": [{ "name": "hoothoot", "encounters": "8000~", "id": "163" }],
+      "total_encounters": "8000~",
+      "location": "Route 29",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation_url": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Winner Winner Chicken Dinner",
-      "Target": "moltres",
-      "Shinies": [{ "Name": "moltres", "Encounters": "0", "ID": "146" }],
-      "Total_Encounters": "0",
-      "Location": "Victory Road",
-      "Generation": "1",
-      "Method": "Soft Reset",
-      "Generation-URL": "generation-ii/crystal/transparent"
+      "name": "Generation 1 - Winner Winner Chicken Dinner",
+      "target": "moltres",
+      "shinies": [{ "name": "moltres", "encounters": "0", "id": "146" }],
+      "total_encounters": "0",
+      "location": "Victory Road",
+      "generation": "1",
+      "method": "Soft Reset",
+      "generation-url": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "Green Shrew Gambling",
-      "Target": "sandshrew",
-      "Shinies": [
-        { "Name": "zubat", "Encounters": "4000~", "ID": "41" },
-        { "Name": "sandshrew", "Encounters": "15000~", "ID": "27" }
+      "name": "HG DTQ - Green Shrew Gambling",
+      "target": "sandshrew",
+      "shinies": [
+        { "name": "zubat", "encounters": "4000~", "id": "41" },
+        { "name": "sandshrew", "encounters": "15000~", "id": "27" }
       ],
-      "Total_Encounters": "19000~",
-      "Location": "Union Cave & Goldenrod City Gamecorner",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
+      "total_encounters": "19000~",
+      "location": "Union Cave & Goldenrod City Gamecorner",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation-url": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Poaching Shiny Antlers",
-      "Target": "stantler",
-      "Shinies": [{ "Name": "stantler", "Encounters": "0", "ID": "234" }],
-      "Total_Encounters": "0",
-      "Location": "",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
+      "name": "HG DTQ - Poaching Shiny Antlers",
+      "target": "stantler",
+      "shinies": [{ "name": "stantler", "encounters": "0", "id": "234" }],
+      "total_encounters": "0",
+      "location": "",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation-url": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "An Irida Tragedy",
-      "Target": "dunsparce",
-      "Shinies": [
-        { "Name": "dunsparce", "Encounters": "0", "ID": "206" },
-        { "Name": "dunsparce", "Encounters": "0", "ID": "206" }
+      "name": "HG DTQ - An Irida Tragedy",
+      "target": "dunsparce",
+      "shinies": [
+        { "name": "dunsparce", "encounters": "0", "id": "206" },
+        { "name": "dunsparce", "encounters": "0", "id": "206" }
       ],
-      "Total_Encounters": "0",
-      "Location": "",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "total_encounters": "0",
+      "location": "",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "Finding a Fun-Gi",
-      "Target": "shroomish",
-      "Shinies": [{ "Name": "shroomish", "Encounters": "1100~", "ID": "285" }],
-      "Total_Encounters": "1100~",
-      "Location": "Petalburg Woods",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iii/ruby-sapphire"
+      "name": "Finding a Fun-Gi",
+      "target": "shroomish",
+      "shinies": [{ "name": "shroomish", "encounters": "1100~", "id": "285" }],
+      "total_encounters": "1100~",
+      "location": "Petalburg Woods",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/ruby-sapphire"
     },
     {
-      "Name": "Dragon's Glimmer",
-      "Target": "dratini",
-      "Shinies": [{ "Name": "dratini", "Encounters": "0", "ID": "147" }],
-      "Total_Encounters": "0",
-      "Location": "",
-      "Generation": "1",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-ii/crystal/transparent"
+      "name": "Generation 1 - Dratini",
+      "target": "dratini",
+      "shinies": [{ "name": "dratini", "encounters": "0", "id": "147" }],
+      "total_encounters": "0",
+      "location": "",
+      "generation": "1",
+      "method": "Random encounters",
+      "generation-url": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "Safari Week 2022",
-      "Target": "venonat",
-      "Shinies": [
-        { "Name": "venonat", "Encounters": "13000~", "ID": "48" },
-        { "Name": "rhyhorn", "Encounters": "15000~", "ID": "111" }
+      "name": "Safari Week 2022",
+      "target": "venonat",
+      "shinies": [
+        { "name": "venonat", "encounters": "13000~", "id": "48" },
+        { "name": "rhyhorn", "encounters": "15000~", "id": "111" }
       ],
-      "Total_Encounters": "28000~",
-      "Location": "FireRed/LeafGreen Safari Zone (Zone 1)",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "total_encounters": "28000~",
+      "location": "FireRed/LeafGreen Safari Zone (Zone 1)",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "Sub-Zero Suffering",
-      "Target": "delibird",
-      "Shinies": [
-        { "Name": "golbat", "Encounters": "31000~", "ID": "42" },
-        { "Name": "delibird", "Encounters": "1400~", "ID": "225" }
+      "name": "HG DTQ - Sub-Zero Suffering",
+      "target": "delibird",
+      "shinies": [
+        { "name": "golbat", "encounters": "31000~", "id": "42" },
+        { "name": "delibird", "encounters": "1400~", "id": "225" }
       ],
-      "Total_Encounters": "32400~",
-      "Location": "Ice Path",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
+      "total_encounters": "32400~",
+      "location": "Ice Path",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation-url": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Shiny?",
-      "Target": "zapdos",
-      "Shinies": [{ "Name": "zapdos", "Encounters": "0", "ID": "145" }],
-      "Total_Encounters": "0",
-      "Location": "Power Plant",
-      "Generation": "3",
-      "Method": "Soft Reset",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "name": "Shiny?",
+      "target": "zapdos",
+      "shinies": [{ "name": "zapdos", "encounters": "0", "id": "145" }],
+      "total_encounters": "0",
+      "location": "Power Plant",
+      "generation": "3",
+      "method": "Soft Reset",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "Whirlwind Shimmers",
-      "Target": "lugia",
-      "Shinies": [{ "Name": "lugia", "Encounters": "11000~", "ID": "249" }],
-      "Total_Encounters": "11000~",
-      "Location": "Whirl Island",
-      "Generation": "2",
-      "Method": "Soft Reset",
-      "Generation-URL": "generation-ii/crystal/transparent"
+      "name": "Generation 2 - Lugia",
+      "target": "lugia",
+      "shinies": [{ "name": "lugia", "encounters": "11000~", "id": "249" }],
+      "total_encounters": "11000~",
+      "location": "Whirl Island",
+      "generation": "2",
+      "method": "Soft Reset",
+      "generation-url": "generation-ii/crystal/transparent"
     },
     {
-      "Name": "HG DTQ Finished!",
-      "Target": "ho-oh",
-      "Shinies": [{ "Name": "ho-oh", "Encounters": "0", "ID": "250" }],
-      "Total_Encounters": "0",
-      "Location": "",
-      "Generation": "4",
-      "Method": "Soft Reset",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
+      "name": "HG DTQ - Ho-oh",
+      "target": "ho-oh",
+      "shinies": [{ "name": "ho-oh", "encounters": "0", "id": "250" }],
+      "total_encounters": "0",
+      "location": "",
+      "generation": "4",
+      "method": "Soft Reset",
+      "generation-url": "generation-iv/heartgold-soulsilver"
     },
 
     {
-      "Name": "Gummy Hunting",
-      "Target": "azurill",
-      "Shinies": [
-        { "Name": "psyduck", "Encounters": "11000~", "ID": "54" },
-        { "Name": "lillipup", "Encounters": "1125", "ID": "506" },
-        { "Name": "azurill", "Encounters": "4000~", "ID": "298" }
+      "name": "Black 2 GTQ - Gummy Hunting",
+      "target": "azurill",
+      "shinies": [
+        { "name": "psyduck", "encounters": "11000~", "id": "54" },
+        { "name": "lillipup", "encounters": "1125", "id": "506" },
+        { "name": "azurill", "encounters": "4000~", "id": "298" }
       ],
-      "Total_Encounters": "16125~",
-      "Location": "Floccesy Ranch (Black 2)",
-      "Generation": "5",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-v/black-white"
+      "total_encounters": "16125~",
+      "location": "Floccesy Ranch (Black 2)",
+      "generation": "5",
+      "method": "Random encounters",
+      "generation-url": "generation-v/black-white"
     },
     {
-      "Name": "Shiny Collector Special",
-      "Target": "growlithe",
-      "Shinies": [{ "Name": "growlithe", "Encounters": "9803", "ID": "58" }],
-      "Total_Encounters": "9803",
-      "Location": "Virbank Complex Inside (Black 2)",
-      "Generation": "5",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-v/black-white"
+      "name": "Black 2 GTQ - Shiny Collector Special",
+      "target": "growlithe",
+      "shinies": [{ "name": "growlithe", "encounters": "9803", "id": "58" }],
+      "total_encounters": "9803",
+      "location": "Virbank Complex Inside (Black 2)",
+      "generation": "5",
+      "method": "Random encounters",
+      "generation-url": "generation-v/black-white"
     },
     {
-      "Name": "Safari Week 2023",
-      "Target": "duskull",
-      "Shinies": [
-        { "Name": "duskull", "Encounters": "10891", "ID": "355" },
-        { "Name": "duskull", "Encounters": "8228", "ID": "355" }
+      "name": "Safari Week 2023",
+      "target": "duskull",
+      "shinies": [
+        { "name": "duskull", "encounters": "10891", "id": "355" },
+        { "name": "duskull", "encounters": "8228", "id": "355" }
       ],
-      "Total_Encounters": "19119",
-      "Location": "HeartGold SoulSilver Safari Zone (Swamp)",
-      "Generation": "4",
-      "Method": "Random Encounters (Repel Trick)",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
+      "total_encounters": "19119",
+      "location": "HeartGold SoulSilver Safari Zone (Swamp)",
+      "generation": "4",
+      "method": "Random encounters (Repel Trick)",
+      "generation-url": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "Combee...",
+      "name": "Pure Pain",
       "start_date": "June 2023",
-      "Target": "Combee",
-      "Shinies": [
-        { "Name": "Combee", "Encounters": "5150", "ID": "", "date": "" },
-        { "Name": "Combee", "Encounters": "22756", "ID": "", "date": "" },
-        { "Name": "Combee", "Encounters": "14708", "ID": "", "date": "" },
-        { "Name": "Combee", "Encounters": "4060", "ID": "", "date": "" },
-        { "Name": "Slakoth", "Encounters": "32896", "ID": "", "date": "" },
-        { "Name": "Slakoth", "Encounters": "33100", "ID": "", "date": "" },
-        { "Name": "Slakoth", "Encounters": "17507", "ID": "", "date": "" },
-        { "Name": "Combee", "Encounters": "22182", "ID": "", "date": "2026/03/01" },
-        { "Name": "Combee", "Encounters": "9306", "ID": "", "date": "2026/03/19" },
-        { "Name": "Slakoth", "Encounters": "17682", "ID": "", "date": "2026/04/20"}
-
+      "target": "Combee",
+      "shinies": [
+        { "name": "Combee", "encounters": "5150", "id": "", "date": "" },
+        { "name": "Combee", "encounters": "22756", "id": "", "date": "" },
+        { "name": "Combee", "encounters": "14708", "id": "", "date": "" },
+        { "name": "Combee", "encounters": "4060", "id": "", "date": "" },
+        { "name": "Slakoth", "encounters": "32896", "id": "", "date": "" },
+        { "name": "Slakoth", "encounters": "33100", "id": "", "date": "" },
+        { "name": "Slakoth", "encounters": "17507", "id": "", "date": "" },
+        {
+          "name": "Combee",
+          "encounters": "22182",
+          "id": "",
+          "date": "2026/03/01"
+        },
+        {
+          "name": "Combee",
+          "encounters": "9306",
+          "id": "",
+          "date": "2026/03/19"
+        },
+        {
+          "name": "Slakoth",
+          "encounters": "17682",
+          "id": "",
+          "date": "2026/04/20"
+        }
       ],
-      "Total_Encounters": "",
-      "Location": "Heartgold",
-      "Generation": "4",
-      "Method": "Headbutting Trees",
-      "Generation-URL": "generation-iv/heartgold-soulsilver"
+      "total_encounters": "",
+      "location": "Heartgold",
+      "generation": "4",
+      "method": "Headbutting Trees",
+      "generation-url": "generation-iv/heartgold-soulsilver"
     },
     {
-      "Name": "LeafGreen Badge Quest (1) - Squirtle",
-      "Target": "squirtle",
-      "Shinies": [{ "Name": "squirtle", "Encounters": "231", "ID": "7" }],
-      "Total_Encounters": "231",
-      "Location": "FireRed/LeafGreen Professor Oak's Lab",
-      "Generation": "3",
-      "Method": "Soft Reset",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "name": "LG BQ (1) - Squirtle",
+      "target": "squirtle",
+      "shinies": [{ "name": "squirtle", "encounters": "231", "id": "7" }],
+      "total_encounters": "231",
+      "location": "FireRed/LeafGreen Professor Oak's Lab",
+      "generation": "3",
+      "method": "Soft Reset",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "Buggin the Game Corner",
-      "Target": "scyther",
-      "Shinies": [{ "Name": "scyther", "Encounters": "973", "ID": "123" }],
-      "Total_Encounters": "973",
-      "Location": "FireRed Game Corner",
-      "Generation": "3",
-      "Method": "Soft Reset",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "name": "Buggin the Game Corner",
+      "target": "scyther",
+      "shinies": [{ "name": "scyther", "encounters": "973", "id": "123" }],
+      "total_encounters": "973",
+      "location": "FireRed Game Corner",
+      "generation": "3",
+      "method": "Soft Reset",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "LeafGreen Badge Quest (2) - Spearow",
-      "Target": "mankey",
-      "Shinies": [{ "Name": "spearow", "Encounters": "14340", "ID": "21" }],
-      "Total_Encounters": "14340",
-      "Location": "LeafGreen Route 22",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "name": "LG BQ (2) - Spearow",
+      "target": "mankey",
+      "shinies": [{ "name": "spearow", "encounters": "14340", "id": "21" }],
+      "total_encounters": "14340",
+      "location": "LeafGreen Route 22",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "LeafGreen Badge Quest (3) - Bellsprout",
-      "Target": "bellsprout",
-      "Shinies": [{ "Name": "bellsprout", "Encounters": "905", "ID": "69" }],
-      "Total_Encounters": "905",
-      "Location": "LeafGreen Route 5",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "name": "LG BQ (3) - Sandshrew",
+      "target": "mankey",
+      "shinies": [{ "name": "sandshrew", "encounters": "--", "id": "" }],
+      "total_encounters": "--",
+      "location": "LeafGreen Route 4",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "LeafGreen Badge Quest (4) - Pinsir",
-      "Target": "pinsir",
-      "Shinies": [{ "Name": "pinsir", "Encounters": "2130", "ID": "127" }],
-      "Total_Encounters": "2130",
-      "Location": "LeafGreen Game Corner",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "name": "LG BQ (4) - Bellsprout",
+      "target": "bellsprout",
+      "shinies": [{ "name": "bellsprout", "encounters": "905", "id": "69" }],
+      "total_encounters": "905",
+      "location": "LeafGreen Route 5",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "Safari Week 2024",
-      "Target": "",
-      "Shinies": [{ "Name": "Venonat", "Encounters": "", "ID": "" }],
-      "Total_Encounters": "",
-      "Location": "LeafGreen ",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iii/firered-leafgreen"
+      "name": "LG BQ (5) - Pinsir",
+      "target": "pinsir",
+      "shinies": [{ "name": "pinsir", "encounters": "2130", "id": "127" }],
+      "total_encounters": "2130",
+      "location": "LeafGreen Game Corner",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/firered-leafgreen"
     },
     {
-      "Name": "Slugma...",
-      "Target": "slugma",
-      "Shinies": [
-        { "Name": "fearow", "Encounters": "3785", "ID": "" },
-        { "Name": "fearow", "Encounters": "1393", "ID": "" },
-        { "Name": "slugma", "Encounters": "383", "ID": "" }
+      "name": "Safari Week 2024",
+      "target": "",
+      "shinies": [{ "name": "Venonat", "encounters": "", "id": "" }],
+      "total_encounters": "~11000",
+      "location": "LeafGreen ",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/firered-leafgreen"
+    },
+    {
+      "name": "HG Battle Tower Team - Slugma Nutz",
+      "target": "slugma",
+      "shinies": [
+        { "name": "fearow", "encounters": "3785", "id": "" },
+        { "name": "fearow", "encounters": "1393", "id": "" },
+        { "name": "slugma", "encounters": "383", "id": "" }
       ],
-      "Total_Encounters": "",
-      "Location": "",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": ""
+      "total_encounters": "",
+      "location": "",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation-url": ""
     },
     {
-      "Name": "LeafGreen Badge Quest (4) - Slowpoke",
-      "Target": "slowpoke",
-      "Shinies": [
-        { "Name": "slowpoke", "Encounters": "4271", "ID": "" },
-        { "Name": "golbat", "Encounters": "7576", "ID": "" },
-        { "Name": "slowbro", "Encounters": "9620", "ID": "" }
+      "name": "LG BQ (5) - Slowpoke",
+      "target": "slowpoke",
+      "shinies": [
+        { "name": "slowpoke", "encounters": "4271", "id": "" },
+        { "name": "golbat", "encounters": "7576", "id": "" },
+        { "name": "slowbro", "encounters": "9620", "id": "" }
       ],
-      "Total_Encounters": "",
-      "Location": "",
-      "Generation": "3",
-      "Method": "Random Encounters",
-      "Generation-URL": ""
+      "total_encounters": "",
+      "location": "",
+      "generation": "3",
+      "method": "Random encounters",
+      "generation-url": ""
     },
     {
-      "Name": "Gligar...",
-      "Target": "gligar",
-      "Shinies": [{ "Name": "gligar", "Encounters": "26754", "ID": "" }],
-      "Total_Encounters": "",
-      "Location": "",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": ""
+      "name": "HG Battle Tower Team - Gligar",
+      "target": "gligar",
+      "shinies": [{ "name": "gligar", "encounters": "26754", "id": "" }],
+      "total_encounters": "",
+      "location": "",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation-url": ""
     },
     {
-      "Name": "Trubbish...",
-      "Target": "trubbish",
-      "Shinies": [
-        { "Name": "gothita", "Encounters": "23231", "ID": "" },
-        { "Name": "Trubbish", "Encounters": "14059", "ID": "" }
+      "name": "Black 2 GTQ - Trubbish",
+      "target": "trubbish",
+      "shinies": [
+        { "name": "gothita", "encounters": "23231", "id": "" },
+        { "name": "Trubbish", "encounters": "14059", "id": "" }
       ],
-      "Total_Encounters": "",
-      "Location": "",
-      "Generation": "5",
-      "Method": "Random Encounters",
-      "Generation-URL": "",
+      "total_encounters": "",
+      "location": "",
+      "generation": "5",
+      "method": "Random encounters",
+      "generation-url": "",
       "Date": "24/08/2024-04/07/2025"
     },
     {
-      "Name": "Safari Week 2025",
-      "Target": "Larvitar",
-      "Shinies": [{ "Name": "raticate", "Encounters": "14144", "ID": "" }],
-      "Total_Encounters": "",
-      "Location": "HeartGold SoulSilver Safari Zone (Mountain)",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iv/heartgold-soulsilver",
+      "name": "Safari Week 2025",
+      "target": "Larvitar",
+      "shinies": [{ "name": "raticate", "encounters": "14144", "id": "" }],
+      "total_encounters": "",
+      "location": "HeartGold SoulSilver Safari Zone (Mountain)",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation-url": "generation-iv/heartgold-soulsilver",
       "Date": "20/06/2025 - 29/06/2025"
     },
     {
-      "Name": "Pokewalker",
-      "Target": "Bronzor",
-      "Shinies": [{ "Name": "bronzor", "Encounters": "2809", "ID": "" }],
-      "Total_Encounters": "2809",
-      "Location": "",
-      "Generation": "4",
-      "Method": "Random Encounters",
-      "Generation-URL": "generation-iv/heartgold-soulsilver",
-      "Date": ""
+      "name": "First Pokewalker Hunt",
+      "target": "Bronzor",
+      "shinies": [
+        {
+          "name": "bronzor",
+          "encounters": "2809",
+          "id": "436",
+          "date": "08/09/2025"
+        }
+      ],
+      "total_encounters": "2809",
+      "location": "",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation-url": "generation-iv/heartgold-soulsilver",
+      "start_date": "02/09/2024"
     },
     {
-      "Name": "Grimer..."
+      "name": "LG BQ (6) - Grimer",
+      "target": "grimer",
+      "shinies": [
+        {
+          "name": "grimer",
+          "encounters": "~1000",
+          "id": "",
+          "date": "17/10/2025"
+        }
+      ],
+      "total_encounters": "2809",
+      "location": "",
+      "generation": "4",
+      "method": "Random encounters",
+      "generation-url": "generation-iii/firered-leafgreen",
+      "start_date": ""
     },
     {
-      "Name": "Skorupi...",
-      "Target": "skorupi",
-      "Shinies": [{ "Name": "Drifblim", "Encounters": "13377", "ID": "" }],
-      "Total_Encounters": "",
-      "Location": "Reversal Mountain",
-      "Generation": "5",
-      "Method": "Random Encounters",
-      "Generation-URL": "",
-      "Date": "06/07/2025"
+      "name": "Skorupi...",
+      "target": "skorupi",
+      "shinies": [{ "name": "Drifblim", "encounters": "13377", "id": "" }],
+      "total_encounters": "",
+      "location": "Reversal Mountain",
+      "generation": "5",
+      "method": "Random encounters",
+      "generation-url": "",
+      "start_date": "06/07/2025"
     },
     {
-      "Name": "Camerupt...",
-      "Target": "camerupt",
-      "Shinies": [{ "Name": "skarmory", "Encounters": "1897", "ID": "" }, { "Name": "skarmory", "Encounters": "2862", "ID": "" }],
-      "Total_Encounters": "",
-      "Location": "Reversal Mountain",
-      "Generation": "5",
-      "Method": "Random Encounters",
-      "Generation-URL": "",
-      "Date": "01/08/2025"
+      "name": "Camerupt...",
+      "target": "camerupt",
+      "shinies": [
+        { "name": "skarmory", "encounters": "1897", "id": "" },
+        { "name": "skarmory", "encounters": "2862", "id": "" }
+      ],
+      "total_encounters": "",
+      "location": "Reversal Mountain",
+      "generation": "5",
+      "method": "Random encounters",
+      "generation-url": "",
+      "start_date": "01/08/2025"
     },
     {
-      "Name": "Spheal...",
-      "Target": "spheal",
-      "Shinies": [{ "Name": "remoraid", "Encounters": "2646", "ID": "" , "date": "20/02/2026"}],
-      "Total_Encounters": "",
-      "Location": "Reversal Mountain",
-      "Generation": "5",
-      "Method": "Random Encounters",
-      "Generation-URL": "",
-      "Date": "01/08/2025"
+      "name": "Spheal...",
+      "target": "spheal",
+      "shinies": [
+        {
+          "name": "remoraid",
+          "encounters": "2646",
+          "id": "",
+          "date": "20/02/2026"
+        }
+      ],
+      "total_encounters": "",
+      "location": "Undella Bay",
+      "generation": "5",
+      "method": "Random encounters",
+      "generation-url": "",
+      "start_date": ""
     }
   ]
 }

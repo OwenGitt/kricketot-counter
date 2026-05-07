@@ -13,7 +13,7 @@ function HuntsPage() {
   const [location, setLocation] = useState("");
   const [spriteURL, setSpriteURL] = useState("");
 
-  const allHunts = hunts["hunts"].map((value, index) => (
+  const allHunts = hunts["shunts"].map((value, index) => (
     <section key={index} className="huntCardSection">
       <HuntCard value={value} passHuntData={passHuntData} />
     </section>
@@ -26,7 +26,7 @@ function HuntsPage() {
     total_encounters,
     generation,
     location,
-    spriteURL
+    spriteURL,
   ) {
     setName(huntName);
     setTarget(target);
@@ -68,8 +68,8 @@ function HuntsPage() {
           {shinies.map((shiny, index) => (
             <div className="shinyGridItem">
               <div className="shinyEncounterName">
-                {shiny.Name.charAt(0).toUpperCase() + shiny.Name.slice(1)}
-                <p className="shinyEncounters">{shiny.Encounters}</p>
+                {shiny.name.charAt(0).toUpperCase() + shiny.name.slice(1)}
+                <p className="shinyEncounters">{shiny.encounters}</p>
               </div>
               <div className="imgContainer">
                 <img
