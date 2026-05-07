@@ -13,7 +13,7 @@ function HuntsPage() {
   const [location, setLocation] = useState("");
   const [spriteURL, setSpriteURL] = useState("");
 
-  const allHunts = hunts["hunts"].map((value, index) => (
+  const allHunts = hunts["shunts"].map((value, index) => (
     <section key={index} className="huntCardSection">
       <HuntCard value={value} passHuntData={passHuntData} />
     </section>
@@ -26,7 +26,7 @@ function HuntsPage() {
     total_encounters,
     generation,
     location,
-    spriteURL
+    spriteURL,
   ) {
     setName(huntName);
     setTarget(target);
