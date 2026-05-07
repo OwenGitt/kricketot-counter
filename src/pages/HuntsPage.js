@@ -68,8 +68,8 @@ function HuntsPage() {
           {shinies.map((shiny, index) => (
             <div className="shinyGridItem">
               <div className="shinyEncounterName">
-                {shiny.Name.charAt(0).toUpperCase() + shiny.Name.slice(1)}
-                <p className="shinyEncounters">{shiny.Encounters}</p>
+                {shiny.name.charAt(0).toUpperCase() + shiny.name.slice(1)}
+                <p className="shinyEncounters">{shiny.encounters}</p>
               </div>
               <div className="imgContainer">
                 <img
