@@ -192,10 +192,24 @@
         { "name": "Slakoth", "encounters": "32896", "id": "", "date": "" },
         { "name": "Slakoth", "encounters": "33100", "id": "", "date": "" },
         { "name": "Slakoth", "encounters": "17507", "id": "", "date": "" },
-        { "name": "Combee", "encounters": "22182", "id": "", "date": "2026/03/01" },
-        { "name": "Combee", "encounters": "9306", "id": "", "date": "2026/03/19" },
-        { "name": "Slakoth", "encounters": "17682", "id": "", "date": "2026/04/20"}
-
+        {
+          "name": "Combee",
+          "encounters": "22182",
+          "id": "",
+          "date": "2026/03/01"
+        },
+        {
+          "name": "Combee",
+          "encounters": "9306",
+          "id": "",
+          "date": "2026/03/19"
+        },
+        {
+          "name": "Slakoth",
+          "encounters": "17682",
+          "id": "",
+          "date": "2026/04/20"
+        }
       ],
       "total_encounters": "",
       "location": "Heartgold",
@@ -233,7 +247,7 @@
       "method": "Random encounters",
       "generation-url": "generation-iii/firered-leafgreen"
     },
-     {
+    {
       "name": "LG BQ (3) - Sandshrew",
       "target": "mankey",
       "shinies": [{ "name": "sandshrew", "encounters": "--", "id": "" }],
@@ -339,7 +353,14 @@
     {
       "name": "First Pokewalker Hunt",
       "target": "Bronzor",
-      "shinies": [{ "name": "bronzor", "encounters": "2809", "id": "436", "date": "08/09/2025" }],
+      "shinies": [
+        {
+          "name": "bronzor",
+          "encounters": "2809",
+          "id": "436",
+          "date": "08/09/2025"
+        }
+      ],
       "total_encounters": "2809",
       "location": "",
       "generation": "4",
@@ -350,7 +371,14 @@
     {
       "name": "LG BQ (6) - Grimer",
       "target": "grimer",
-      "shinies": [{ "name": "grimer", "encounters": "~1000", "id": "", "date": "17/10/2025" }],
+      "shinies": [
+        {
+          "name": "grimer",
+          "encounters": "~1000",
+          "id": "",
+          "date": "17/10/2025"
+        }
+      ],
       "total_encounters": "2809",
       "location": "",
       "generation": "4",
@@ -372,8 +400,10 @@
     {
       "name": "Camerupt...",
       "target": "camerupt",
-      "shinies": [{ "name": "skarmory", "encounters": "1897", "id": "" },
-       { "name": "skarmory", "encounters": "2862", "id": "" }],
+      "shinies": [
+        { "name": "skarmory", "encounters": "1897", "id": "" },
+        { "name": "skarmory", "encounters": "2862", "id": "" }
+      ],
       "total_encounters": "",
       "location": "Reversal Mountain",
       "generation": "5",
@@ -384,13 +414,20 @@
     {
       "name": "Spheal...",
       "target": "spheal",
-      "shinies": [{ "name": "remoraid", "encounters": "2646", "id": "" , "date": "20/02/2026"}],
+      "shinies": [
+        {
+          "name": "remoraid",
+          "encounters": "2646",
+          "id": "",
+          "date": "20/02/2026"
+        }
+      ],
       "total_encounters": "",
-      "location": "Reversal Mountain",
+      "location": "Undella Bay",
       "generation": "5",
       "method": "Random encounters",
       "generation-url": "",
-      "start_date": "01/08/2025"
+      "start_date": ""
     }
   ]
 }
